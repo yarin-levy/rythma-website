@@ -31,15 +31,21 @@ export function StickyCTA() {
 
   return (
     <div
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-4 pointer-events-none"
       }`}
     >
-      <Button className="w-fit shadow-xl" size="lg" onClick={handleClick}>
-        Join the Waitlist
-      </Button>
+      <button
+        onClick={handleClick}
+        className="flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg border border-[#E11D48]/30 hover:shadow-xl hover:border-[#E11D48]/50 transition-all"
+      >
+        <span className="text-[#E11D48] font-semibold whitespace-nowrap">Join the Waitlist</span>
+        <svg className="w-4 h-4 text-[#E11D48]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </button>
     </div>
   );
 }

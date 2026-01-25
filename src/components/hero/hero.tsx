@@ -1,11 +1,25 @@
+"use client";
+
 import { Nav } from "@/components/hero/nav";
 import { BackgroundBlur } from "@/components/ui/background-blur";
 import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
-import Link from "next/link";
 import Image from "next/image";
 
 export function Hero() {
+  const handleClick = () => {
+    const waitlistElement = document.getElementById("waitlist");
+    if (waitlistElement) {
+      const elementRect = waitlistElement.getBoundingClientRect();
+      const absoluteElementTop = elementRect.top + window.pageYOffset;
+      const middle = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
+      window.scrollTo({
+        top: middle,
+        behavior: "smooth"
+      });
+    }
+  };
+
   return (
     <div className="relative w-full">
       <div className="z-1 grid w-full place-items-center p-6 sm:p-8 pb-0">
@@ -24,8 +38,8 @@ export function Hero() {
           <p className="max-w-xl text-center leading-6 sm:leading-7 tracking-tight text-ink-soft text-[13px] sm:text-xl px-2">
             Rythma is the perimenopause app that learns your patterns and predicts symptoms before they arrive. Finally plan your life around your body, not the other way around.
           </p>
-          <Button className="w-fit" size="lg" asChild>
-            <Link href="/#waitlist">Join the Waitlist</Link>
+          <Button className="w-fit" size="lg" onClick={handleClick}>
+            Join the Waitlist
           </Button>
         </div>
 

@@ -13,12 +13,23 @@ export function Waitlist() {
 
     setStatus("loading");
 
-    // For now, just simulate a successful submission
-    // In production, you'd send this to your backend/Airtable/etc.
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
 
-    setStatus("success");
-    setEmail("");
+      if (!response.ok) {
+        throw new Error("Failed to join waitlist");
+      }
+
+      setStatus("success");
+      setEmail("");
+    } catch (error) {
+      console.error("Waitlist error:", error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -75,6 +86,11 @@ export function Waitlist() {
                 {status === "loading" ? "Joining..." : "Join Waitlist"}
               </Button>
             </form>
+            {status === "error" && (
+              <p className="mt-3 text-sm text-red-500">
+                Something went wrong. Please try again.
+              </p>
+            )}
             <p className="mt-5 text-sm text-muted-foreground">
               <span className="font-semibold text-raspberry">First 500</span> get 50% off for life
             </p>
