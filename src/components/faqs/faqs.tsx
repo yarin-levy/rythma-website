@@ -61,7 +61,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>How is Rythma different from other period trackers?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Most trackers assume a 28-day cycle and just count days. Rythma is built for irregular cycles (21-50+ days), predicts symptoms before they hit, and finds patterns in YOUR data—not generic averages.
+              Most trackers assume a 28-day cycle and just count days. Rythma is built for irregular cycles (21-50+ days), predicts symptoms before they hit, and finds patterns in YOUR data, not generic averages.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>
@@ -69,7 +69,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>How does the prediction work?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Rythma learns from your daily logs—symptoms, sleep, stress, and more. After a few weeks, it identifies YOUR patterns and can predict hard days with increasing accuracy.
+              Rythma learns from your daily logs: symptoms, sleep, stress, and more. After a few weeks, it identifies YOUR patterns and can predict hard days with increasing accuracy.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>
@@ -85,7 +85,7 @@ export function FAQs() {
           <AccordionTriggerFAQs>Can I share data with my doctor?</AccordionTriggerFAQs>
           <AccordionContentFAQs>
             <p>
-              Yes! One tap generates a professional PDF report with your symptoms, patterns, and cycle data—perfect for appointments.
+              Yes! One tap generates a professional PDF report with your symptoms, patterns, and cycle data. Perfect for appointments.
             </p>
           </AccordionContentFAQs>
         </AccordionItemFAQs>

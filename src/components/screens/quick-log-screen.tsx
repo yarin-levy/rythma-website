@@ -59,39 +59,39 @@ export function QuickLogScreen() {
   return (
     <div className="h-full bg-[#F9FAFB] flex flex-col relative">
       {/* Status Bar */}
-      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#111827]">
+      <div className="flex justify-between px-6 pt-10 pb-2 text-sm font-semibold text-[#111827]">
         <span>9:41</span>
         <span></span>
       </div>
 
       {/* Content */}
-      <div className="flex-1 px-3 overflow-hidden">
+      <div className="flex-1 px-4 overflow-hidden">
         {/* Header */}
-        <div className="text-center mb-2.5">
-          <h2 className="text-[16px] font-bold text-[#111827] mb-0.5">How&apos;s today?</h2>
-          <p className="text-[10px] text-[#9CA3AF]">Tap what you&apos;re feeling</p>
+        <div className="text-center mb-4">
+          <h2 className="text-[20px] font-bold text-[#111827] mb-1">How&apos;s today?</h2>
+          <p className="text-[13px] text-[#9CA3AF]">Tap what you&apos;re feeling</p>
         </div>
 
         {/* Symptom Grid */}
-        <div className="grid grid-cols-3 gap-1.5 mb-2">
+        <div className="grid grid-cols-3 gap-2 mb-3">
           {symptoms.map((symptom, i) => (
             <div
               key={i}
-              className={`rounded-xl py-2.5 px-1 text-center border-2 transition-colors ${
+              className={`rounded-xl py-4 px-2 text-center border-2 transition-colors ${
                 symptom.selected
                   ? "border-[#111827] bg-[#F9FAFB]"
                   : "border-[#E5E7EB] bg-white"
               }`}
             >
               <div
-                className={`w-6 h-6 mx-auto mb-1 rounded-md flex items-center justify-center ${
+                className={`w-9 h-9 mx-auto mb-2 rounded-lg flex items-center justify-center ${
                   symptom.selected ? "bg-[#111827]" : "bg-[#F9FAFB]"
                 }`}
               >
-                <div className="w-3.5 h-3.5">{getIcon(symptom.icon, symptom.selected)}</div>
+                <div className="w-5 h-5">{getIcon(symptom.icon, symptom.selected)}</div>
               </div>
               <span
-                className={`text-[8px] ${
+                className={`text-[11px] ${
                   symptom.selected ? "text-[#111827] font-semibold" : "text-[#9CA3AF] font-medium"
                 }`}
               >
@@ -102,32 +102,32 @@ export function QuickLogScreen() {
         </div>
 
         {/* More Symptoms */}
-        <p className="text-center text-[9px] text-[#9CA3AF] py-1.5">
+        <p className="text-center text-[12px] text-[#9CA3AF] py-2">
           <span className="text-[#0891B2] font-semibold">+9 more</span> symptoms
         </p>
 
         {/* Intensity Card */}
-        <div className="bg-white rounded-xl p-2.5 shadow-sm">
-          <div className="text-[9px] text-[#4B5563] font-medium mb-2 text-center">Intensity</div>
-          <div className="flex justify-between items-center gap-1">
-            <div className="flex-1 h-1 bg-[#059669] rounded" />
-            <div className="flex-1 h-1 bg-[#84CC16] rounded" />
-            <div className="flex-1 h-1 bg-[#F97316] rounded" />
-            <div className="flex-1 h-1 bg-[#E5E7EB] rounded" />
+        <div className="bg-white rounded-xl p-4 shadow-sm">
+          <div className="text-[12px] text-[#4B5563] font-medium mb-3 text-center">Intensity</div>
+          <div className="flex justify-between items-center gap-1.5">
+            <div className="flex-1 h-2 bg-[#059669] rounded" />
+            <div className="flex-1 h-2 bg-[#84CC16] rounded" />
+            <div className="flex-1 h-2 bg-[#F97316] rounded" />
+            <div className="flex-1 h-2 bg-[#E5E7EB] rounded" />
           </div>
-          <div className="flex justify-between mt-1">
-            <span className="text-[7px] text-[#9CA3AF]">Mild</span>
-            <span className="text-[7px] text-[#9CA3AF]">Severe</span>
+          <div className="flex justify-between mt-2">
+            <span className="text-[10px] text-[#9CA3AF]">Mild</span>
+            <span className="text-[10px] text-[#9CA3AF]">Severe</span>
           </div>
         </div>
       </div>
 
-      {/* Bottom Nav - Save button version */}
-      <div className="absolute bottom-2 left-2 right-2 bg-white rounded-2xl px-1 py-1.5 flex justify-around items-center shadow-md">
+      {/* Bottom Nav with Save */}
+      <div className="absolute bottom-3 left-3 right-3 bg-white rounded-2xl px-2 py-2 flex justify-around items-center shadow-md">
         <NavItem icon="home" label="Home" active={false} />
         <NavItem icon="patterns" label="Patterns" active={false} />
-        <div className="w-9 h-9 bg-[#E11D48] rounded-full flex items-center justify-center -mt-5 shadow-lg">
-          <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+        <div className="w-12 h-12 bg-[#E11D48] rounded-full flex items-center justify-center -mt-6 shadow-lg">
+          <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="20 6 9 17 4 12" />
           </svg>
         </div>
@@ -167,9 +167,9 @@ function NavItem({ icon, label, active }: { icon: string; label: string; active?
   };
 
   return (
-    <div className="flex flex-col items-center gap-0.5 px-1">
-      <div className={`w-4 h-4 ${active ? "text-[#E11D48]" : "text-[#9CA3AF]"}`}>{icons[icon]}</div>
-      <span className={`text-[7px] ${active ? "text-[#E11D48] font-semibold" : "text-[#9CA3AF]"}`}>
+    <div className="flex flex-col items-center gap-0.5 px-1.5">
+      <div className={`w-5 h-5 ${active ? "text-[#E11D48]" : "text-[#9CA3AF]"}`}>{icons[icon]}</div>
+      <span className={`text-[9px] ${active ? "text-[#E11D48] font-semibold" : "text-[#9CA3AF]"}`}>
         {label}
       </span>
     </div>
