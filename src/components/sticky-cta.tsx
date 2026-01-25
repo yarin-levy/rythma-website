@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 
 export function StickyCTA() {
   const [isVisible, setIsVisible] = useState(false);
