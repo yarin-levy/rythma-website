@@ -3,11 +3,12 @@ import { cn } from "@/lib/utils";
 interface PhoneFrameProps {
   children: React.ReactNode;
   className?: string;
-  scale?: "sm" | "md" | "lg";
+  scale?: "xs" | "sm" | "md" | "lg";
 }
 
 export function PhoneFrame({ children, className, scale = "md" }: PhoneFrameProps) {
   const sizes = {
+    xs: { frame: "w-[200px] h-[410px]", notch: "w-[60px] h-[18px]", radius: "rounded-[30px]", innerRadius: "rounded-[24px]" },
     sm: { frame: "w-[240px] h-[490px]", notch: "w-[70px] h-[22px]", radius: "rounded-[36px]", innerRadius: "rounded-[28px]" },
     md: { frame: "w-[280px] h-[580px]", notch: "w-[90px] h-[28px]", radius: "rounded-[44px]", innerRadius: "rounded-[36px]" },
     lg: { frame: "w-[320px] h-[660px]", notch: "w-[100px] h-[32px]", radius: "rounded-[50px]", innerRadius: "rounded-[42px]" },

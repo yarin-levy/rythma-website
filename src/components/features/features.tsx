@@ -105,7 +105,7 @@ export function Features() {
               </svg>
             </button>
 
-            <PhoneFrame scale="md">
+            <PhoneFrame scale="xs">
               <ActiveScreen />
             </PhoneFrame>
 
