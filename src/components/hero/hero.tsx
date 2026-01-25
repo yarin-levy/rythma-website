@@ -17,7 +17,7 @@ export function Hero() {
               <span className="text-foreground font-semibold">2,000+</span> women on the waitlist
             </p>
           </Pill>
-          <h1 className="text-center text-[1.65rem] leading-[1.1] font-medium tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="text-center text-[1.85rem] leading-[1.1] font-medium tracking-tight sm:text-6xl lg:text-7xl">
             <span className="whitespace-nowrap">Know your hard days</span>
             <span className="text-muted-foreground block">before they hit</span>
           </h1>

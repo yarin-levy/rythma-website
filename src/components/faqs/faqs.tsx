@@ -1,8 +1,6 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 function AccordionItemFAQs(props: React.ComponentProps<typeof AccordionItem>) {
   return (
@@ -44,9 +42,6 @@ export function FAQs() {
         <p className="max-w-lg text-sm leading-6 tracking-tight sm:text-base text-muted-foreground">
           Get answers to commonly asked questions about Rythma and perimenopause tracking.
         </p>
-        <Button className="w-fit" size="lg" asChild>
-          <Link href="/#waitlist">Join the Waitlist</Link>
-        </Button>
       </div>
       <Accordion type="single" collapsible defaultValue="perimenopause" className="grid w-full gap-4">
         <AccordionItemFAQs value="perimenopause">

@@ -9,6 +9,7 @@ import { PainPoints } from "@/components/pain-points/pain-points";
 import { Transformation } from "@/components/transformation/transformation";
 import { Testimonials } from "@/components/testimonials/testimonials";
 import { Waitlist } from "@/components/waitlist/waitlist";
+import { StickyCTA } from "@/components/sticky-cta";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Waitlist />
       <FAQs />
       <Footer />
+      <StickyCTA />
     </>
   );
 }

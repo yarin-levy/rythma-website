@@ -7,31 +7,45 @@ interface PhoneFrameProps {
 }
 
 export function PhoneFrame({ children, className, scale = "md" }: PhoneFrameProps) {
-  const sizes = {
-    xs: { frame: "w-[200px] h-[410px]", notch: "w-[60px] h-[18px]", radius: "rounded-[30px]", innerRadius: "rounded-[24px]" },
-    sm: { frame: "w-[240px] h-[490px]", notch: "w-[70px] h-[22px]", radius: "rounded-[36px]", innerRadius: "rounded-[28px]" },
-    md: { frame: "w-[280px] h-[580px]", notch: "w-[90px] h-[28px]", radius: "rounded-[44px]", innerRadius: "rounded-[36px]" },
-    lg: { frame: "w-[320px] h-[660px]", notch: "w-[100px] h-[32px]", radius: "rounded-[50px]", innerRadius: "rounded-[42px]" },
+  // Base size is md (280x580), other sizes use CSS transform scaling
+  const scaleFactors = {
+    xs: 0.62,
+    sm: 0.85,
+    md: 1,
+    lg: 1.14,
   };
 
-  const s = sizes[scale];
+  const scaleFactor = scaleFactors[scale];
+
+  // Calculate wrapper dimensions to contain the scaled frame
+  const baseWidth = 280;
+  const baseHeight = 580;
+  const wrapperWidth = baseWidth * scaleFactor;
+  const wrapperHeight = baseHeight * scaleFactor;
 
   return (
     <div
-      className={cn(
-        "relative bg-[#F9FAFB] p-[8px]",
-        "shadow-[0_25px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.05)]",
-        s.frame,
-        s.radius,
-        className
-      )}
+      className="relative"
+      style={{ width: wrapperWidth, height: wrapperHeight }}
     >
-      {/* Dynamic Island */}
-      <div className={cn("absolute top-[8px] left-1/2 -translate-x-1/2 bg-[#1a1a1a] rounded-[14px] z-10", s.notch)} />
+      <div
+        className={cn(
+          "absolute top-0 left-0 origin-top-left",
+          "w-[280px] h-[580px]",
+          "bg-[#F9FAFB] p-[8px]",
+          "shadow-[0_25px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.05)]",
+          "rounded-[44px]",
+          className
+        )}
+        style={{ transform: `scale(${scaleFactor})` }}
+      >
+        {/* Dynamic Island */}
+        <div className="absolute top-[8px] left-1/2 -translate-x-1/2 bg-[#1a1a1a] rounded-[14px] z-10 w-[90px] h-[28px]" />
 
-      {/* Screen */}
-      <div className={cn("w-full h-full bg-[#F9FAFB] overflow-hidden", s.innerRadius)}>
-        {children}
+        {/* Screen */}
+        <div className="w-full h-full bg-[#F9FAFB] overflow-hidden rounded-[36px]">
+          {children}
+        </div>
       </div>
     </div>
   );
