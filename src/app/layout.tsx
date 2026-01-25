@@ -9,8 +9,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Paddle Web Payments Starter",
-  description: "A vercel template for taking web payments for mobile apps with Paddle",
+  title: "Rythma - Know Your Hard Days Before They Hit",
+  description: "Rythma learns your patterns and predicts perimenopause symptoms before they arrive. Finally plan your life around perimenopause—not the other way around.",
+  keywords: ["perimenopause", "menopause", "symptom tracker", "health app", "women's health", "hormone tracking"],
+  openGraph: {
+    title: "Rythma - Know Your Hard Days Before They Hit",
+    description: "Rythma learns your patterns and predicts perimenopause symptoms before they arrive.",
+    url: "https://rythma.co",
+    siteName: "Rythma",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Rythma - Know Your Hard Days Before They Hit",
+    description: "Rythma learns your patterns and predicts perimenopause symptoms before they arrive.",
+  },
 };
 
 export default function RootLayout({

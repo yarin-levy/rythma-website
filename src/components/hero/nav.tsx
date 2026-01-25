@@ -7,12 +7,8 @@ const navItems = [
     href: "/#features",
   },
   {
-    label: "Pricing",
-    href: "/pricing",
-  },
-  {
-    label: "Legal",
-    href: "/terms-and-conditions",
+    label: "FAQ",
+    href: "/#faq",
   },
 ];
 

@@ -6,7 +6,6 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
@@ -20,8 +19,8 @@ type Props = {
 export function DesktopNav({ items, className }: Props) {
   return (
     <nav className={cn("mx-auto flex w-full max-w-7xl items-center justify-between gap-4", className)}>
-      <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={86} height={26} />
+      <Link href="/" className="text-2xl font-bold tracking-tight text-foreground">
+        Rythma
       </Link>
       <NavigationMenu>
         <NavigationMenuList className="gap-8">
@@ -33,7 +32,7 @@ export function DesktopNav({ items, className }: Props) {
         </NavigationMenuList>
       </NavigationMenu>
       <Button asChild>
-        <Link href="/pricing">Get Started</Link>
+        <Link href="/#waitlist">Join Waitlist</Link>
       </Button>
     </nav>
   );

@@ -38,6 +38,17 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --color-success: var(--success);
+  --color-raspberry: var(--raspberry);
+  --color-raspberry-soft: var(--raspberry-soft);
+  --color-tangerine: var(--tangerine);
+  --color-tangerine-soft: var(--tangerine-soft);
+  --color-cyan: var(--cyan);
+  --color-cyan-soft: var(--cyan-soft);
+  --color-green: var(--green);
+  --color-green-soft: var(--green-soft);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -51,75 +62,104 @@
     0px 100px 80px 0px rgba(0, 0, 0, 0.04), 0px 41.778px 33.422px 0px rgba(0, 0, 0, 0.05),
     0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.06), 0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.08),
     0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.09), 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.13);
-  --background: oklch(0.9551 0 0);
-  --foreground: oklch(0 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0 0 0);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.8945 0 0);
-  --secondary-foreground: oklch(0 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.6534 0 0);
-  --accent: oklch(0.5976 0.173 254.38);
-  --accent-foreground: oklch(0.909 0.0457 250.36);
-  --skeleton: oklch(0.97 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9188 0.0071 268.54);
-  --input: oklch(0.6667 0.02 268.99);
-  --ring: oklch(0.708 0 0);
-  --success: oklch(0.6758 0.0888 180.99);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Berry Fresh Palette */
+  --background: #F9FAFB;
+  --foreground: #111827;
+  --card: #FFFFFF;
+  --card-foreground: #111827;
+  --popover: #FFFFFF;
+  --popover-foreground: #111827;
+  --primary: #E11D48;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F3F4F6;
+  --secondary-foreground: #111827;
+  --muted: #F9FAFB;
+  --muted-foreground: #9CA3AF;
+  --accent: #0891B2;
+  --accent-foreground: #FFFFFF;
+  --skeleton: #F3F4F6;
+  --destructive: #E11D48;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #E11D48;
+  --success: #059669;
+
+  /* Rythma Brand Colors */
+  --raspberry: #E11D48;
+  --raspberry-soft: #FEE2E2;
+  --tangerine: #F97316;
+  --tangerine-soft: #FFEDD5;
+  --cyan: #0891B2;
+  --cyan-soft: #CFFAFE;
+  --green: #059669;
+  --green-soft: #D1FAE5;
+  --ink: #111827;
+  --ink-soft: #4B5563;
+  --ink-muted: #9CA3AF;
+
+  --chart-1: #E11D48;
+  --chart-2: #0891B2;
+  --chart-3: #F97316;
+  --chart-4: #059669;
+  --chart-5: #9CA3AF;
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #E11D48;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F3F4F6;
+  --sidebar-accent-foreground: #111827;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: #E11D48;
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.7245 0.0928 214.57);
-  --accent-foreground: oklch(0.5807 0.0858 216.16);
-  --skeleton: oklch(0.269 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --success: oklch(0.6758 0.0888 180.99);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #111827;
+  --foreground: #F9FAFB;
+  --card: #1F2937;
+  --card-foreground: #F9FAFB;
+  --popover: #1F2937;
+  --popover-foreground: #F9FAFB;
+  --primary: #E11D48;
+  --primary-foreground: #FFFFFF;
+  --secondary: #374151;
+  --secondary-foreground: #F9FAFB;
+  --muted: #374151;
+  --muted-foreground: #9CA3AF;
+  --accent: #0891B2;
+  --accent-foreground: #FFFFFF;
+  --skeleton: #374151;
+  --destructive: #E11D48;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: #E11D48;
+  --success: #059669;
+
+  --raspberry: #E11D48;
+  --raspberry-soft: #4C0519;
+  --tangerine: #F97316;
+  --tangerine-soft: #431407;
+  --cyan: #0891B2;
+  --cyan-soft: #164E63;
+  --green: #059669;
+  --green-soft: #064E3B;
+  --ink: #F9FAFB;
+  --ink-soft: #D1D5DB;
+  --ink-muted: #9CA3AF;
+
+  --chart-1: #E11D48;
+  --chart-2: #0891B2;
+  --chart-3: #F97316;
+  --chart-4: #059669;
+  --chart-5: #9CA3AF;
+  --sidebar: #1F2937;
+  --sidebar-foreground: #F9FAFB;
+  --sidebar-primary: #E11D48;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #374151;
+  --sidebar-accent-foreground: #F9FAFB;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: #E11D48;
 }
 
 @layer base {
@@ -127,16 +167,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground font-sans;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 }
 
@@ -150,4 +181,207 @@
     rgba(0, 0, 0, 0.2) calc(100% - 12px),
     transparent
   );
+}
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Phone mockup styles */
+.phone-frame {
+  background: #F9FAFB;
+  border-radius: 44px;
+  padding: 10px;
+  box-shadow:
+    0 50px 100px rgba(0,0,0,0.15),
+    0 0 0 1px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.phone-frame::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 28px;
+  background: #1a1a1a;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  background: #F9FAFB;
+  border-radius: 36px;
+  overflow: hidden;
+}
+
+/* Pulse animation for indicators */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s infinite;
+}
+
+/* Breathing gradient animations for hero */
+@keyframes breathe-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(30px, 20px) scale(1.1);
+  }
+}
+
+@keyframes breathe-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20px, 30px) scale(1.15);
+  }
+}
+
+@keyframes breathe-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(25px, -15px) scale(1.08);
+  }
+}
+
+@keyframes breathe-4 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-35px, 25px) scale(1.12);
+  }
+}
+
+.animate-breathe-1 {
+  animation: breathe-1 8s ease-in-out infinite;
+}
+
+.animate-breathe-2 {
+  animation: breathe-2 10s ease-in-out infinite;
+}
+
+.animate-breathe-3 {
+  animation: breathe-3 9s ease-in-out infinite;
+}
+
+.animate-breathe-4 {
+  animation: breathe-4 11s ease-in-out infinite;
+}
+
+/* Orb floating animations */
+@keyframes orb-1 {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+  33% {
+    transform: translateX(-45%) translateY(20px) scale(1.05);
+  }
+  66% {
+    transform: translateX(-55%) translateY(-10px) scale(0.98);
+  }
+}
+
+@keyframes orb-2 {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(30px) scale(1.08);
+  }
+}
+
+@keyframes orb-3 {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  40% {
+    transform: translateY(25px) translateX(-20px) scale(1.03);
+  }
+  80% {
+    transform: translateY(-15px) translateX(10px) scale(0.97);
+  }
+}
+
+@keyframes orb-4 {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
+}
+
+@keyframes orb-5 {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(15px) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-orb-1 {
+  animation: orb-1 20s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: orb-2 15s ease-in-out infinite;
+}
+
+.animate-orb-3 {
+  animation: orb-3 18s ease-in-out infinite;
+}
+
+.animate-orb-4 {
+  animation: orb-4 12s ease-in-out infinite;
+}
+
+.animate-orb-5 {
+  animation: orb-5 25s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orb-1,
+  .animate-orb-2,
+  .animate-orb-3,
+  .animate-orb-4,
+  .animate-orb-5,
+  .animate-pulse-glow {
+    animation: none;
+  }
+}
+
+/* Pulsing glow effect for CTA buttons */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 4px 14px 0 rgba(225, 29, 72, 0.3);
+  }
+  50% {
+    box-shadow: 0 6px 30px 6px rgba(225, 29, 72, 0.45);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.5s ease-in-out infinite;
 }

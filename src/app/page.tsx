@@ -1,24 +1,25 @@
 "use client";
 
+import { DoctorReport } from "@/components/doctor-report";
 import { FAQs } from "@/components/faqs/faqs";
 import { Features } from "@/components/features/features";
 import { Footer } from "@/components/footer/footer";
 import { Hero } from "@/components/hero/hero";
-import { Quote } from "@/components/quote/quote";
-import { Showcase } from "@/components/showcase/showcase";
+import { PainPoints } from "@/components/pain-points/pain-points";
+import { Transformation } from "@/components/transformation/transformation";
 import { Testimonials } from "@/components/testimonials/testimonials";
-import { useRedirectWarning } from "@/lib/redirect";
+import { Waitlist } from "@/components/waitlist/waitlist";
 
 export default function Home() {
-  useRedirectWarning();
-
   return (
     <>
       <Hero />
-      <Showcase />
-      <Quote />
+      <PainPoints />
       <Features />
+      <DoctorReport />
+      <Transformation />
       <Testimonials />
+      <Waitlist />
       <FAQs />
       <Footer />
     </>

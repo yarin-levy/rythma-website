@@ -1,7 +1,7 @@
 import { Drawer, DrawerContent, DrawerTrigger, DrawerTitle } from "@/components/ui/drawer";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
@@ -15,8 +15,8 @@ type Props = {
 export function MobileNav({ items, className }: Props) {
   return (
     <nav className={cn("flex w-full max-w-7xl items-center justify-between gap-4", className)}>
-      <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={86} height={26} />
+      <Link href="/" className="text-xl font-bold tracking-tight text-foreground">
+        Rythma
       </Link>
       <Drawer direction="top">
         <DrawerTrigger className="relative -m-2 cursor-pointer p-2">
@@ -30,6 +30,9 @@ export function MobileNav({ items, className }: Props) {
               {item.label}
             </Link>
           ))}
+          <Button asChild className="mt-4">
+            <Link href="/#waitlist">Join Waitlist</Link>
+          </Button>
         </DrawerContent>
       </Drawer>
     </nav>
