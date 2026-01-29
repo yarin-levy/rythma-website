@@ -26,6 +26,11 @@ export function Waitlist() {
 
       setStatus("success");
       setEmail("");
+
+      // Fire Meta Pixel CompleteRegistration event
+      if (typeof window !== "undefined" && typeof window.fbq === "function") {
+        window.fbq("track", "CompleteRegistration");
+      }
     } catch (error) {
       console.error("Waitlist error:", error);
       setStatus("error");
