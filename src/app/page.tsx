@@ -8,8 +8,7 @@ import { Hero } from "@/components/hero/hero";
 import { PainPoints } from "@/components/pain-points/pain-points";
 import { Transformation } from "@/components/transformation/transformation";
 import { Testimonials } from "@/components/testimonials/testimonials";
-import { Waitlist } from "@/components/waitlist/waitlist";
-import { StickyCTA } from "@/components/sticky-cta";
+import { WhoItsFor } from "@/components/who-its-for";
 
 export default function Home() {
   return (
@@ -18,12 +17,11 @@ export default function Home() {
       <PainPoints />
       <Features />
       <DoctorReport />
+      <WhoItsFor />
       <Transformation />
       <Testimonials />
-      <Waitlist />
       <FAQs />
       <Footer />
-      <StickyCTA />
     </>
   );
 }

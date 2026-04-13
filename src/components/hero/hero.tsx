@@ -2,24 +2,11 @@
 
 import { Nav } from "@/components/hero/nav";
 import { BackgroundBlur } from "@/components/ui/background-blur";
-import { Button } from "@/components/ui/button";
 import { Pill } from "@/components/ui/pill";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
-  const handleClick = () => {
-    const waitlistElement = document.getElementById("waitlist");
-    if (waitlistElement) {
-      const elementRect = waitlistElement.getBoundingClientRect();
-      const absoluteElementTop = elementRect.top + window.pageYOffset;
-      const middle = absoluteElementTop - (window.innerHeight / 2) + (elementRect.height / 2);
-      window.scrollTo({
-        top: middle,
-        behavior: "smooth"
-      });
-    }
-  };
-
   return (
     <div className="relative w-full">
       <div className="z-1 grid w-full place-items-center p-6 sm:p-8 pb-0">
@@ -28,19 +15,30 @@ export function Hero() {
         <div className="mt-2 sm:mt-12 flex flex-col items-center gap-3 sm:gap-5">
           <Pill>
             <p className="text-muted-foreground px-2 sm:px-3 text-[11px] font-medium sm:text-sm">
-              <span className="text-foreground font-semibold">2,000+</span> women on the waitlist
+              <span className="text-foreground font-semibold">Perimenopause</span> symptom intelligence
             </p>
           </Pill>
           <h1 className="text-center text-[1.85rem] leading-[1.1] font-medium tracking-tight sm:text-6xl lg:text-7xl">
-            <span className="whitespace-nowrap">Know your hard days</span>
-            <span className="text-muted-foreground block">before they hit</span>
+            <span className="whitespace-nowrap">Built for perimenopause.</span>
+            <span className="text-muted-foreground block">Built for you.</span>
           </h1>
           <p className="max-w-xl text-center leading-6 sm:leading-7 tracking-tight text-ink-soft text-[13px] sm:text-xl px-2">
-            Rythma is the perimenopause app that learns your patterns and predicts symptoms before they arrive. Finally plan your life around your body, not the other way around.
+            The only period tracker designed specifically for the unpredictability of perimenopause. Track symptoms, predict difficult days, and understand your body&apos;s changing patterns.
           </p>
-          <Button className="w-fit" size="lg" onClick={handleClick}>
-            Join the Waitlist
-          </Button>
+          <Link
+            href="https://apps.apple.com/app/rythma/idXXXXXXXXXX"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 transition-opacity hover:opacity-80"
+          >
+            <Image
+              src="/app-store-badge.svg"
+              alt="Download on the App Store"
+              width={160}
+              height={54}
+              priority
+            />
+          </Link>
         </div>
 
         {/* Hero image */}

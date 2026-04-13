@@ -16,11 +16,6 @@ const links = [
         href: "/#faq",
         title: "Frequently asked questions",
       },
-      {
-        label: "Join Waitlist",
-        href: "/#waitlist",
-        title: "Join the waitlist",
-      },
     ],
   },
   {
@@ -28,13 +23,18 @@ const links = [
     links: [
       {
         label: "Privacy Policy",
-        href: "/privacy-policy",
+        href: "/privacy",
         title: "Read our Privacy Policy",
       },
       {
         label: "Terms of Service",
-        href: "/terms-and-conditions",
+        href: "/terms",
         title: "Read our Terms of Service",
+      },
+      {
+        label: "Support",
+        href: "/support",
+        title: "Get help",
       },
     ],
   },
@@ -104,8 +104,20 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Bottom section with copyright */}
-        <div className="mt-12 pt-8 border-t border-border">
+        {/* Bottom section with copyright, email, and disclaimer */}
+        <div className="mt-12 space-y-3 pt-8 border-t border-border">
+          <p className="text-center text-sm text-muted-foreground">
+            Support:{" "}
+            <a
+              href="mailto:support@rythma.co"
+              className="text-foreground/80 hover:text-foreground transition-colors underline underline-offset-2"
+            >
+              support@rythma.co
+            </a>
+          </p>
+          <p className="text-center text-xs text-muted-foreground/70">
+            Rythma is not a medical device and does not provide medical advice, diagnosis, or treatment.
+          </p>
           <p className="text-center text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} Rythma. All rights reserved.
           </p>
