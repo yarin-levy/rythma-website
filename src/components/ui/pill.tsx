@@ -56,7 +56,7 @@ export const PillIndicator = ({ variant = "success", pulse = false }: PillIndica
         className={cn(
           "absolute inline-flex h-full w-full animate-ping rounded-full opacity-75",
           variant === "success" && "bg-emerald-400",
-          variant === "error" && "bg-rose-400",
+          variant === "error" && "bg-destructive/60",
           variant === "warning" && "bg-amber-400",
           variant === "info" && "bg-sky-400",
         )}
@@ -66,7 +66,7 @@ export const PillIndicator = ({ variant = "success", pulse = false }: PillIndica
       className={cn(
         "relative inline-flex size-2 rounded-full",
         variant === "success" && "bg-emerald-500",
-        variant === "error" && "bg-rose-500",
+        variant === "error" && "bg-destructive",
         variant === "warning" && "bg-amber-500",
         variant === "info" && "bg-sky-500",
       )}
@@ -88,7 +88,7 @@ export const PillDelta = ({ className, delta }: PillDeltaProps) => {
     return <ChevronUpIcon className={cn("size-3 text-emerald-500", className)} />;
   }
 
-  return <ChevronDownIcon className={cn("size-3 text-rose-500", className)} />;
+  return <ChevronDownIcon className={cn("size-3 text-destructive", className)} />;
 };
 
 export type PillIconProps = {

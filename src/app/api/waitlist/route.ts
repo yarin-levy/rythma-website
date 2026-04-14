@@ -33,8 +33,8 @@ export async function POST(request: Request) {
                 <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 500px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
                   <!-- Header -->
                   <tr>
-                    <td style="padding: 40px 40px 30px; text-align: center; background: linear-gradient(135deg, #fff5f7 0%, #ffffff 100%);">
-                      <h1 style="margin: 0; font-size: 28px; font-weight: 600; color: #E11D48;">Rythma</h1>
+                    <td style="padding: 40px 40px 30px; text-align: center; background: linear-gradient(135deg, #f0f9f9 0%, #ffffff 100%);">
+                      <h1 style="margin: 0; font-size: 28px; font-weight: 600; color: #00464A;">Rythma</h1>
                     </td>
                   </tr>
                   <!-- Content -->
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
                         Thank you for joining the Rythma waitlist. We're building something special for women navigating perimenopause, and we can't wait to share it with you.
                       </p>
                       <p style="margin: 0 0 20px; font-size: 16px; line-height: 1.6; color: #4b5563;">
-                        As one of our early supporters, you'll be among the first to know when we launch. Plus, <strong style="color: #E11D48;">the first 500 members get 50% off for life</strong>.
+                        As one of our early supporters, you'll be among the first to know when we launch. Plus, <strong style="color: #00464A;">the first 500 members get 50% off for life</strong>.
                       </p>
                       <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #4b5563;">
                         We'll keep you updated on our progress. Until then, take care of yourself.

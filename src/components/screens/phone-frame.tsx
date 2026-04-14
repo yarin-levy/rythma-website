@@ -32,7 +32,7 @@ export function PhoneFrame({ children, className, scale = "md" }: PhoneFrameProp
         className={cn(
           "absolute top-0 left-0 origin-top-left",
           "w-[280px] h-[580px]",
-          "bg-[#F9FAFB] p-[8px]",
+          "bg-[#F9F9F8] p-[8px]",
           "shadow-[0_25px_50px_rgba(0,0,0,0.12),0_0_0_1px_rgba(0,0,0,0.05)]",
           "rounded-[44px]",
           className
@@ -43,7 +43,7 @@ export function PhoneFrame({ children, className, scale = "md" }: PhoneFrameProp
         <div className="absolute top-[8px] left-1/2 -translate-x-1/2 bg-[#1a1a1a] rounded-[14px] z-10 w-[90px] h-[28px]" />
 
         {/* Screen */}
-        <div className="w-full h-full bg-[#F9FAFB] overflow-hidden rounded-[36px]">
+        <div className="w-full h-full bg-[#F9F9F8] overflow-hidden rounded-[36px]">
           {children}
         </div>
       </div>

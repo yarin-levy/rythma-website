@@ -18,7 +18,7 @@ export function Hero() {
               <span className="text-foreground font-semibold">Perimenopause</span> symptom intelligence
             </p>
           </Pill>
-          <h1 className="text-center text-[1.85rem] leading-[1.1] font-medium tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="text-center text-[1.85rem] leading-[1.1] font-medium tracking-tight sm:text-6xl lg:text-7xl font-display">
             <span className="whitespace-nowrap">Built for perimenopause.</span>
             <span className="text-muted-foreground block">Built for you.</span>
           </h1>
@@ -55,7 +55,7 @@ export function Hero() {
       </div>
 
       {/* Full-width gradient at bottom that fades to white */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#F9FAFB] to-transparent z-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#F9F9F8] to-transparent z-20 pointer-events-none" />
     </div>
   );
 }

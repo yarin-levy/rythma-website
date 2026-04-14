@@ -7,7 +7,7 @@ export function WhoItsFor() {
         <Badge variant="secondary" className="uppercase mb-4">
           Who It&apos;s For
         </Badge>
-        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl mb-4">
+        <h2 className="text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl mb-4 font-display">
           Designed for women navigating
           <span className="text-raspberry block">perimenopause</span>
         </h2>

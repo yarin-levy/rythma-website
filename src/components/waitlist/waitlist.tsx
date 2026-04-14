@@ -45,13 +45,13 @@ export function Waitlist() {
         background: `radial-gradient(ellipse 100% 80% at center,
           rgba(255,255,255,1) 0%,
           rgba(255,255,255,1) 50%,
-          rgba(225,29,72,0.05) 70%,
-          rgba(225,29,72,0.1) 85%,
-          rgba(249,250,251,1) 100%
+          rgba(0,70,74,0.04) 70%,
+          rgba(0,70,74,0.08) 85%,
+          rgba(249,249,248,1) 100%
         )`,
         boxShadow: `
-          inset 0 0 60px rgba(225, 29, 72, 0.06),
-          inset 0 0 120px rgba(225, 29, 72, 0.03)
+          inset 0 0 60px rgba(0, 70, 74, 0.05),
+          inset 0 0 120px rgba(0, 70, 74, 0.02)
         `,
       }}
     >

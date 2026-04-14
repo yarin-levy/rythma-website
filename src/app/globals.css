@@ -7,6 +7,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --font-display: var(--font-newsreader);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -46,6 +47,8 @@
   --color-cyan-soft: var(--cyan-soft);
   --color-green: var(--green);
   --color-green-soft: var(--green-soft);
+  --color-lemon: var(--lemon);
+  --color-lemon-dark: var(--lemon-dark);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-ink-muted: var(--ink-muted);
@@ -63,103 +66,112 @@
     0px 22.336px 17.869px 0px rgba(0, 0, 0, 0.06), 0px 12.522px 10.017px 0px rgba(0, 0, 0, 0.08),
     0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.09), 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.13);
 
-  /* Berry Fresh Palette */
-  --background: #F9FAFB;
-  --foreground: #111827;
-  --card: #FFFFFF;
-  --card-foreground: #111827;
-  --popover: #FFFFFF;
-  --popover-foreground: #111827;
-  --primary: #E11D48;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F3F4F6;
-  --secondary-foreground: #111827;
-  --muted: #F9FAFB;
-  --muted-foreground: #9CA3AF;
-  --accent: #0891B2;
-  --accent-foreground: #FFFFFF;
-  --skeleton: #F3F4F6;
-  --destructive: #E11D48;
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #E11D48;
-  --success: #059669;
+  /* Radiant Curator Palette */
+  --primary: #00464A;
+  --primary-foreground: #ffffff;
+  --secondary: #F4F4F4;
+  --secondary-foreground: #1A1C1C;
+  --accent: #00464A;
+  --accent-foreground: #ffffff;
+  --background: #F9F9F8;
+  --foreground: #1A1C1C;
+  --card: #ffffff;
+  --card-foreground: #1A1C1C;
+  --popover: #ffffff;
+  --popover-foreground: #1A1C1C;
+  --muted: #F4F4F4;
+  --muted-foreground: #6B7070;
+  --border: #BEC8C9;
+  --input: #E2E2E2;
+  --ring: #00464A;
+  --destructive: #B5403B;
+  --success: #2D7D5F;
+  --skeleton: #F4F4F4;
 
-  /* Rythma Brand Colors */
-  --raspberry: #E11D48;
-  --raspberry-soft: #FEE2E2;
-  --tangerine: #F97316;
-  --tangerine-soft: #FFEDD5;
-  --cyan: #0891B2;
-  --cyan-soft: #CFFAFE;
-  --green: #059669;
-  --green-soft: #D1FAE5;
-  --ink: #111827;
-  --ink-soft: #4B5563;
-  --ink-muted: #9CA3AF;
+  /* Named brand colors */
+  --raspberry: #00464A;
+  --raspberry-soft: rgba(0, 70, 74, 0.12);
+  --tangerine: #C4872E;
+  --tangerine-soft: rgba(196, 135, 46, 0.12);
+  --cyan: #006064;
+  --cyan-soft: rgba(0, 96, 100, 0.12);
+  --green: #2D7D5F;
+  --green-soft: rgba(45, 125, 95, 0.12);
+  --lemon: #D4E520;
+  --lemon-dark: #5B6300;
 
-  --chart-1: #E11D48;
-  --chart-2: #0891B2;
-  --chart-3: #F97316;
-  --chart-4: #059669;
-  --chart-5: #9CA3AF;
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #111827;
-  --sidebar-primary: #E11D48;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #F3F4F6;
-  --sidebar-accent-foreground: #111827;
-  --sidebar-border: #E5E7EB;
-  --sidebar-ring: #E11D48;
+  /* Ink (text hierarchy) */
+  --ink: #1A1C1C;
+  --ink-soft: #6B7070;
+  --ink-muted: #9EA3A3;
+
+  /* Chart colors */
+  --chart-1: #00464A;
+  --chart-2: #2D7D5F;
+  --chart-3: #C4872E;
+  --chart-4: #006064;
+  --chart-5: #9EA3A3;
+
+  /* Sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #1A1C1C;
+  --sidebar-primary: #00464A;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #F4F4F4;
+  --sidebar-accent-foreground: #1A1C1C;
+  --sidebar-border: #BEC8C9;
+  --sidebar-ring: #00464A;
 }
 
 .dark {
-  --background: #111827;
-  --foreground: #F9FAFB;
-  --card: #1F2937;
-  --card-foreground: #F9FAFB;
-  --popover: #1F2937;
-  --popover-foreground: #F9FAFB;
-  --primary: #E11D48;
-  --primary-foreground: #FFFFFF;
-  --secondary: #374151;
-  --secondary-foreground: #F9FAFB;
-  --muted: #374151;
-  --muted-foreground: #9CA3AF;
-  --accent: #0891B2;
-  --accent-foreground: #FFFFFF;
-  --skeleton: #374151;
-  --destructive: #E11D48;
+  --background: #1A1C1C;
+  --foreground: #F9F9F8;
+  --card: #2A2D2D;
+  --card-foreground: #F9F9F8;
+  --popover: #2A2D2D;
+  --popover-foreground: #F9F9F8;
+  --primary: #00464A;
+  --primary-foreground: #ffffff;
+  --secondary: #2A2D2D;
+  --secondary-foreground: #F9F9F8;
+  --muted: #2A2D2D;
+  --muted-foreground: #9EA3A3;
+  --accent: #00464A;
+  --accent-foreground: #ffffff;
+  --skeleton: #2A2D2D;
+  --destructive: #B5403B;
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.15);
-  --ring: #E11D48;
-  --success: #059669;
+  --ring: #00464A;
+  --success: #2D7D5F;
 
-  --raspberry: #E11D48;
-  --raspberry-soft: #4C0519;
-  --tangerine: #F97316;
-  --tangerine-soft: #431407;
-  --cyan: #0891B2;
-  --cyan-soft: #164E63;
-  --green: #059669;
-  --green-soft: #064E3B;
-  --ink: #F9FAFB;
-  --ink-soft: #D1D5DB;
-  --ink-muted: #9CA3AF;
+  --raspberry: #00464A;
+  --raspberry-soft: rgba(0, 70, 74, 0.2);
+  --tangerine: #C4872E;
+  --tangerine-soft: rgba(196, 135, 46, 0.2);
+  --cyan: #006064;
+  --cyan-soft: rgba(0, 96, 100, 0.2);
+  --green: #2D7D5F;
+  --green-soft: rgba(45, 125, 95, 0.2);
+  --lemon: #D4E520;
+  --lemon-dark: #5B6300;
+  --ink: #F9F9F8;
+  --ink-soft: #9EA3A3;
+  --ink-muted: #6B7070;
 
-  --chart-1: #E11D48;
-  --chart-2: #0891B2;
-  --chart-3: #F97316;
-  --chart-4: #059669;
-  --chart-5: #9CA3AF;
-  --sidebar: #1F2937;
-  --sidebar-foreground: #F9FAFB;
-  --sidebar-primary: #E11D48;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #374151;
-  --sidebar-accent-foreground: #F9FAFB;
+  --chart-1: #00464A;
+  --chart-2: #2D7D5F;
+  --chart-3: #C4872E;
+  --chart-4: #006064;
+  --chart-5: #9EA3A3;
+  --sidebar: #2A2D2D;
+  --sidebar-foreground: #F9F9F8;
+  --sidebar-primary: #00464A;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2A2D2D;
+  --sidebar-accent-foreground: #F9F9F8;
   --sidebar-border: rgba(255, 255, 255, 0.1);
-  --sidebar-ring: #E11D48;
+  --sidebar-ring: #00464A;
 }
 
 @layer base {
@@ -194,7 +206,7 @@
 
 /* Phone mockup styles */
 .phone-frame {
-  background: #F9FAFB;
+  background: #F9F9F8;
   border-radius: 44px;
   padding: 10px;
   box-shadow:
@@ -219,7 +231,7 @@
 .phone-screen {
   width: 100%;
   height: 100%;
-  background: #F9FAFB;
+  background: #F9F9F8;
   border-radius: 36px;
   overflow: hidden;
 }
@@ -375,10 +387,10 @@
 /* Pulsing glow effect for CTA buttons */
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 4px 14px 0 rgba(225, 29, 72, 0.3);
+    box-shadow: 0 4px 14px 0 rgba(0, 70, 74, 0.3);
   }
   50% {
-    box-shadow: 0 6px 30px 6px rgba(225, 29, 72, 0.45);
+    box-shadow: 0 6px 30px 6px rgba(0, 70, 74, 0.45);
   }
 }
 

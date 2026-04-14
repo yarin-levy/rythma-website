@@ -1,8 +1,8 @@
 export function ReportScreen() {
   return (
-    <div className="h-full bg-[#F9FAFB] flex flex-col relative">
+    <div className="h-full bg-[#F9F9F8] flex flex-col relative">
       {/* Status Bar */}
-      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#111827]">
+      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#1A1C1C]">
         <span>9:41</span>
         <span></span>
       </div>
@@ -12,10 +12,10 @@ export function ReportScreen() {
         {/* Report Card */}
         <div className="bg-white rounded-xl p-3 shadow-sm">
           {/* Header */}
-          <div className="flex items-center gap-2 pb-2.5 border-b border-[#E5E7EB] mb-2.5">
+          <div className="flex items-center gap-2 pb-2.5 border-b border-[#BEC8C9] mb-2.5">
             <div
               className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
-              style={{ background: "linear-gradient(135deg, #E11D48 0%, #BE123C 100%)" }}
+              style={{ background: "linear-gradient(135deg, #00464A 0%, #006064 100%)" }}
             >
               <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
@@ -25,50 +25,50 @@ export function ReportScreen() {
               </svg>
             </div>
             <div>
-              <div className="text-[12px] font-bold text-[#111827]">Symptom Report</div>
-              <div className="text-[9px] text-[#9CA3AF]">Jan 1 - 21, 2026</div>
+              <div className="text-[12px] font-bold text-[#1A1C1C]">Symptom Report</div>
+              <div className="text-[9px] text-[#9EA3A3]">Jan 1 - 21, 2026</div>
             </div>
           </div>
 
           {/* Metrics */}
           <div className="grid grid-cols-3 gap-1.5 mb-2.5">
-            <div className="bg-[#F9FAFB] rounded-lg py-2 px-1 text-center">
-              <div className="text-[16px] font-extrabold text-[#111827]">
-                47<span className="text-[8px] text-[#E11D48] ml-0.5">+</span>
+            <div className="bg-[#F9F9F8] rounded-lg py-2 px-1 text-center">
+              <div className="text-[16px] font-extrabold text-[#1A1C1C]">
+                47<span className="text-[8px] text-[#00464A] ml-0.5">+</span>
               </div>
-              <div className="text-[7px] text-[#9CA3AF] mt-0.5">Hot flashes</div>
+              <div className="text-[7px] text-[#9EA3A3] mt-0.5">Hot flashes</div>
             </div>
-            <div className="bg-[#F9FAFB] rounded-lg py-2 px-1 text-center">
-              <div className="text-[16px] font-extrabold text-[#111827]">
-                12<span className="text-[8px] text-[#059669] ml-0.5">-</span>
+            <div className="bg-[#F9F9F8] rounded-lg py-2 px-1 text-center">
+              <div className="text-[16px] font-extrabold text-[#1A1C1C]">
+                12<span className="text-[8px] text-[#2D7D5F] ml-0.5">-</span>
               </div>
-              <div className="text-[7px] text-[#9CA3AF] mt-0.5">Night sweats</div>
+              <div className="text-[7px] text-[#9EA3A3] mt-0.5">Night sweats</div>
             </div>
-            <div className="bg-[#F9FAFB] rounded-lg py-2 px-1 text-center">
-              <div className="text-[16px] font-extrabold text-[#111827]">8</div>
-              <div className="text-[7px] text-[#9CA3AF] mt-0.5">Hard days</div>
+            <div className="bg-[#F9F9F8] rounded-lg py-2 px-1 text-center">
+              <div className="text-[16px] font-extrabold text-[#1A1C1C]">8</div>
+              <div className="text-[7px] text-[#9EA3A3] mt-0.5">Hard days</div>
             </div>
           </div>
 
           {/* Report List */}
           <div className="flex flex-col gap-1.5">
-            <div className="flex items-center gap-2 text-[9px] text-[#4B5563]">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#E11D48] flex-shrink-0" />
+            <div className="flex items-center gap-2 text-[9px] text-[#6B7070]">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#00464A] flex-shrink-0" />
               <span>Cycle: 24-47 days</span>
             </div>
-            <div className="flex items-center gap-2 text-[9px] text-[#4B5563]">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#F97316] flex-shrink-0" />
+            <div className="flex items-center gap-2 text-[9px] text-[#6B7070]">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#C4872E] flex-shrink-0" />
               <span>Trigger: Poor sleep</span>
             </div>
-            <div className="flex items-center gap-2 text-[9px] text-[#4B5563]">
-              <div className="w-1.5 h-1.5 rounded-full bg-[#0891B2] flex-shrink-0" />
+            <div className="flex items-center gap-2 text-[9px] text-[#6B7070]">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#006064] flex-shrink-0" />
               <span>4 patterns found</span>
             </div>
           </div>
         </div>
 
         {/* Share Button */}
-        <button className="w-full bg-[#111827] text-white rounded-xl py-2.5 mt-2 flex items-center justify-center gap-1.5 text-[11px] font-semibold">
+        <button className="w-full bg-[#1A1C1C] text-white rounded-xl py-2.5 mt-2 flex items-center justify-center gap-1.5 text-[11px] font-semibold">
           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
             <polyline points="16 6 12 2 8 6" />
@@ -89,7 +89,7 @@ function BottomNav({ activeTab }: { activeTab: string }) {
     <div className="absolute bottom-2 left-2 right-2 bg-white rounded-2xl px-1 py-1.5 flex justify-around items-center shadow-md">
       <NavItem icon="home" label="Home" active={activeTab === "home"} />
       <NavItem icon="patterns" label="Patterns" active={activeTab === "patterns"} />
-      <div className="w-9 h-9 bg-[#111827] rounded-full flex items-center justify-center -mt-5 shadow-lg">
+      <div className="w-9 h-9 bg-[#1A1C1C] rounded-full flex items-center justify-center -mt-5 shadow-lg">
         <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d="M12 5v14M5 12h14" />
         </svg>
@@ -130,8 +130,8 @@ function NavItem({ icon, label, active }: { icon: string; label: string; active?
 
   return (
     <div className="flex flex-col items-center gap-0.5 px-1">
-      <div className={`w-4 h-4 ${active ? "text-[#E11D48]" : "text-[#9CA3AF]"}`}>{icons[icon]}</div>
-      <span className={`text-[7px] ${active ? "text-[#E11D48] font-semibold" : "text-[#9CA3AF]"}`}>
+      <div className={`w-4 h-4 ${active ? "text-[#00464A]" : "text-[#9EA3A3]"}`}>{icons[icon]}</div>
+      <span className={`text-[7px] ${active ? "text-[#00464A] font-semibold" : "text-[#9EA3A3]"}`}>
         {label}
       </span>
     </div>

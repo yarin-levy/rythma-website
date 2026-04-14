@@ -5,7 +5,7 @@ import { PhoneFrame, ReportScreen } from "@/components/screens";
 
 export function DoctorReport() {
   return (
-    <section className="py-16 md:py-24 bg-[#F9FAFB]">
+    <section className="py-16 md:py-24 bg-[#F4F4F4]">
       <div className="mx-auto max-w-5xl px-6">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           {/* Content */}
@@ -13,7 +13,7 @@ export function DoctorReport() {
             <Badge variant="secondary" className="uppercase mb-4">
               Doctor Reports
             </Badge>
-            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl mb-4">
+            <h2 className="text-3xl font-medium tracking-tight sm:text-4xl md:text-5xl mb-4 font-display">
               Be heard at your
               <span className="text-raspberry block">next appointment</span>
             </h2>

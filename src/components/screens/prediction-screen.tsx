@@ -1,23 +1,23 @@
 export function PredictionScreen() {
   return (
-    <div className="h-full bg-[#F9FAFB] flex flex-col relative">
+    <div className="h-full bg-[#F9F9F8] flex flex-col relative">
       {/* Status Bar */}
-      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#111827]">
+      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#1A1C1C]">
         <span>9:41</span>
         <span></span>
       </div>
 
       {/* Content */}
       <div className="flex-1 px-3 overflow-hidden">
-        <p className="text-[11px] text-[#4B5563] mb-2">
-          Good morning, <span className="text-[#111827] font-medium">Sarah</span>
+        <p className="text-[11px] text-[#6B7070] mb-2">
+          Good morning, <span className="text-[#1A1C1C] font-medium">Sarah</span>
         </p>
 
         {/* Prediction Hero Card */}
         <div
           className="rounded-2xl p-3.5 text-white mb-2.5 relative overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #E11D48 0%, #BE123C 50%, #9F1239 100%)",
+            background: "linear-gradient(135deg, #00464A 0%, #006064 50%, #004D52 100%)",
           }}
         >
           <div
@@ -60,10 +60,10 @@ export function PredictionScreen() {
         {/* Forecast Card */}
         <div className="bg-white rounded-xl p-3 shadow-sm">
           <div className="flex justify-between items-center mb-2">
-            <span className="text-[9px] font-semibold text-[#9CA3AF] uppercase tracking-wide">
+            <span className="text-[9px] font-semibold text-[#9EA3A3] uppercase tracking-wide">
               This Week
             </span>
-            <span className="text-[8px] font-semibold text-[#4B5563] border border-[#E5E7EB] px-1.5 py-0.5 rounded-full">
+            <span className="text-[8px] font-semibold text-[#6B7070] border border-[#BEC8C9] px-1.5 py-0.5 rounded-full">
               84%
             </span>
           </div>
@@ -84,16 +84,16 @@ export function PredictionScreen() {
                       height: `${item.height}%`,
                       background:
                         item.level === "high"
-                          ? "linear-gradient(180deg, #E11D48 0%, #BE123C 100%)"
+                          ? "linear-gradient(180deg, #00464A 0%, #006064 100%)"
                           : item.level === "medium"
-                            ? "linear-gradient(180deg, #F97316 0%, #EA580C 100%)"
-                            : "linear-gradient(180deg, #0891B2 0%, #0E7490 100%)",
+                            ? "linear-gradient(180deg, #C4872E 0%, #A66D1E 100%)"
+                            : "linear-gradient(180deg, #006064 0%, #004D52 100%)",
                     }}
                   />
                 </div>
                 <span
                   className={`text-[8px] ${
-                    item.active ? "text-[#E11D48] font-bold" : "text-[#9CA3AF] font-medium"
+                    item.active ? "text-[#00464A] font-bold" : "text-[#9EA3A3] font-medium"
                   }`}
                 >
                   {item.day}
@@ -115,7 +115,7 @@ function BottomNav({ activeTab }: { activeTab: string }) {
     <div className="absolute bottom-2 left-2 right-2 bg-white rounded-2xl px-1 py-1.5 flex justify-around items-center shadow-md">
       <NavItem icon="home" label="Home" active={activeTab === "home"} />
       <NavItem icon="patterns" label="Patterns" active={activeTab === "patterns"} />
-      <div className="w-9 h-9 bg-[#111827] rounded-full flex items-center justify-center -mt-5 shadow-lg">
+      <div className="w-9 h-9 bg-[#1A1C1C] rounded-full flex items-center justify-center -mt-5 shadow-lg">
         <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d="M12 5v14M5 12h14" />
         </svg>
@@ -156,8 +156,8 @@ function NavItem({ icon, label, active }: { icon: string; label: string; active?
 
   return (
     <div className="flex flex-col items-center gap-0.5 px-1">
-      <div className={`w-4 h-4 ${active ? "text-[#E11D48]" : "text-[#9CA3AF]"}`}>{icons[icon]}</div>
-      <span className={`text-[7px] ${active ? "text-[#E11D48] font-semibold" : "text-[#9CA3AF]"}`}>
+      <div className={`w-4 h-4 ${active ? "text-[#00464A]" : "text-[#9EA3A3]"}`}>{icons[icon]}</div>
+      <span className={`text-[7px] ${active ? "text-[#00464A] font-semibold" : "text-[#9EA3A3]"}`}>
         {label}
       </span>
     </div>

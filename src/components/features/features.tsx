@@ -66,7 +66,7 @@ export function Features() {
       <Badge variant="secondary" className="uppercase">
         Features
       </Badge>
-      <h2 className="text-center text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl">
+      <h2 className="text-center text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl font-display">
         Meet Rythma
         <span className="text-muted-foreground block">Built for the chaos of perimenopause</span>
       </h2>

@@ -38,10 +38,10 @@ export function StickyCTA() {
     >
       <button
         onClick={handleClick}
-        className="flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg border border-[#E11D48]/30 hover:shadow-xl hover:border-[#E11D48]/50 transition-all"
+        className="flex items-center gap-2 bg-white px-5 py-2.5 rounded-full shadow-lg border border-[#00464A]/30 hover:shadow-xl hover:border-[#00464A]/50 transition-all"
       >
-        <span className="text-[#E11D48] font-semibold whitespace-nowrap">Join the Waitlist</span>
-        <svg className="w-4 h-4 text-[#E11D48]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <span className="text-[#00464A] font-semibold whitespace-nowrap">Join the Waitlist</span>
+        <svg className="w-4 h-4 text-[#00464A]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
         </svg>
       </button>

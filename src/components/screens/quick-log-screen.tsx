@@ -9,7 +9,7 @@ export function QuickLogScreen() {
   ];
 
   const getIcon = (icon: string, selected: boolean) => {
-    const color = selected ? "white" : "#4B5563";
+    const color = selected ? "white" : "#6B7070";
     switch (icon) {
       case "flame":
         return (
@@ -57,9 +57,9 @@ export function QuickLogScreen() {
   };
 
   return (
-    <div className="h-full bg-[#F9FAFB] flex flex-col relative">
+    <div className="h-full bg-[#F9F9F8] flex flex-col relative">
       {/* Status Bar */}
-      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#111827]">
+      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#1A1C1C]">
         <span>9:41</span>
         <span></span>
       </div>
@@ -68,8 +68,8 @@ export function QuickLogScreen() {
       <div className="flex-1 px-3 overflow-hidden">
         {/* Header */}
         <div className="text-center mb-2.5">
-          <h2 className="text-[16px] font-bold text-[#111827] mb-0.5">How&apos;s today?</h2>
-          <p className="text-[10px] text-[#9CA3AF]">Tap what you&apos;re feeling</p>
+          <h2 className="text-[16px] font-bold text-[#1A1C1C] mb-0.5">How&apos;s today?</h2>
+          <p className="text-[10px] text-[#9EA3A3]">Tap what you&apos;re feeling</p>
         </div>
 
         {/* Symptom Grid */}
@@ -79,20 +79,20 @@ export function QuickLogScreen() {
               key={i}
               className={`rounded-xl py-2.5 px-1 text-center border-2 transition-colors ${
                 symptom.selected
-                  ? "border-[#111827] bg-[#F9FAFB]"
-                  : "border-[#E5E7EB] bg-white"
+                  ? "border-[#1A1C1C] bg-[#F9F9F8]"
+                  : "border-[#BEC8C9] bg-white"
               }`}
             >
               <div
                 className={`w-6 h-6 mx-auto mb-1 rounded-md flex items-center justify-center ${
-                  symptom.selected ? "bg-[#111827]" : "bg-[#F9FAFB]"
+                  symptom.selected ? "bg-[#1A1C1C]" : "bg-[#F9F9F8]"
                 }`}
               >
                 <div className="w-3.5 h-3.5">{getIcon(symptom.icon, symptom.selected)}</div>
               </div>
               <span
                 className={`text-[8px] ${
-                  symptom.selected ? "text-[#111827] font-semibold" : "text-[#9CA3AF] font-medium"
+                  symptom.selected ? "text-[#1A1C1C] font-semibold" : "text-[#9EA3A3] font-medium"
                 }`}
               >
                 {symptom.label}
@@ -102,22 +102,22 @@ export function QuickLogScreen() {
         </div>
 
         {/* More Symptoms */}
-        <p className="text-center text-[9px] text-[#9CA3AF] py-1.5">
-          <span className="text-[#0891B2] font-semibold">+9 more</span> symptoms
+        <p className="text-center text-[9px] text-[#9EA3A3] py-1.5">
+          <span className="text-[#006064] font-semibold">+9 more</span> symptoms
         </p>
 
         {/* Intensity Card */}
         <div className="bg-white rounded-xl p-2.5 shadow-sm">
-          <div className="text-[9px] text-[#4B5563] font-medium mb-2 text-center">Intensity</div>
+          <div className="text-[9px] text-[#6B7070] font-medium mb-2 text-center">Intensity</div>
           <div className="flex justify-between items-center gap-1">
-            <div className="flex-1 h-1 bg-[#059669] rounded" />
-            <div className="flex-1 h-1 bg-[#84CC16] rounded" />
-            <div className="flex-1 h-1 bg-[#F97316] rounded" />
-            <div className="flex-1 h-1 bg-[#E5E7EB] rounded" />
+            <div className="flex-1 h-1 bg-[#2D7D5F] rounded" />
+            <div className="flex-1 h-1 bg-[#D4E520] rounded" />
+            <div className="flex-1 h-1 bg-[#C4872E] rounded" />
+            <div className="flex-1 h-1 bg-[#BEC8C9] rounded" />
           </div>
           <div className="flex justify-between mt-1">
-            <span className="text-[7px] text-[#9CA3AF]">Mild</span>
-            <span className="text-[7px] text-[#9CA3AF]">Severe</span>
+            <span className="text-[7px] text-[#9EA3A3]">Mild</span>
+            <span className="text-[7px] text-[#9EA3A3]">Severe</span>
           </div>
         </div>
       </div>
@@ -126,7 +126,7 @@ export function QuickLogScreen() {
       <div className="absolute bottom-2 left-2 right-2 bg-white rounded-2xl px-1 py-1.5 flex justify-around items-center shadow-md">
         <NavItem icon="home" label="Home" active={false} />
         <NavItem icon="patterns" label="Patterns" active={false} />
-        <div className="w-9 h-9 bg-[#E11D48] rounded-full flex items-center justify-center -mt-5 shadow-lg">
+        <div className="w-9 h-9 bg-[#00464A] rounded-full flex items-center justify-center -mt-5 shadow-lg">
           <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
             <polyline points="20 6 9 17 4 12" />
           </svg>
@@ -168,8 +168,8 @@ function NavItem({ icon, label, active }: { icon: string; label: string; active?
 
   return (
     <div className="flex flex-col items-center gap-0.5 px-1">
-      <div className={`w-4 h-4 ${active ? "text-[#E11D48]" : "text-[#9CA3AF]"}`}>{icons[icon]}</div>
-      <span className={`text-[7px] ${active ? "text-[#E11D48] font-semibold" : "text-[#9CA3AF]"}`}>
+      <div className={`w-4 h-4 ${active ? "text-[#00464A]" : "text-[#9EA3A3]"}`}>{icons[icon]}</div>
+      <span className={`text-[7px] ${active ? "text-[#00464A] font-semibold" : "text-[#9EA3A3]"}`}>
         {label}
       </span>
     </div>

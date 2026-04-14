@@ -48,7 +48,7 @@ export function TestimonialCard({ testimonial }: Props) {
           <span className="text-muted-foreground text-sm">{testimonial.date}</span>
         </div>
       </div>
-      <div className="text-sm text-wrap md:text-base leading-relaxed text-muted-foreground">{testimonial.content}</div>
+      <div className="text-sm text-wrap md:text-base leading-relaxed text-muted-foreground font-display italic">{testimonial.content}</div>
     </div>
   );
 }

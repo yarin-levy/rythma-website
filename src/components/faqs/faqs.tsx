@@ -34,7 +34,7 @@ export function FAQs() {
         <Badge variant="secondary" className="mb-2 uppercase w-fit">
           FAQ
         </Badge>
-        <h2 className="text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl">
+        <h2 className="text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl font-display">
           Frequently
           <br />
           Asked <span className="text-muted-foreground">Questions</span>

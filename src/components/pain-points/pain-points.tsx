@@ -18,9 +18,9 @@ const painPoints = [
 
 export function PainPoints() {
   return (
-    <section className="py-8 md:py-20 bg-[#F9FAFB]">
+    <section className="py-8 md:py-20 bg-[#F9F9F8]">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <h2 className="text-center text-xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl mb-4 md:mb-12">
+        <h2 className="text-center text-xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl mb-4 md:mb-12 font-display">
           Sound familiar?
         </h2>
 

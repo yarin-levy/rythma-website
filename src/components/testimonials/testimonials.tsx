@@ -103,7 +103,7 @@ export function Testimonials() {
       <Badge variant="secondary" className="mb-2 uppercase">
         Testimonials
       </Badge>
-      <h2 className="text-center text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl">
+      <h2 className="text-center text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl font-display">
         What women
         <span className="text-muted-foreground block">are saying</span>
       </h2>

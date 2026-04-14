@@ -9,7 +9,7 @@ export function Transformation() {
           <Badge variant="secondary" className="uppercase mb-6">
             Your Journey
           </Badge>
-          <h2 className="text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl">
+          <h2 className="text-3xl leading-[1.1] font-medium tracking-tight sm:text-5xl font-display">
             From chaos to clarity
             <span className="text-muted-foreground block">in 8 weeks</span>
           </h2>

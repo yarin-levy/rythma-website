@@ -40,28 +40,28 @@ export function CalendarScreen() {
   const getDayStyle = (type: string) => {
     switch (type) {
       case "period":
-        return "bg-[#E11D48] text-white";
+        return "bg-[#00464A] text-white";
       case "good":
-        return "bg-[#D1FAE5] text-[#059669]";
+        return "bg-[rgba(45, 125, 95, 0.12)] text-[#2D7D5F]";
       case "hard":
-        return "bg-[#FFEDD5] text-[#F97316]";
+        return "bg-[rgba(196, 135, 46, 0.12)] text-[#C4872E]";
       case "today":
-        return "bg-[#111827] text-white font-bold";
+        return "bg-[#1A1C1C] text-white font-bold";
       case "predicted":
-        return "bg-[#FEE2E2] text-[#E11D48]";
+        return "bg-[rgba(0, 70, 74, 0.12)] text-[#00464A]";
       case "muted":
-        return "text-[#9CA3AF]";
+        return "text-[#9EA3A3]";
       case "empty":
         return "text-transparent";
       default:
-        return "text-[#111827]";
+        return "text-[#1A1C1C]";
     }
   };
 
   return (
-    <div className="h-full bg-[#F9FAFB] flex flex-col relative">
+    <div className="h-full bg-[#F9F9F8] flex flex-col relative">
       {/* Status Bar */}
-      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#111827]">
+      <div className="flex justify-between px-4 pt-8 pb-1 text-[11px] font-semibold text-[#1A1C1C]">
         <span>9:41</span>
         <span></span>
       </div>
@@ -72,12 +72,12 @@ export function CalendarScreen() {
         <div className="bg-white rounded-xl p-3 shadow-sm mb-2">
           {/* Header */}
           <div className="flex justify-between items-center mb-2">
-            <span className="text-[13px] font-bold text-[#111827]">January 2026</span>
+            <span className="text-[13px] font-bold text-[#1A1C1C]">January 2026</span>
             <div className="flex gap-1">
-              <button className="w-5 h-5 rounded-md border border-[#E5E7EB] bg-white text-[#4B5563] text-[9px] flex items-center justify-center">
+              <button className="w-5 h-5 rounded-md border border-[#BEC8C9] bg-white text-[#6B7070] text-[9px] flex items-center justify-center">
                 &lt;
               </button>
-              <button className="w-5 h-5 rounded-md border border-[#E5E7EB] bg-white text-[#4B5563] text-[9px] flex items-center justify-center">
+              <button className="w-5 h-5 rounded-md border border-[#BEC8C9] bg-white text-[#6B7070] text-[9px] flex items-center justify-center">
                 &gt;
               </button>
             </div>
@@ -86,7 +86,7 @@ export function CalendarScreen() {
           {/* Day Headers */}
           <div className="grid grid-cols-7 gap-0.5 mb-1.5">
             {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-              <div key={i} className="text-center text-[8px] font-semibold text-[#9CA3AF] py-1">
+              <div key={i} className="text-center text-[8px] font-semibold text-[#9EA3A3] py-1">
                 {d}
               </div>
             ))}
@@ -106,16 +106,16 @@ export function CalendarScreen() {
 
           {/* Legend */}
           <div className="flex justify-center gap-2.5 py-1">
-            <div className="flex items-center gap-1 text-[8px] text-[#9CA3AF]">
-              <div className="w-2 h-2 rounded-full bg-[#E11D48]" />
+            <div className="flex items-center gap-1 text-[8px] text-[#9EA3A3]">
+              <div className="w-2 h-2 rounded-full bg-[#00464A]" />
               Period
             </div>
-            <div className="flex items-center gap-1 text-[8px] text-[#9CA3AF]">
-              <div className="w-2 h-2 rounded-full bg-[#FFEDD5]" />
+            <div className="flex items-center gap-1 text-[8px] text-[#9EA3A3]">
+              <div className="w-2 h-2 rounded-full bg-[rgba(196, 135, 46, 0.12)]" />
               Hard
             </div>
-            <div className="flex items-center gap-1 text-[8px] text-[#9CA3AF]">
-              <div className="w-2 h-2 rounded-full bg-[#D1FAE5]" />
+            <div className="flex items-center gap-1 text-[8px] text-[#9EA3A3]">
+              <div className="w-2 h-2 rounded-full bg-[rgba(45, 125, 95, 0.12)]" />
               Good
             </div>
           </div>
@@ -124,18 +124,18 @@ export function CalendarScreen() {
         {/* Stage Card */}
         <div
           className="rounded-xl p-2.5 flex items-center gap-2"
-          style={{ background: "linear-gradient(135deg, #FDF2F8 0%, #FCE7F3 100%)" }}
+          style={{ background: "linear-gradient(135deg, rgba(0, 70, 74, 0.06) 0%, rgba(0, 70, 74, 0.1) 100%)" }}
         >
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-            <svg className="w-4 h-4 text-[#E11D48]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg className="w-4 h-4 text-[#00464A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
           </div>
           <div className="flex-1">
-            <div className="text-[8px] text-[#9CA3AF]">Current stage</div>
-            <div className="text-[11px] font-bold text-[#111827]">Perimenopause</div>
-            <div className="text-[8px] text-[#4B5563]">Day 23 of cycle</div>
+            <div className="text-[8px] text-[#9EA3A3]">Current stage</div>
+            <div className="text-[11px] font-bold text-[#1A1C1C]">Perimenopause</div>
+            <div className="text-[8px] text-[#6B7070]">Day 23 of cycle</div>
           </div>
         </div>
       </div>
@@ -151,7 +151,7 @@ function BottomNav({ activeTab }: { activeTab: string }) {
     <div className="absolute bottom-2 left-2 right-2 bg-white rounded-2xl px-1 py-1.5 flex justify-around items-center shadow-md">
       <NavItem icon="home" label="Home" active={activeTab === "home"} />
       <NavItem icon="patterns" label="Patterns" active={activeTab === "patterns"} />
-      <div className="w-9 h-9 bg-[#111827] rounded-full flex items-center justify-center -mt-5 shadow-lg">
+      <div className="w-9 h-9 bg-[#1A1C1C] rounded-full flex items-center justify-center -mt-5 shadow-lg">
         <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
           <path d="M12 5v14M5 12h14" />
         </svg>
@@ -192,8 +192,8 @@ function NavItem({ icon, label, active }: { icon: string; label: string; active?
 
   return (
     <div className="flex flex-col items-center gap-0.5 px-1">
-      <div className={`w-4 h-4 ${active ? "text-[#E11D48]" : "text-[#9CA3AF]"}`}>{icons[icon]}</div>
-      <span className={`text-[7px] ${active ? "text-[#E11D48] font-semibold" : "text-[#9CA3AF]"}`}>
+      <div className={`w-4 h-4 ${active ? "text-[#00464A]" : "text-[#9EA3A3]"}`}>{icons[icon]}</div>
+      <span className={`text-[7px] ${active ? "text-[#00464A] font-semibold" : "text-[#9EA3A3]"}`}>
         {label}
       </span>
     </div>
