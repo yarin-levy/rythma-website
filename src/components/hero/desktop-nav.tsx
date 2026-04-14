@@ -32,7 +32,7 @@ export function DesktopNav({ items, className }: Props) {
         </NavigationMenuList>
       </NavigationMenu>
       <Button asChild>
-        <Link href="/#waitlist">Join Waitlist</Link>
+        <Link href="https://apps.apple.com/app/rythma/idXXXXXXXXXX" target="_blank" rel="noopener noreferrer">Download</Link>
       </Button>
     </nav>
   );
