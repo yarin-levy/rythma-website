@@ -31,7 +31,7 @@ export function MobileNav({ items, className }: Props) {
             </Link>
           ))}
           <Button asChild className="mt-4">
-            <Link href="https://apps.apple.com/app/rythma/idXXXXXXXXXX" target="_blank" rel="noopener noreferrer">Download</Link>
+            <Link href="https://apps.apple.com/app/rythma/id6762185611" target="_blank" rel="noopener noreferrer">Download</Link>
           </Button>
         </DrawerContent>
       </Drawer>

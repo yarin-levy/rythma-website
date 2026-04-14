@@ -26,7 +26,7 @@ export function Hero() {
             The only period tracker designed specifically for the unpredictability of perimenopause. Track symptoms, predict difficult days, and understand your body&apos;s changing patterns.
           </p>
           <Link
-            href="https://apps.apple.com/app/rythma/idXXXXXXXXXX"
+            href="https://apps.apple.com/app/rythma/id6762185611"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 transition-opacity hover:opacity-80"
