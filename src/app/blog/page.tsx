@@ -14,7 +14,7 @@ export const metadata = {
     title: "Blog | Rythma",
     description:
       "Clear, well-sourced answers about perimenopause symptoms, patterns, and tracking.",
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-cover.jpg" }],
   },
 };
 
@@ -44,7 +44,7 @@ export default async function BlogPage() {
             >
               <div className="relative aspect-video overflow-hidden">
                 <Image
-                  src={post.image || "/og-image.jpg"}
+                  src={post.image || "/og-cover.jpg"}
                   alt={post.title}
                   fill
                   className="object-cover transition-transform group-hover:scale-105"

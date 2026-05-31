@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     url: "https://rythma.co",
     siteName: "Rythma",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/og-cover.jpg", width: 1200, height: 675 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Rythma - Know Your Hard Days Before They Hit",
     description: "Rythma learns your patterns and predicts perimenopause symptoms before they arrive.",
-    images: ["/og-image.jpg"],
+    images: ["/og-cover.jpg"],
   },
 };
 

@@ -39,14 +39,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       publishedTime: post.date,
       modifiedTime: post.lastUpdated || post.date,
       authors: post.author ? [post.author] : ["The Rythma Team"],
-      images: [{ url: post.image || "/og-image.jpg" }],
+      images: [{ url: post.image || "/og-cover.jpg" }],
       siteName: "Rythma",
     },
     twitter: {
       card: "summary_large_image",
       title: post.title,
       description: post.description,
-      images: [post.image || "/og-image.jpg"],
+      images: [post.image || "/og-cover.jpg"],
     },
   };
 }
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               rel="noopener noreferrer"
               className="relative mb-8 block aspect-video cursor-pointer overflow-hidden rounded-2xl transition-opacity hover:opacity-90"
             >
-              <Image src={post.image || "/og-image.jpg"} alt={post.title} fill className="object-cover" priority />
+              <Image src={post.image || "/og-cover.jpg"} alt={post.title} fill className="object-cover" priority />
             </a>
 
             <MDXContent code={post.body.code} />
@@ -101,7 +101,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   "@type": "BlogPosting",
                   headline: post.title,
                   description: post.description,
-                  image: post.image ? `${SITE_URL}${post.image}` : `${SITE_URL}/og-image.jpg`,
+                  image: post.image ? `${SITE_URL}${post.image}` : `${SITE_URL}/og-cover.jpg`,
                   datePublished: post.date,
                   dateModified: post.lastUpdated || post.date,
                   author: { "@type": "Organization", name: post.author || "The Rythma Team" },
