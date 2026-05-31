@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
+import { withContentlayer } from "next-contentlayer2";
 
 const nextConfig: NextConfig = {
+  outputFileTracingExcludes: {
+    "/blog": [".contentlayer/generated/**"],
+    "/blog/[slug]": [".contentlayer/generated/**"],
+  },
   images: {
     remotePatterns: [
       {
@@ -26,4 +31,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withContentlayer(nextConfig);

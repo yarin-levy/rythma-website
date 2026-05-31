@@ -1,0 +1,26 @@
+# Rythma
+
+> Know your hard days before they hit — the period and symptom tracker built specifically for the unpredictability of perimenopause.
+
+Rythma is an iPhone app that learns each user's personal symptom patterns and predicts difficult days before they arrive. Unlike general period trackers that assume a regular ~28-day cycle, Rythma is designed for the irregularity of perimenopause: it helps women in their 40s and 50s understand their changing bodies, anticipate high-symptom days, plan their lives around them, and bring a clear symptom report to their doctor.
+
+## Key Resources
+
+- [Blog](https://rythma.co/blog): Clear, well-sourced articles on perimenopause symptoms, patterns, and how to track them.
+- [Rythma](https://rythma.co): The product website.
+- [Download on the App Store](https://apps.apple.com/us/app/rythma-perimenopause-tracker/id6762185611): Get the Rythma app for iPhone.
+
+## Content Focus
+
+The blog covers:
+- Perimenopause symptoms and patterns (hot flashes, sleep, mood, brain fog, irregular cycles)
+- Cycle and symptom tracking in midlife (and why standard period apps fall short)
+- Managing daily life and relationships through perimenopause
+
+## Authorship
+
+Content is written by The Rythma Team and sourced from primary and clinical authorities (e.g. NICE, ACOG, The Menopause Society, NHS, and peer-reviewed research).
+
+## Disclaimer
+
+Rythma is a tracking and educational tool, not a medical device. Blog content is for general information only and is not medical advice. Perimenopause varies from person to person; readers should consult a qualified healthcare professional about their symptoms, diagnosis, or treatment.

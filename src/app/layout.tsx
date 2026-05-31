@@ -16,6 +16,7 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rythma.co"),
   title: "Rythma - Know Your Hard Days Before They Hit",
   description: "Rythma is the app that learns your patterns and predicts perimenopause symptoms before they arrive. Finally plan your life around perimenopause, not the other way around.",
   keywords: ["perimenopause", "menopause", "symptom tracker", "health app", "women's health", "hormone tracking"],
@@ -68,6 +69,51 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className={`${inter.variable} ${newsreader.variable} antialiased`}>
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Rythma",
+              url: "https://rythma.co",
+              logo: "https://rythma.co/logo.svg",
+              description:
+                "Rythma is the period and symptom tracker built for the unpredictability of perimenopause — it learns your patterns and predicts difficult days before they arrive.",
+              slogan: "Know your hard days before they hit.",
+              knowsAbout: [
+                "Perimenopause",
+                "Perimenopause symptoms",
+                "Menopause",
+                "Hot flashes",
+                "Hormone changes",
+                "Menstrual cycle tracking",
+                "Women's midlife health",
+              ],
+            }),
+          }}
+        />
+
+        {/* MobileApplication Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MobileApplication",
+              name: "Rythma",
+              operatingSystem: "iOS",
+              applicationCategory: "HealthApplication",
+              description:
+                "Rythma learns your patterns and predicts perimenopause symptoms before they arrive, so you can plan your life around hard days.",
+              url: "https://rythma.co",
+              downloadUrl: "https://apps.apple.com/us/app/rythma-perimenopause-tracker/id6762185611",
+              publisher: { "@type": "Organization", name: "Rythma", url: "https://rythma.co" },
+            }),
+          }}
+        />
+
         {children}
         <Toaster />
       </body>
