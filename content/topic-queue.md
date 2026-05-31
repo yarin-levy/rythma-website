@@ -6,7 +6,7 @@
 
 - [x] **Perimenopause Symptoms Statistics 2026** {skill: write-statistics-post} {topic: perimenopause symptoms} {cluster: statistics} {isHub: true} {published: 2026-05-31}
       → Authority hub. Every Cluster 1 post links back here.
-- [ ] **What Is Perimenopause? Signs, Stages & When It Starts** {skill: glossary-term} {topic: perimenopause definition} {cluster: symptoms}
+- [x] **What Is Perimenopause? Signs, Stages & When It Starts** {skill: glossary-term} {topic: perimenopause definition} {cluster: symptoms} {published: 2026-05-31}
 - [ ] **Perimenopause vs. Menopause: What's the Difference?** {skill: glossary-term} {topic: perimenopause vs menopause} {cluster: symptoms}
 - [ ] **Why Your Cycle Becomes Unpredictable in Perimenopause** {skill: glossary-term} {topic: irregular cycle perimenopause} {cluster: symptoms}
 

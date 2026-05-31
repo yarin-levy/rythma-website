@@ -9,6 +9,33 @@ export interface FAQ {
 }
 
 export const blogFAQs: Record<string, FAQ[]> = {
+  "what-is-perimenopause": [
+    {
+      question: "What is the difference between perimenopause and menopause?",
+      answer:
+        "Perimenopause is the transition phase when hormones begin to shift and cycles become irregular, lasting typically four to eight years. Menopause is the point at which a woman has gone 12 consecutive months without a period — the official end of the transition. After that point, she is postmenopausal. In everyday language the two words are often used interchangeably, but clinically they refer to different stages.",
+    },
+    {
+      question: "At what age does perimenopause start?",
+      answer:
+        "Most women begin perimenopause in their mid-to-late 40s, according to the U.S. Office on Women's Health and the NHS, with average menopause occurring around age 51 to 52 in the United States. Starting in the early 40s or even late 30s is within the normal range — NICE NG23 notes perimenopause can begin from the early 40s. Approximately 1 in 100 women experience menopause before age 40 (premature ovarian insufficiency), which has distinct clinical management.",
+    },
+    {
+      question: "How long does perimenopause last?",
+      answer:
+        "The transition typically lasts four to eight years, though individual timelines vary widely. The U.S. Office on Women's Health cites a range of two to eight years. SWAN research has shown that vasomotor symptoms specifically last a median of 7.4 years across the transition. A woman who develops hot flashes early tends to experience a longer overall duration than one whose symptoms start in late perimenopause.",
+    },
+    {
+      question: "Can you still get pregnant during perimenopause?",
+      answer:
+        "Yes. Because ovulation still occurs — even if less frequently — pregnancy remains possible throughout perimenopause until menopause is confirmed (12 months without a period). ACOG advises that contraception should be continued until menopause is reached for women who wish to avoid pregnancy. A clinician can advise on appropriate options for this stage.",
+    },
+    {
+      question: "How do you know if you're in perimenopause?",
+      answer:
+        "The clearest early signal is a change in your cycle — periods arriving on a different schedule, especially if cycle length varies by seven or more days from its usual pattern. Hot flashes, sleep disruption, and mood changes alongside cycle changes strongly suggest perimenopause in women in their 40s. NICE NG23 advises that in women aged 45 and older, symptoms alone are enough for a clinical diagnosis — no blood test is required. If you're under 45, a clinician may order FSH tests, though a single normal result cannot rule out perimenopause.",
+    },
+  ],
   "perimenopause-symptoms-statistics-2026": [
     {
       question: "How long do perimenopause symptoms last?",
