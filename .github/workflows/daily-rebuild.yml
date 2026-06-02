@@ -1,11 +1,12 @@
 name: Daily blog rebuild
 
 # Rebuilds the production site once a day so any post whose `date` has
-# arrived becomes visible. Posts are written ahead of time with future
-# dates; this scheduled rebuild is the "conveyor belt" that reveals one
-# per day. The site only ever shows posts dated today or earlier
-# (see src/lib/blog-date.ts), so future-dated drafts stay hidden until
-# their day comes.
+# arrived becomes visible, then notifies IndexNow (Bing, ChatGPT search,
+# Yandex, etc.) about that day's new post so it gets crawled within minutes.
+#
+# Posts are written ahead of time with future dates; the site only ever shows
+# posts dated today or earlier (see src/lib/blog-date.ts), so future-dated
+# drafts stay hidden until their day comes.
 
 on:
   schedule:
@@ -15,10 +16,17 @@ on:
   # Allow manual triggering from the Actions tab or `gh workflow run`.
   workflow_dispatch: {}
 
+env:
+  # IndexNow key — intentionally public (also hosted at /<key>.txt to prove ownership).
+  INDEXNOW_KEY: "23723a585aaf4abfa8340e1627d99e8b"
+  SITE: "https://rythma.co"
+
 jobs:
   rebuild:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Trigger Vercel production deploy
         run: |
           if [ -z "${{ secrets.VERCEL_DEPLOY_HOOK }}" ]; then
@@ -28,3 +36,30 @@ jobs:
           echo "Triggering Vercel rebuild..."
           curl -fsS -X POST "${{ secrets.VERCEL_DEPLOY_HOOK }}"
           echo "Rebuild triggered."
+
+      - name: Notify IndexNow of today's post(s)
+        run: |
+          TODAY=$(date -u +%F)
+          echo "Today (UTC): $TODAY"
+
+          # URLs that always matter, plus any post whose frontmatter date == today.
+          URLS="$SITE $SITE/blog"
+          while IFS= read -r f; do
+            slug=$(basename "$f" .mdx)
+            URLS="$URLS $SITE/blog/$slug"
+          done < <(grep -lE "^date: \"$TODAY\"" content/blog/*.mdx 2>/dev/null || true)
+
+          echo "Submitting to IndexNow:"
+          for u in $URLS; do echo "  $u"; done
+
+          # Build JSON body with the URL list.
+          BODY=$(printf '%s\n' $URLS | jq -R . | jq -s \
+            --arg host "rythma.co" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg loc "$SITE/$INDEXNOW_KEY.txt" \
+            '{host:$host, key:$key, keyLocation:$loc, urlList: .}')
+
+          curl -sS -X POST "https://api.indexnow.org/IndexNow" \
+            -H "Content-Type: application/json" \
+            -d "$BODY" \
+            -w "\nIndexNow response: HTTP %{http_code}\n" || true
