@@ -47,3 +47,7 @@
 ## Versioning
 
 - v1 — created 2026-05-31.
+
+## June 2026 batch — SCHEDULED (Jun 3 → Jul 2, one per day, 7am ET)
+
+30 posts generated via multi-agent workflow and date-scheduled. Released automatically by the daily rebuild. Refill with the next batch before Jul 2.
