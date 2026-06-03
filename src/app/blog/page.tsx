@@ -5,6 +5,10 @@ import Image from "next/image";
 import { BlogNav } from "@/components/blog/blog-nav";
 import { isPublished } from "@/lib/blog-date";
 
+// Render per request so newly-due posts appear in the listing the moment their
+// 7am ET publish time passes — no rebuild or scheduler needed.
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Blog | Rythma",
   description:

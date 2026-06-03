@@ -11,13 +11,10 @@ import { isPublished } from "@/lib/blog-date";
 
 const SITE_URL = "https://rythma.co";
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  return allPosts
-    .filter((post) => isPublished(post.date))
-    .map((post) => ({ slug: post.slug }));
-}
+// Render per request so the time-based publish gate (isPublished) is evaluated
+// live — a scheduled post flips from 404 to 200 the moment its 7am ET publish
+// time passes, with no rebuild or external scheduler.
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

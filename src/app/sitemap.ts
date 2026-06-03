@@ -4,6 +4,10 @@ import { isPublished } from "@/lib/blog-date";
 
 const SITE_URL = "https://rythma.co";
 
+// Regenerate per request so newly-published posts enter the sitemap as soon as
+// their 7am ET publish time passes, without waiting for a rebuild.
+export const dynamic = "force-dynamic";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const buildTime = new Date();
 
