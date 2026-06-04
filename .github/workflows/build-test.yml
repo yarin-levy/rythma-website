@@ -27,39 +27,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
+      # Use npm to match the committed package-lock.json and Vercel's build.
+      # (The repo has no pnpm-lock.yaml, so pnpm was the odd one out and kept
+      # tripping over pnpm 10's build-script gating.)
       - name: Setup Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "22"
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
-        with:
-          version: latest
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - name: Setup pnpm cache
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          cache: "npm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Build
-        run: pnpm build
+        run: npm run build
+        env:
+          # Dummy build-time values. The build instantiates Resend/Paddle at
+          # module load (e.g. /api/support), so these must be non-empty or
+          # `next build` throws during page-data collection. Real secrets live
+          # in Vercel — CI never sends mail or processes payments.
+          RESEND_API_KEY: "re_ci_dummy_key_not_real"
+          RESEND_AUDIENCE_ID: "ci-dummy-audience"
+          QUIZ_LEAD_NOTIFY_EMAIL: "ci@example.com"
+          APPLE_TEAM_ID: "CIDUMMY0000"
+          NEXT_PUBLIC_BUNDLE_IDENTIFIER: "com.rythma.ci"
+          NEXT_PUBLIC_APP_REDIRECT_URL: "rythma://ci/redirect"
+          NEXT_PUBLIC_PADDLE_ENV: "sandbox"
+          NEXT_PUBLIC_PADDLE_CLIENT_TOKEN: "ci-dummy-token"
 
       - name: Lint
-        run: pnpm lint
+        run: npm run lint
 
       - name: Typecheck
-        run: pnpm tsc
+        run: npx tsc

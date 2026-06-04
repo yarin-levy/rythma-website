@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import localFont from "next/font/local";
 import { Toaster } from "sonner";
+import { PostHogProvider } from "@/components/posthog-provider";
 import "./globals.css";
 
-const inter = Inter({
+// Self-hosted (from @fontsource-variable, copied into ./fonts). No build-time
+// dependency on Google's CDN — faster LCP for paid traffic + GDPR-friendly.
+const inter = localFont({
+  src: "./fonts/inter.woff2",
   variable: "--font-inter",
-  subsets: ["latin"],
+  weight: "100 900",
+  display: "swap",
 });
 
-const newsreader = Newsreader({
+const newsreader = localFont({
+  src: [
+    { path: "./fonts/newsreader.woff2", weight: "200 800", style: "normal" },
+    { path: "./fonts/newsreader-italic.woff2", weight: "200 800", style: "italic" },
+  ],
   variable: "--font-newsreader",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -116,7 +123,7 @@ export default function RootLayout({
           }}
         />
 
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
         <Toaster />
       </body>
     </html>
