@@ -41,6 +41,19 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          # Dummy build-time values. The build instantiates Resend/Paddle at
+          # module load (e.g. /api/support), so these must be non-empty or
+          # `next build` throws during page-data collection. Real secrets live
+          # in Vercel — CI never sends mail or processes payments.
+          RESEND_API_KEY: "re_ci_dummy_key_not_real"
+          RESEND_AUDIENCE_ID: "ci-dummy-audience"
+          QUIZ_LEAD_NOTIFY_EMAIL: "ci@example.com"
+          APPLE_TEAM_ID: "CIDUMMY0000"
+          NEXT_PUBLIC_BUNDLE_IDENTIFIER: "com.rythma.ci"
+          NEXT_PUBLIC_APP_REDIRECT_URL: "rythma://ci/redirect"
+          NEXT_PUBLIC_PADDLE_ENV: "sandbox"
+          NEXT_PUBLIC_PADDLE_CLIENT_TOKEN: "ci-dummy-token"
 
       - name: Lint
         run: npm run lint
