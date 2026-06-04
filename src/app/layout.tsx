@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import { Toaster } from "sonner";
+import { PostHogProvider } from "@/components/posthog-provider";
 import "./globals.css";
 
 const inter = Inter({
@@ -116,7 +117,7 @@ export default function RootLayout({
           }}
         />
 
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
         <Toaster />
       </body>
     </html>
