@@ -397,3 +397,80 @@
 .animate-pulse-glow {
   animation: pulse-glow 2.5s ease-in-out infinite;
 }
+
+/* ============================================================
+   Quiz funnel (/quiz) — iPhone-first
+   ============================================================ */
+
+/* Full-screen shell: use svh so the layout never shifts when iOS Safari's
+   address bar shows/hides, and never clips content behind it. Safe-area
+   insets keep content clear of the notch / Dynamic Island / home indicator. */
+.quiz-shell {
+  height: 100vh; /* fallback for browsers without svh */
+  height: 100svh; /* stable smallest viewport: no shift when the iOS bar toggles */
+  /* box-sizing:border-box (Tailwind default) keeps the safe-area padding inside
+     the 100svh box, so the shell never overflows the viewport. */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+/* Stop iOS double-tap zoom + grey tap flash on interactive funnel elements */
+.quiz-tap {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Soft, calm cycling loader ring (Screen 10) — transform-only, 60fps. */
+@keyframes quiz-ring-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.quiz-ring-spin {
+  animation: quiz-ring-spin 2.4s linear infinite;
+}
+
+/* Gentle breathing pulse for the loader core */
+@keyframes quiz-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+.quiz-breathe {
+  animation: quiz-breathe 2.8s ease-in-out infinite;
+}
+
+/* Warm glow for the acceptance reveal (Screen 11) — opacity/transform only. */
+@keyframes quiz-glow {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+.quiz-glow {
+  animation: quiz-glow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-ring-spin,
+  .quiz-breathe,
+  .quiz-glow {
+    animation: none;
+  }
+}

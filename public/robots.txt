@@ -25,6 +25,8 @@ Allow: /
 
 User-agent: *
 Allow: /
+# Paid-traffic quiz funnel — keep it out of organic crawling/indexing
+Disallow: /quiz
 
 Sitemap: https://rythma.co/sitemap.xml
 Host: https://rythma.co

@@ -43,3 +43,6 @@ next-env.d.ts
 
 # Contentlayer
 .contentlayer
+
+# Claude Code runtime artifacts
+.claude/scheduled_tasks.lock
