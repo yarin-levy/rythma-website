@@ -27,6 +27,11 @@ export const metadata: Metadata = {
   title: "Rythma - Know Your Hard Days Before They Hit",
   description: "Rythma is the app that learns your patterns and predicts perimenopause symptoms before they arrive. Finally plan your life around perimenopause, not the other way around.",
   keywords: ["perimenopause", "menopause", "symptom tracker", "health app", "women's health", "hormone tracking"],
+  // Declare the homepage canonical so Google doesn't treat rythma.co, rythma.co/,
+  // and the http/www redirect variants as separate duplicate URLs. (This was the
+  // only page missing a canonical — the trigger for GSC's "Duplicate without
+  // user-selected canonical" warning.)
+  alternates: { canonical: "https://rythma.co" },
   openGraph: {
     title: "Rythma - Know Your Hard Days Before They Hit",
     description: "Rythma learns your patterns and predicts perimenopause symptoms before they arrive.",
