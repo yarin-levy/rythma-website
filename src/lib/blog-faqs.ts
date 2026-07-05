@@ -723,4 +723,664 @@ export const blogFAQs: Record<string, FAQ[]> = {
         "These figures come from primary and authoritative sources: the Study of Women's Health Across the Nation (SWAN), a long-running U.S. cohort of over 3,300 women; The Menopause Society's analysis of an international survey of more than 17,000 women; the U.S. Office on Women's Health; Mayo Clinic Proceedings; the World Health Organization; and a peer-reviewed review of menopause and cognition. Each statistic in the article links directly to its source.",
     },
   ],
+  "the-most-common-perimenopause-symptoms-explained": [
+    {
+      question: "What is the most common perimenopause symptom?",
+      answer:
+        "In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue topped the list at 83% — ahead of irritability (80%), depressive mood (77%), and sleep problems (76%). Hot flashes were recognized as a sign of perimenopause by only 71% of respondents, so exhaustion, mood changes, and broken sleep are more commonly reported than the dramatic flushing most people expect.",
+    },
+    {
+      question: "Why does perimenopause cause so many different symptoms?",
+      answer:
+        "Estrogen and progesterone affect temperature control, mood, memory, and sleep — not just your cycle. According to the Cleveland Clinic, hormone levels in perimenopause don't decline smoothly; they fluctuate \"like a rollercoaster,\" with estrogen swinging out of balance with progesterone. That instability is why symptoms come and go and why a good week can be followed by a hard one.",
+    },
+    {
+      question: "How long do hot flashes and night sweats last?",
+      answer:
+        "Hot flashes and night sweats are vasomotor symptoms — sudden waves of heat that spread through the upper body, often with flushing and sweating. According to The Menopause Society, each episode typically lasts one to five minutes. Night sweats also fragment sleep, which is one reason fatigue and poor sleep so often travel together during the transition.",
+    },
+    {
+      question: "When should perimenopause symptoms prompt a doctor's visit?",
+      answer:
+        "The American College of Obstetricians and Gynecologists advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause. Palpitations that are frequent or severe, or come with chest pain or breathlessness, should also always be checked.",
+    },
+  ],
+  "rythma-vs-flo-for-perimenopause": [
+    {
+      question: "Is Flo or Rythma better for perimenopause?",
+      answer:
+        "Neither is universally better; they are built for different jobs. Flo is the largest, most polished period and cycle tracker and has added a dedicated perimenopause experience with a Perimenopause Score, symptom tracking, and a window-based next-period prediction, according to Flo — but it grew up around regular, reproductive-age cycles. Rythma (our app) was built for perimenopausal irregularity from the start and focuses on predicting your difficult days and generating a shareable doctor report. Choose Flo for breadth, content, and community; choose Rythma if anticipating hard days is your priority and you are on an iPhone.",
+    },
+    {
+      question: "What is Flo's Perimenopause Score?",
+      answer:
+        "According to Flo, its perimenopause experience includes a Perimenopause Score, which the company describes as the first digital assessment tool designed and validated specifically for perimenopause symptoms. Rythma does not offer a named clinical score like this. Because features can change, confirm the current details on Flo's own perimenopause page before deciding.",
+    },
+    {
+      question: "Why can a cycle-first app like Flo struggle in perimenopause?",
+      answer:
+        "Cycle-first apps work best when cycles are regular. In perimenopause, the U.S. Office on Women's Health notes periods may run longer or shorter, heavier or lighter, or skip months entirely, and the STRAW+10 staging system marks the early transition by consecutive cycles that persistently differ by seven or more days — which makes confident next-period predictions harder. Flo responds sensibly by giving a window rather than a single date, but its center of gravity remains the cycle calendar rather than forecasting your specific hard days.",
+    },
+    {
+      question: "Can I use Rythma on Android?",
+      answer:
+        "Not yet. Rythma is iPhone-only today, so Android users will need a different app, such as Flo or another midlife-focused option. Both Flo and Rythma are free to download, so if you are on iPhone you can try each for a few weeks before committing.",
+    },
+  ],
+  "perimenopause-and-headaches": [
+    {
+      question: "Why do my headaches get worse during perimenopause?",
+      answer:
+        "Hormonal headaches are triggered by falling estrogen, and in perimenopause estrogen falls unpredictably. The Cleveland Clinic describes perimenopausal hormone levels as fluctuating \"like a rollercoaster\" rather than declining smoothly, with estrogen swinging out of balance with progesterone. Instead of one predictable drop before your period, you can have sharp, erratic drops at unpredictable times, and each is a potential headache trigger.",
+    },
+    {
+      question: "Will my perimenopause headaches eventually go away?",
+      answer:
+        "Often, yes. Because menstrual migraine is driven by cyclical estrogen drops, many women find these headaches settle once periods stop and hormones stabilize after menopause, which the World Health Organization defines as 12 consecutive months since your final period with no other medical cause. The hardest stretch is usually the transition itself rather than the destination, though everyone's experience varies.",
+    },
+    {
+      question: "When should I see a doctor about a perimenopause headache?",
+      answer:
+        "Talk to a healthcare professional if your headaches are new or feel like the \"worst of your life,\" come on suddenly and severely like a thunderclap, change markedly in frequency, intensity, or character, come with neurological symptoms such as vision changes, weakness, numbness, or difficulty speaking, or disrupt your daily life. Also discuss migraine history before starting hormone therapy, since some hormone-containing treatments may not be appropriate if you have migraine with aura.",
+    },
+    {
+      question: "Why can't my period-tracking app predict my headaches anymore?",
+      answer:
+        "Most period apps were built for a regular, roughly 28-day cycle and predict symptoms by counting forward from your last period. In perimenopause your cycles vary. The STRAW+10 staging system marks early perimenopause as beginning when consecutive cycle lengths persistently differ by seven or more days. That forward-counting math breaks, so a cycle-first app looks for a monthly rhythm that no longer exists. Tracking headaches alongside their triggers, rather than against a fixed calendar, works better.",
+    },
+  ],
+  "rythma-vs-clue-for-perimenopause": [
+    {
+      question: "Is Clue or Rythma better for perimenopause?",
+      answer:
+        "They solve different problems. Clue is a science-forward, privacy-first cycle tracker (built in Berlin, data handled under strict EU rules) with a Perimenopause mode that adapts to changing cycle lengths, so it's a strong pick if you value privacy and want reliable cycle-aware tracking. Rythma (our app) is built for perimenopause from the start: it learns your personal symptom patterns, predicts your difficult days before they arrive, and generates a shareable doctor report. Choose based on whether you mainly want cycle tracking with strong privacy (Clue) or forecasting of hard days plus a doctor-ready summary (Rythma).",
+    },
+    {
+      question: "Does Clue work once my periods become irregular?",
+      answer:
+        "Clue's Perimenopause mode adds symptom tracking for this stage and a cycle view designed to adapt to changing cycle lengths, rather than just telling you a period is \"X days late.\" It's cycle-first by origin, so it centers period timing rather than forecasting your hardest days. If your cycle has become genuinely unpredictable and you mainly want to anticipate rough days, a perimenopause-first, prediction-focused app is designed for that situation.",
+    },
+    {
+      question: "Why do standard period apps struggle in perimenopause?",
+      answer:
+        "Perimenopause is defined by unpredictability. The U.S. Office on Women's Health notes that periods may run longer or shorter, heavier or lighter, skip months entirely, and you may not ovulate every cycle. Hormones fluctuate \"like a rollercoaster,\" as the Cleveland Clinic puts it. A tool built around a roughly 28-day rhythm strains because the fixed pattern it predicts is exactly what perimenopause dismantles.",
+    },
+    {
+      question: "Is Rythma available on Android?",
+      answer:
+        "Not today. Rythma is iPhone-only right now, and its prediction quality improves the longer you use it, so the first few weeks are mostly logging. Clue is available across platforms. If you're on Android, that alone may decide it, so check each app's current store listing.",
+    },
+  ],
+  "perimenopause-and-hair-changes": [
+    {
+      question: "Is hair thinning a sign of perimenopause?",
+      answer:
+        "It can be. Because estrogen and progesterone influence the hair-growth cycle, their fluctuation in perimenopause can cause slower growth, more shedding, texture changes, or thinning at the crown and part line. Hair often shifts alongside changes to periods, sleep, and mood.",
+    },
+    {
+      question: "Will my hair grow back after perimenopause?",
+      answer:
+        "For many women hair changes are mild and stabilize as the body settles into its post-menopause hormonal picture, though for others they are more pronounced. Because thyroid problems and iron deficiency can look identical, it is worth having sudden, patchy, or accelerating loss checked rather than assuming it will reverse on its own.",
+    },
+    {
+      question: "When should I see a doctor about perimenopause hair loss?",
+      answer:
+        "See a healthcare professional if hair loss is sudden, comes out in patches, produces bald spots or a rapidly widening part, keeps accelerating, or arrives with significant fatigue, unexplained weight change, or heavy or irregular bleeding. The American College of Obstetricians and Gynecologists also advises seeing a doctor for very heavy bleeding — soaking a pad or tampon every hour for two or more hours — bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause.",
+    },
+    {
+      question: "Does tracking help with perimenopause hair changes?",
+      answer:
+        "Yes. Hair change is slow and easy to second-guess, so a written record turns \"I think my hair is worse\" into a trend you and your doctor can see, and connects it to your periods, sleep, energy, and mood. A symptom-first app built for perimenopausal irregularity fits this better than a cycle-first tracker organized around a fixed 28-day calendar.",
+    },
+  ],
+  "rythma-vs-balance-for-perimenopause": [
+    {
+      question: "What is the difference between Rythma and Balance?",
+      answer:
+        "Balance, from Newson Health and founded by Dr. Louise Newson, is an education-focused app spanning the whole menopause journey — clinician-backed and NHS-recognized, with a large evidence-based article library and a shareable Health Report. Rythma (our app) is narrower and more predictive: it is built specifically for perimenopause, learns your personal symptom patterns, and forecasts difficult days before they arrive. Balance leans toward understanding; Rythma leans toward anticipation and planning.",
+    },
+    {
+      question: "Is Balance a good app for perimenopause?",
+      answer:
+        "Yes. Balance offers symptom tracking across the range of midlife complaints, a deep evidence-based article library reviewed with clinical input, and a shareable Health Report for appointments; its makers say it is NHS-recognized and ORCHA-certified. Its scope is broad, covering perimenopause through post-menopause, so it is not built around predicting your specific hard days, and some features sit behind a paid tier. Confirm current features and pricing on the Balance app page.",
+    },
+    {
+      question: "Can Rythma predict my difficult perimenopause days?",
+      answer:
+        "Rythma's distinguishing feature is predicting difficult days. As you log symptoms, it identifies your personal patterns and forecasts high-symptom stretches — fatigue, poor sleep, mood shifts, hot flashes, or brain fog — before they arrive, so you can plan around them. Prediction improves the more you log, so the first weeks are mostly data-gathering. Rythma is iPhone-only today.",
+    },
+    {
+      question: "When should I see a doctor instead of relying on an app?",
+      answer:
+        "No app replaces a clinician. The American College of Obstetricians and Gynecologists advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause.",
+    },
+  ],
+  "can-you-predict-perimenopause-symptoms": [
+    {
+      question: "Can perimenopause symptoms really be predicted?",
+      answer:
+        "Not from a calendar date, but from your own patterns — yes, to a meaningful degree. Perimenopause hormones fluctuate \"like a rollercoaster\" rather than declining smoothly (the Cleveland Clinic notes estrogen swings out of balance with progesterone), which breaks fixed-cycle forecasts. What is predictable is personal: which symptoms cluster, roughly where the hard days land, and how a rough stretch unfolds — surfaced from consistent logging over two to three months, not from a population average.",
+    },
+    {
+      question: "Why do period apps get perimenopause prediction wrong?",
+      answer:
+        "Most were built to project the next period from a regular, roughly 28-day cycle. In perimenopause that regularity is gone — under the STRAW+10 staging system, early transition is defined by consecutive cycle lengths persistently differing by seven or more days, and late transition by a stretch of 60 or more days without a period. A tool drawing a straight line through your last few cycles is fighting that biology, so the predicted date is often wrong.",
+    },
+    {
+      question: "How long do I need to track before patterns appear?",
+      answer:
+        "Give it two to three months. Because perimenopausal cycles are uneven, you need a longer window than a regular-cycle tracker would before trends become visible — one cycle is a data point, several cycles are a pattern. Log a small, fixed set each day at the same time: period dates, sleep, mood, energy, and your two or three most bothersome symptoms.",
+    },
+    {
+      question: "What symptoms should I flag to a doctor?",
+      answer:
+        "ACOG advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause. A tracked timeline of the common symptoms the NHS lists — hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint pain — also makes an appointment far more productive.",
+    },
+  ],
+  "balance-alternatives-for-perimenopause": [
+    {
+      question: "Is Balance a good perimenopause app?",
+      answer:
+        "Yes. Balance, from Newson Health and founded by Dr. Louise Newson, is one of the most established menopause apps, with symptom tracking, a large library of evidence-based articles, and a shareable Health Report. According to its makers it has been recognized by the NHS and certified by the digital-health assessor ORCHA. Its strength is education and clinical credibility; people usually look for an alternative when they want an app focused on forecasting their specific hard days rather than broad menopause education.",
+    },
+    {
+      question: "What is the best Balance alternative for perimenopause?",
+      answer:
+        "It depends on what you want most. If you want to anticipate difficult days and bring a clear report to your doctor, a prediction-focused app like Rythma (our app) fits. Caria adds AI-assisted guidance, Perry adds peer community, Clue is a privacy-forward tracker with a perimenopause mode, and Flo is the largest general tracker with a perimenopause experience. Most are free to download, so trying one or two for a few weeks is a low-cost way to decide.",
+    },
+    {
+      question: "How is Rythma different from Balance?",
+      answer:
+        "Rythma is our app, so we disclose that upfront. Both track symptoms and generate a shareable doctor report, but the emphasis differs: Balance is built to educate and document, while Rythma is an iPhone app built for perimenopause from the start that learns your personal symptom patterns and predicts difficult days before they arrive. Rythma is iPhone-only today, and its prediction improves the more you log.",
+    },
+    {
+      question: "Is Natural Cycles a good option for perimenopause symptoms?",
+      answer:
+        "Natural Cycles is notable as the first birth-control app cleared by the FDA (2018), using daily basal body temperature and cycle data to identify fertile days. That is a distinct, regulated use built around ovulatory cycles rather than midlife symptom tracking. If you specifically want hormone-free, FDA-cleared contraception it is in a category of its own, but as a Balance alternative for tracking hot flashes, sleep, and mood it is not the tool.",
+    },
+  ],
+  "perimenopause-and-skin-changes": [
+    {
+      question: "Are skin changes a symptom of perimenopause?",
+      answer:
+        "Yes. Because estrogen helps skin hold moisture, produce collagen, and stay supple, its fluctuation in perimenopause can leave skin drier, thinner, and more reactive. The shifting ratio of estrogen to androgens can also trigger adult acne, and some women experience formication — an itching or crawling sensation with nothing on the skin.",
+    },
+    {
+      question: "Why am I breaking out in my 40s?",
+      answer:
+        "Acne is driven partly by androgens, which stimulate oil glands. As estrogen fluctuates and declines in perimenopause, the ratio of estrogen to androgens shifts and the relative influence of androgens can rise, pushing oil glands to overproduce and clog pores — often along the jawline, chin, and lower face.",
+    },
+    {
+      question: "When should I see a doctor about perimenopause skin changes?",
+      answer:
+        "See a professional for a new or changing mole, itching that is severe or keeps you awake without an obvious rash, a spreading rash or hives, or skin changes alongside signs pointing elsewhere such as fatigue or weight change. The American College of Obstetricians and Gynecologists also advises seeing a doctor for very heavy bleeding — soaking a pad or tampon hourly for two or more hours — bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause.",
+    },
+    {
+      question: "Does tracking help with perimenopause skin flares?",
+      answer:
+        "Yes. Logging skin changes alongside sleep, mood, hot flushes, and your periods reveals whether flares follow a rhythm or cluster with other symptoms, and turns a vague \"my skin has been awful\" into a record a doctor can use. A symptom-first app built for perimenopausal irregularity fits this better than a cycle-first tracker organized around a fixed 28-day calendar.",
+    },
+  ],
+  "caria-alternatives-for-perimenopause": [
+    {
+      question: "What is the best Caria alternative for perimenopause?",
+      answer:
+        "It depends on what you want most. Caria pairs symptom tracking with AI-assisted guidance for midlife. If you want prediction of hard days plus a doctor report, Rythma (our app) is built for that; if you want clinician-backed education, Balance is strong; for peer community, Perry; for a privacy-forward tracker with a perimenopause mode, Clue; and for the largest polished tracker, Flo. Most are free to download, so trying one or two for a few weeks is the low-cost way to decide.",
+    },
+    {
+      question: "Why do people switch from Caria to another perimenopause app?",
+      answer:
+        "Usually it is about fit rather than dissatisfaction. Perimenopause is defined by unpredictability — the U.S. Office on Women's Health notes the transition usually starts in your mid- to late 40s and lasts about four years on average, sometimes up to eight, with periods that may run longer or shorter or skip months. People leave Caria when they want the app to forecast their difficult days rather than answer questions after the fact, want deeper clinician-authored reading, want a peer community, or have a specific privacy preference.",
+    },
+    {
+      question: "Is Rythma better than Caria?",
+      answer:
+        "Rythma is our own app, so we will be specific rather than just claim it is better. Caria's strength is conversational, AI-assisted guidance; Rythma's is prediction — it learns your personal symptom patterns and forecasts high-symptom stretches like fatigue, poor sleep, or hot flashes before they arrive, then generates a shareable doctor report. The trade-off is that Rythma is iPhone-only today and its prediction improves the more you log. If you value anticipating hard days over asking questions in the moment, Rythma may fit better; if you prefer conversational guidance, Caria may suit you.",
+    },
+    {
+      question: "Which perimenopause app is best for privacy?",
+      answer:
+        "If privacy is your main reason for leaving Caria, Clue is the natural comparison. It is a long-running cycle tracker headquartered in Berlin and subject to strict EU data-protection law, with a strong privacy reputation, and it offers a perimenopause mode with a cycle view for changing cycle lengths. Because data policies and features change, confirm the current details on Clue's own perimenopause overview page before deciding.",
+    },
+  ],
+  "perimenopause-and-bloating": [
+    {
+      question: "Why does perimenopause cause bloating?",
+      answer:
+        "Bloating in perimenopause comes from two overlapping sources driven by the same hormonal swings. Estrogen influences how your body handles fluid and salt, so when it surges you hold onto more water and feel puffy and tight around the abdomen. Progesterone relaxes the smooth muscle that moves food through your gut, so when it is high digestion slows and gas builds up. Because perimenopause hormones fluctuate 'like a rollercoaster' rather than declining smoothly (Cleveland Clinic), this bloating tends to come and go.",
+    },
+    {
+      question: "Is bloating a normal perimenopause symptom?",
+      answer:
+        "Yes. Bloating is a common but under-discussed part of the menopause transition, arriving alongside other hormone-driven symptoms the NHS lists, such as weight gain, mood changes, sleep problems, hot flushes, night sweats, brain fog, palpitations, and joint pain. Like many perimenopause symptoms it is often under-recognized: in an international survey of more than 17,000 women analyzed by The Menopause Society, even hot flashes were recognized as a perimenopause sign by only 71%.",
+    },
+    {
+      question: "What helps reduce perimenopause bloating?",
+      answer:
+        "Practical adjustments help most: ease back on very salty, heavily processed foods while still drinking enough water; move gently after meals to help a slowed gut; learn your individual trigger foods (common culprits include carbonated drinks, beans and lentils, and cruciferous vegetables); and eat slowly in smaller, more frequent amounts. Because hormonal bloating tracks the hormonal rollercoaster, much of it also eases on its own within a few days.",
+    },
+    {
+      question: "When should I see a doctor about bloating?",
+      answer:
+        "Hormonal bloating is usually harmless, but see a clinician if it is persistent rather than coming and going — lasting most days for several weeks — or if it comes with unexplained weight loss, a lasting change in bowel habits, blood in your stool, difficulty eating or feeling full quickly, or ongoing abdominal or pelvic pain. Separately, the American College of Obstetricians and Gynecologists advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer together than about 21 days, or any bleeding after menopause.",
+    },
+  ],
+  "perry-alternatives-for-perimenopause": [
+    {
+      question: "What is Perry's biggest strength as a perimenopause app?",
+      answer:
+        "Peer community. Perry is built for midlife rather than reproductive-age cycles and pairs tracking with a community of women going through the same stage. That matters because perimenopause can be isolating — in an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, the most common symptoms (fatigue at 83%, ahead of irritability, depressive mood, and sleep problems) were among the least recognized, so hearing 'me too' is its own kind of validation.",
+    },
+    {
+      question: "Why would someone switch from Perry to a different perimenopause app?",
+      answer:
+        "Usually because they want something a community cannot provide: prediction or a clinical summary. Perimenopause is defined by unpredictability — the U.S. Office on Women's Health notes periods may run longer or shorter, skip months, and swing between long and short cycles because you no longer ovulate every month — and a community can reassure you but not tell you which days next week will be hard for you. Others want an app that turns months of logging into a clear report for a short doctor's appointment.",
+    },
+    {
+      question: "How is Rythma different from Perry?",
+      answer:
+        "Rythma is our own app, so we disclose that up front. It is an iPhone app built for perimenopause from the start that learns your personal symptom patterns and predicts difficult days before they arrive, then generates a shareable doctor report. Perry's center of gravity is community; Rythma's is prediction and preparing for appointments. Trade-offs: Rythma is iPhone-only today and its prediction improves the more you log, so the first weeks are mostly data-gathering.",
+    },
+    {
+      question: "Which Perry alternative is best for me?",
+      answer:
+        "It depends on the job you want done. For anticipating hard days and a clear doctor report, try a prediction-first app like Rythma; for clinician-backed education, Balance; for always-available AI guidance, Caria; for a privacy-first, science-forward tracker, Clue; and for a large, polished tracker that still has a community, Flo. If you value the peer community most, staying with Perry is perfectly reasonable. Most of these apps are free to download, so try one or two for a few weeks.",
+    },
+  ],
+  "perimenopause-and-low-libido": [
+    {
+      question: "Is low libido a normal part of perimenopause?",
+      answer:
+        "Yes. During perimenopause — the transition leading up to your final period, which usually starts in your mid- to late 40s and lasts around four years on average, sometimes up to eight (U.S. Office on Women's Health) — many women notice desire fade. It is common and, on its own, not a cause for alarm. It is worth raising with a clinician if it is distressing you or if sex has become painful.",
+    },
+    {
+      question: "Are hormones the main reason my sex drive dropped?",
+      answer:
+        "Hormones are usually part of it but rarely the whole story. The Cleveland Clinic describes perimenopausal hormones as fluctuating 'like a rollercoaster,' with estrogen swinging out of balance with progesterone rather than declining smoothly, and those swings can affect desire. Just as often, low libido is a knock-on effect of what perimenopause disrupts — broken sleep, low mood, and fatigue, which in one international survey of 17,000+ women analyzed by The Menopause Society topped symptoms at 83%.",
+    },
+    {
+      question: "How can I tell whether it's hormonal or driven by sleep and fatigue?",
+      answer:
+        "You often can't tell from feeling alone, but you can from a pattern. Track your desire alongside your sleep, mood, and energy over two or three cycles and watch how they move together. If interest drops whenever your nights are broken and lifts when you're rested, that points to sleep and fatigue as the driver rather than hormones acting on desire directly — and the two point to different responses.",
+    },
+    {
+      question: "When should low libido in perimenopause prompt a doctor's visit?",
+      answer:
+        "Raise it with a clinician when it's distressing you, when sex has become painful, or when it sits alongside other symptoms you'd like help with. Separately, ACOG advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days apart, or any bleeding after menopause — regardless of libido.",
+    },
+  ],
+  "natural-cycles-alternatives-for-perimenopause": [
+    {
+      question: "Can I use Natural Cycles during perimenopause?",
+      answer:
+        "You can, but it was built for a different job. Natural Cycles is the first birth-control app cleared by the FDA (2018) and works by reading your daily basal body temperature plus cycle data to identify fertile days. That method relies on ovulation being detectable and reasonably regular. In perimenopause the U.S. Office on Women's Health notes you may not ovulate every cycle and periods can skip months, which makes the temperature signal harder to interpret. For hot flashes, sleep, mood, and unpredictable bleeding, an app built for midlife symptoms is a better fit.",
+    },
+    {
+      question: "What is the best Natural Cycles alternative for perimenopause symptoms?",
+      answer:
+        "It depends on what you want the app to do. Rythma (our app) is built for perimenopause from the start, learns your symptom patterns, and predicts difficult days before they arrive. Balance is strongest on clinician-backed education, Caria adds AI-assisted guidance, Perry centers on peer community, and Clue is a privacy-forward tracker with a perimenopause mode. Check each app's own page for current features and pricing.",
+    },
+    {
+      question: "Do I still need contraception during perimenopause?",
+      answer:
+        "Possibly. Perimenopause lowers your chances of pregnancy but does not make it impossible until you reach menopause, which the World Health Organization defines as 12 consecutive months since your final period. Contraception decisions in these years are worth discussing with a clinician rather than relying on an app.",
+    },
+    {
+      question: "How is Rythma different from a period tracker in perimenopause?",
+      answer:
+        "Most period trackers grew up around regular, reproductive-age cycles. Rythma is an iPhone app built for perimenopause that expects irregularity, learns your individual symptom patterns, and forecasts high-symptom stretches — fatigue, poor sleep, mood shifts, hot flashes, or brain fog — before they arrive. It also generates a shareable doctor report. It is iPhone-only today, prediction improves the more you log, and it is not a contraceptive.",
+    },
+  ],
+  "perimenopause-and-dizziness": [
+    {
+      question: "Is dizziness a recognized perimenopause symptom?",
+      answer:
+        "Dizziness is not on the standard perimenopause symptom lists — the NHS list names hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint pain, but not dizziness. Many women still report feeling lightheaded or unsteady during the transition, and there are plausible reasons why, but because dizziness has many possible causes it should not be attributed to hormones without ruling out others.",
+    },
+    {
+      question: "Why might perimenopause make me feel dizzy?",
+      answer:
+        "Several midlife factors can contribute. During perimenopause hormone levels fluctuate 'like a rollercoaster' rather than declining smoothly, according to the Cleveland Clinic, and estrogen influences systems that help keep blood pressure and heart rate steady. Poor sleep (reported by 76% of respondents in an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society), heart palpitations, and blood sugar swings can each leave you off-balance too.",
+    },
+    {
+      question: "When is dizziness a red flag that needs urgent care?",
+      answer:
+        "Seek urgent medical care if dizziness comes with chest pain or pressure, a fast irregular heartbeat that won't settle, fainting or near-fainting, shortness of breath, a sudden severe headache, slurred speech, weakness or numbness on one side, trouble walking, or double vision. Book a non-urgent appointment if dizziness is frequent, worsening, comes with hearing changes, or if true spinning vertigo keeps recurring.",
+    },
+    {
+      question: "How does tracking help with dizzy spells?",
+      answer:
+        "Each time you feel dizzy, note the type of sensation, the time of day, what you were doing, when you last ate and drank, how you slept, and whether a hot flash or palpitation was nearby. Over a few weeks, patterns emerge — spells before lunch point toward blood sugar, spells after broken sleep point toward rest. Because perimenopausal periods can run longer, shorter, or skip months entirely (per the U.S. Office on Women's Health), cross-cutting symptoms like dizziness fall through the cracks of cycle-first apps; Rythma, our app, is built for that irregularity instead.",
+    },
+  ],
+  "stardust-alternatives-for-perimenopause": [
+    {
+      question: "Why does Stardust struggle for perimenopause?",
+      answer:
+        "The mismatch is fit, not quality. Stardust is a polished cycle tracker built for a regular, reproductive-age monthly cycle — it even syncs your period to the lunar phase. Perimenopause is exactly when that regular rhythm breaks down: the U.S. Office on Women's Health notes periods may run longer or shorter, heavier or lighter, or skip months entirely, and you may not ovulate every cycle. A tool built around a tidy monthly cycle strains once bleeding becomes unpredictable and non-cycle symptoms take over.",
+    },
+    {
+      question: "What is the best Stardust alternative for perimenopause?",
+      answer:
+        "It depends on what you want. Rythma (our app) is built for perimenopause and forecasts difficult days before they arrive; Balance is strongest on clinician-backed education; Caria adds AI guidance and Perry adds peer community; Clue is a science-forward, privacy-first tracker with a perimenopause mode; and Flo is the largest general tracker with a dedicated perimenopause experience. If your cycle is still regular and you enjoy the astrology framing, you may not need to switch at all.",
+    },
+    {
+      question: "Do perimenopause symptoms go beyond irregular periods?",
+      answer:
+        "Yes. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue was the most reported symptom at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%); hot flashes were recognized as a perimenopause sign by only 71%. A good perimenopause app weighs fatigue, mood, and sleep as heavily as bleeding, not just the calendar.",
+    },
+    {
+      question: "Is Rythma really built for perimenopause?",
+      answer:
+        "Rythma is our own app, and yes — it is an iPhone app built for perimenopause from the start rather than adapted from a standard period tracker. It expects irregularity, learns your individual symptom patterns over time, forecasts difficult days before they arrive, and generates a shareable doctor report. Trade-offs: it is iPhone-only today, and prediction improves the more you log, so the first weeks are mostly logging.",
+    },
+  ],
+  "perimenopause-and-breast-tenderness": [
+    {
+      question: "Is breast tenderness a normal symptom of perimenopause?",
+      answer:
+        "Yes. Breast tenderness in perimenopause is usually hormonal and harmless. The Cleveland Clinic describes perimenopausal hormones as fluctuating \"like a rollercoaster\" rather than declining smoothly, with estrogen swinging out of balance with progesterone — and breast tissue, which is highly sensitive to those hormones, responds with soreness, swelling, or fullness. Tenderness that affects both breasts, feels dull and heavy, and comes and goes is the ordinary pattern.",
+    },
+    {
+      question: "Why does my breast tenderness feel worse or less predictable than the premenstrual soreness I used to have?",
+      answer:
+        "Perimenopause changes the rhythm of your hormones. Instead of a steady monthly rise and fall, estrogen can spike and drop more sharply and less regularly, so the resulting soreness no longer lands in a tidy premenstrual window and can feel like it comes out of nowhere. It is the erratic timing of the hormonal peaks, not anything being wrong, that makes the tenderness feel different from earlier years.",
+    },
+    {
+      question: "When should I see a doctor about breast tenderness?",
+      answer:
+        "See a healthcare professional if you notice a new lump or thickening, pain or tenderness fixed in one spot that does not come and go, skin changes like dimpling or puckering, a newly inverted nipple, nipple discharge (especially if bloody or from one breast), or tenderness that keeps worsening steadily rather than fluctuating. These describe a different pattern from ordinary cyclical soreness. Routine mammograms also remain important through and after menopause, so keep up with the schedule your doctor recommends.",
+    },
+    {
+      question: "How does symptom tracking help with perimenopause breast tenderness?",
+      answer:
+        "A single sore week tells you little, but several weeks of logged symptoms reveal whether your tenderness ebbs and flows (reassuring) or is fixed and steadily escalating (worth checking). Because perimenopausal cycles are irregular — the U.S. Office on Women's Health notes periods may run longer or shorter, heavier or lighter, or skip months entirely — a symptom-first approach that logs the tenderness day by day works better than pinning it to a cycle day. A clear log also gives your doctor concrete evidence instead of a vague worry.",
+    },
+  ],
+  "best-menopause-apps-2026": [
+    {
+      question: "What is the best menopause app in 2026?",
+      answer:
+        "The best app is the one built for the stage you are actually in — for most people searching this, that stage is perimenopause. Menopause-specific apps (Rythma, Balance, Caria, Perry) are designed around midlife symptoms and irregular cycles, while general trackers (Clue, Flo, Natural Cycles, Apple Health) were built for regular reproductive-age cycles and layer perimenopause features on top. Rythma (our app) focuses on predicting difficult days from your personal patterns and generating a doctor report; Balance leads on clinician-backed education. Try one or two free for a few weeks to see which fits.",
+    },
+    {
+      question: "What is the difference between a menopause app and a perimenopause app?",
+      answer:
+        "Menopause itself is a single point in time — 12 consecutive months since your final period with no other medical cause, per the World Health Organization. The symptoms and shifting cycles come before that, during perimenopause, which usually begins in the mid- to late 40s and lasts about four years on average, per the U.S. Office on Women's Health. Most people searching for a 'menopause app' actually want help through perimenopause, so look for an app that expects irregular cycles rather than one built to mark the finish line.",
+    },
+    {
+      question: "Can regular period-tracking apps handle perimenopause?",
+      answer:
+        "They can log symptoms, but their foundation is a roughly 28-day rhythm — exactly what breaks down in perimenopause, when the U.S. Office on Women's Health notes periods may run longer or shorter, skip months, and ovulation may not happen every cycle. Clue and Flo have added dedicated perimenopause modes that account for changing cycle lengths, which help, but their center of gravity remains reproductive-age cycle tracking. Apps built for perimenopause from the start expect that irregularity rather than adapting to it.",
+    },
+    {
+      question: "Is Rythma free, and what platforms does it run on?",
+      answer:
+        "Rythma is our own iPhone app, built for perimenopause from the start; it learns your symptom patterns, predicts difficult days before they arrive, and generates a shareable doctor report. It is iPhone-only today, and prediction improves the more you log, so the first weeks are mostly data-gathering. For current features and pricing, check the App Store listing directly rather than relying on figures that change.",
+    },
+  ],
+  "perimenopause-and-itchy-skin": [
+    {
+      question: "Can perimenopause cause itchy skin?",
+      answer:
+        "Yes. Skin is a hormone-responsive organ with estrogen receptors throughout it. As estrogen fluctuates and declines during perimenopause, skin holds less moisture, the protective barrier weakens, and collagen production slows — leaving skin drier, thinner, and more prone to itch (pruritus). If the itch arrived in your 40s alongside irregular periods, poor sleep, or hot flashes, hormones are a reasonable place to start looking.",
+    },
+    {
+      question: "What is that crawling sensation on my skin during perimenopause?",
+      answer:
+        "It's called formication — the sensation of insects crawling on or under the skin when nothing is there (the name comes from the Latin formica, ant). It's thought to be linked to shifting estrogen's effect on the skin's sensory nerves, usually comes in episodes rather than being constant, and is generally harmless. Because it can also stem from conditions unrelated to hormones, a persistent crawling sensation is worth mentioning to a clinician.",
+    },
+    {
+      question: "How can I soothe itchy perimenopausal skin?",
+      answer:
+        "Because the root problem is usually a compromised moisture barrier, focus on helping skin hold water: moisturize with a fragrance-free cream within a few minutes of bathing, keep water lukewarm and showers short, use gentle fragrance-free cleansers, look for ingredients like ceramides, glycerin, or hyaluronic acid, add a humidifier in dry rooms, and wear daily sunscreen. If itch is significant or over-the-counter steps aren't enough, a clinician can discuss further options.",
+    },
+    {
+      question: "When should I see a doctor about itchy skin in perimenopause?",
+      answer:
+        "Most perimenopausal itch is benign, but see a doctor if the itch is severe, persistent, or disrupting sleep despite good skincare; if there's a rash, hives, blistering, yellowing skin, or a changing mole; if it's all over your body with no obvious cause; if formication is constant rather than episodic; or if it comes with other symptoms like unexplained weight loss or fatigue. Itching can occasionally point to a thyroid, liver, kidney, or other systemic issue.",
+    },
+  ],
+  "best-free-perimenopause-apps-2026": [
+    {
+      question: "Are perimenopause apps really free?",
+      answer:
+        "Every app in this roundup — Rythma, Balance, Clue, Flo, Apple Health, Perry, and Caria — is free to download and lets you start tracking symptoms without paying. Most also offer optional in-app purchases or subscriptions that unlock deeper reports, insights, or content libraries. Pricing changes often, so check each app's own page for the current free-versus-paid split rather than trusting a figure in a blog post.",
+    },
+    {
+      question: "Which free perimenopause app is best for irregular cycles?",
+      answer:
+        "Apps that began as general period trackers assume a fairly regular cycle, so their next-period predictions can wobble once perimenopause scrambles the rhythm — which, as the U.S. Office on Women's Health notes, is when periods run longer or shorter, skip months, and ovulation becomes unpredictable. Rythma (our app) is built specifically for that irregularity and learns your personal patterns instead of assuming a fixed 28-day cycle. Clue's Perimenopause mode also offers a cycle view designed for changing cycle lengths.",
+    },
+    {
+      question: "Can a free app give me a report to bring to my doctor?",
+      answer:
+        "Some can. Rythma generates a shareable doctor report of your symptoms and trends, and Balance offers a Health Report you can bring to appointments. Apple Health's built-in Cycle Tracking does not produce a doctor-ready summary. Apps differ on whether the report is free, so confirm on each app's own page.",
+    },
+    {
+      question: "When should I see a doctor instead of relying on an app?",
+      answer:
+        "An app is a tracking and education tool, not a diagnosis. The American College of Obstetricians and Gynecologists advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days apart, or any bleeding after menopause.",
+    },
+  ],
+  "perimenopause-and-digestive-issues": [
+    {
+      question: "Can perimenopause cause digestive problems like bloating and constipation?",
+      answer:
+        "Yes. The digestive tract responds to sex hormones, so when estrogen and progesterone stop moving in their old rhythm they can alter how quickly the gut moves food and how much water it holds. Progesterone relaxes the smooth muscle that pushes food along, which can slow digestion and cause constipation, while shifting hormones commonly trigger bloating. The Cleveland Clinic describes perimenopausal hormones as fluctuating 'like a rollercoaster' rather than declining smoothly, which is why these gut symptoms tend to come and go alongside other symptoms rather than steadily worsen.",
+    },
+    {
+      question: "Why does bloating get worse during perimenopause?",
+      answer:
+        "As estrogen and progesterone swing out of balance, the body tends to hold onto more water and digestion slows, leaving you puffy, gassy, and tight around the waistband, often worst by evening. Hormonal bloating usually clusters around the days your hormones move most and comes and goes rather than steadily worsening.",
+    },
+    {
+      question: "When should I see a doctor about digestive symptoms in perimenopause?",
+      answer:
+        "Most perimenopausal gut changes are uncomfortable rather than dangerous, but some warrant prompt medical attention: blood in your stool or black, tarry stools; unexplained weight loss; persistent difficulty or pain swallowing; a lasting change in bowel habits that persists for weeks; or severe or worsening abdominal pain. Perimenopause and a separate gut condition such as coeliac disease or IBS can also coexist. Separately, the American College of Obstetricians and Gynecologists advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause.",
+    },
+    {
+      question: "How does tracking help with perimenopause gut symptoms?",
+      answer:
+        "In perimenopause, the U.S. Office on Women's Health notes that periods may run longer or shorter, heavier or lighter, or skip months entirely, which makes gut symptoms feel random without a steady cycle to anchor them to. Logging digestive symptoms alongside your cycle, sleep, and mood turns that randomness into a pattern, so you can see whether your gut flares before a heavy stretch or on poor-sleep weeks. A symptom-first approach that looks for clusters tends to fit an irregular cycle better than a cycle-first app that assumes a fixed next-period date.",
+    },
+  ],
+  "best-app-to-predict-perimenopause-symptoms": [
+    {
+      question: "Can an app really predict perimenopause symptoms?",
+      answer:
+        "Not out of thin air. Prediction is pattern-finding: an app can flag likely difficult days only after you log consistently — which symptoms, how severe, on which days — and only if it is designed to expect irregularity rather than a fixed 28-day cycle. Rythma is built around exactly this, learning your personal patterns over time, but the forecast improves the more you log.",
+    },
+    {
+      question: "Why is predicting symptoms harder than predicting a period?",
+      answer:
+        "Predicting a period assumes a rhythm to lock onto, and perimenopause is defined by the loss of that rhythm. According to the U.S. Office on Women's Health, periods may run longer or shorter, heavier or lighter, or skip months entirely, and you may not ovulate every cycle. The symptoms women report most are also not tied neatly to bleeding — in a survey of 17,000+ women analyzed by The Menopause Society, fatigue topped the list at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%).",
+    },
+    {
+      question: "Do Flo and Clue predict symptom days?",
+      answer:
+        "Not day-ahead symptom forecasts. Flo offers a Perimenopause Score, which the company describes as the first digital assessment tool validated specifically for perimenopause symptoms, plus a window-based next-period prediction — an assessment of your stage and a period-window forecast, not a forecast of how you'll feel. Clue offers a Perimenopause mode with a cycle view for changing cycle lengths. Both are cycle-first by origin; check their own pages for current features.",
+    },
+    {
+      question: "Is Rythma the right app for everyone?",
+      answer:
+        "No. Rythma (our app) is built for women who want to anticipate hard symptom days and are willing to log consistently, and it is iPhone-only today. If you mainly want your next period predicted, Flo's window forecast or Clue's cycle view may suit you better; if you want authoritative education and a clinician-backed brand, Balance is strong. Using two apps is perfectly reasonable.",
+    },
+  ],
+  "perimenopause-and-exercise": [
+    {
+      question: "What is the best type of exercise during perimenopause?",
+      answer:
+        "For most people, resistance/strength training deserves top priority. As estrogen declines and fluctuates, muscle and bone tend to erode, and strength work directly counters that by building muscle, loading bone, and supporting joints and tendons. Two or three sessions a week — bodyweight, bands, dumbbells, or machines — is a reasonable target. Pair it with low- to moderate-intensity cardio like walking for heart health, mood, and sleep.",
+    },
+    {
+      question: "Should I exercise on low-energy or bad-symptom days in perimenopause?",
+      answer:
+        "Match the effort to the day rather than forcing a fixed plan. Fatigue is the most common perimenopause symptom — it topped an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society at 83%. On depleted or poor-sleep days, swap intensity for a walk, gentle mobility, or a lighter strength session so you keep the habit without digging a deeper hole, and save demanding workouts for your better windows.",
+    },
+    {
+      question: "Can exercise help with perimenopause sleep problems?",
+      answer:
+        "Yes. Sleep problems are common in perimenopause — 76% of women reported them in that same Menopause Society survey — and regular activity is one of the more effective non-pharmacological ways to improve sleep quality. If your sleep is fragile, try finishing very intense sessions earlier in the day, since hard evening exercise can leave some people wired at bedtime. After a badly broken night, light movement or rest is usually the more productive choice.",
+    },
+    {
+      question: "Is it safe to exercise with perimenopausal joint pain?",
+      answer:
+        "Usually yes, and staying active generally helps more than stopping, since inactivity tends to make stiff joints worse. Joint pain is a recognized perimenopause symptom (NHS), so favor lower-impact options like swimming, cycling, and walking, warm up properly, and use strength training to build the muscle that supports and stabilizes achy joints. If a specific joint is painful, swollen, or getting worse rather than better, see a clinician rather than training through it.",
+    },
+  ],
+  "best-perimenopause-app-for-irregular-periods": [
+    {
+      question: "Which app is best for tracking irregular perimenopause periods?",
+      answer:
+        "The best fit is an app built for irregularity, not a fixed cycle. For a realistic next-period estimate, choose one with a prediction window — Flo and Clue's perimenopause cycle view both handle changing lengths. To anticipate hard days and prep for your doctor, a perimenopause-first app like Rythma (our app) is built for that.",
+    },
+    {
+      question: "Why does my regular period app stop working in perimenopause?",
+      answer:
+        "Standard apps predict one next-period date from a stable average. In perimenopause, cycles run longer or shorter or skip months entirely, per the U.S. Office on Women's Health, so that average stops meaning much. Under STRAW+10, cycle lengths differing by seven or more days marks the early transition — the swing that breaks it.",
+    },
+    {
+      question: "Is a 60-day gap between periods normal in perimenopause?",
+      answer:
+        "Longer gaps are recognized: STRAW+10 defines the late menopause transition by a stretch of 60 or more days without a period. Still, the American College of Obstetricians and Gynecologists advises seeing a clinician for very heavy bleeding, bleeding between periods or after sex, cycles consistently under about 21 days, or any bleeding after menopause.",
+    },
+    {
+      question: "Can a perimenopause app tell me when I'll have hard days?",
+      answer:
+        "Some aim to. Rythma forecasts high-symptom stretches — fatigue, poor sleep, mood shifts, hot flashes, or brain fog — before they arrive, so you can plan around them even when period timing is unpredictable. Predictions improve as you log.",
+    },
+  ],
+  "perimenopause-and-nutrition": [
+    {
+      question: "What should I focus on eating during perimenopause?",
+      answer:
+        "Four themes carry most of the value: get enough protein, protect your bones with calcium (plus vitamin D and weight-bearing movement), keep your blood sugar steady across the day, and eat plenty of fiber. None of these is a cure — perimenopause is a hormonal shift, not a diet problem — but the way you eat can genuinely influence how you feel day to day. Exact amounts depend on your body and health, so treat these as directions to lean, not targets, and raise specifics with a qualified professional.",
+    },
+    {
+      question: "Why does the same diet seem to work differently in perimenopause?",
+      answer:
+        "During perimenopause hormone levels fluctuate \"like a rollercoaster\" rather than declining smoothly, with estrogen swinging out of balance with progesterone, according to the Cleveland Clinic. Estrogen influences how your body stores fat, maintains bone, manages blood sugar, and regulates appetite — so as it swings, the same meals can produce different results. It doesn't mean you've done anything wrong; the terrain has shifted.",
+    },
+    {
+      question: "Why is protein so important in perimenopause?",
+      answer:
+        "As estrogen falls, the body becomes less efficient at building and holding muscle, which supports metabolism, strength, and balance for the decades ahead. Protein is also the most satiating macronutrient and blunts blood-sugar spikes, which helps with fatigue — the most common perimenopause symptom. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue topped the list at 83%, ahead of irritability and low mood. A practical approach is a protein source at every meal, with extra at breakfast.",
+    },
+    {
+      question: "Can nutrition replace medical care for perimenopause symptoms?",
+      answer:
+        "No. Eating well can steady energy, protect bones, and ease some digestive and blood-sugar symptoms, but it cannot stop the hormonal transition and is not a substitute for medical care. Per ACOG, see a doctor for warning signs such as very heavy bleeding or bleeding between periods. If symptoms are disrupting daily life, a healthcare professional — not a diet change — is the first thing to reach for.",
+    },
+  ],
+  "perimenopause-and-alcohol": [
+    {
+      question: "Does alcohol make perimenopause symptoms worse?",
+      answer:
+        "It can. Alcohol dilates blood vessels and disrupts temperature regulation, which can trigger a hot flash; it degrades the second half of the night's sleep, already the fragile part in perimenopause; and it can leave a next-day dip in mood and energy. Because your hormones are already fluctuating, these effects often feel disproportionate to the amount you drank. Tolerance varies a lot between people.",
+    },
+    {
+      question: "Why does alcohol trigger hot flashes in perimenopause?",
+      answer:
+        "Alcohol widens the blood vessels near the surface of your skin, producing a rush of warmth and flushing. In a body whose internal thermostat is already sensitive because of fluctuating estrogen, that vasodilation can be enough to tip you into a full hot flash — especially when it stacks with warm rooms, spicy food, or stress.",
+    },
+    {
+      question: "Why can't I sleep after drinking during perimenopause?",
+      answer:
+        "Alcohol can help you fall asleep but degrades sleep later in the night, exactly when perimenopausal sleep is most likely to fracture. In the international survey of more than 17,000 women analyzed by The Menopause Society, 76% reported sleep problems. Drinking makes that small-hours waking more likely, and any night sweat it triggers can wake you further.",
+    },
+    {
+      question: "Do I have to stop drinking during perimenopause?",
+      answer:
+        "No. This isn't about abstinence or guilt — plenty of women continue to enjoy a drink through perimenopause. The point is awareness: tracking how you feel on the nights you drink versus the nights you don't lets you see your own pattern and choose deliberately. If you take medication or are considering treatment, ask your clinician how alcohol fits in.",
+    },
+  ],
+  "perimenopause-and-stress": [
+    {
+      question: "Can stress cause perimenopause or make it start earlier?",
+      answer:
+        "No. Perimenopause is the natural hormonal transition leading up to your final period — it is driven by fluctuating estrogen and progesterone, not by stress. What stress does is amplify the symptoms of that transition. Because the same hormones that swing during perimenopause also help regulate your stress response, high-stress stretches tend to intensify sleep problems, hot flashes, irritability, and brain fog.",
+    },
+    {
+      question: "Why does the same stress hit me harder some weeks than others?",
+      answer:
+        "In perimenopause, estrogen and progesterone fluctuate — the Cleveland Clinic describes it as a 'rollercoaster' rather than a smooth decline. Your baseline capacity to cope shifts from week to week alongside those swings and your sleep. On a week when hormones and sleep are relatively steady you have more buffer; on a week disrupted by a night sweat or low mood, the same workload or argument lands with more force.",
+    },
+    {
+      question: "What helps most with stress during perimenopause?",
+      answer:
+        "There is no single fix, but a few themes consistently help: protect sleep first, since broken sleep amplifies both stress and symptoms; build in genuine recovery rather than running days back-to-back; move regularly at a sustainable intensity; and plan lighter around the stretches that tend to be harder for you. None of this replaces professional care — if low mood or anxiety is persistent or interfering with your life, raise it with a clinician.",
+    },
+    {
+      question: "How does tracking help with stress in perimenopause?",
+      answer:
+        "Logging your stress level next to your sleep, mood, hot flashes, and energy reveals your personal amplifiers — for example, that your worst hot-flash days follow your most stressful nights. Because perimenopausal cycles lengthen, shorten, or skip, a cycle-first period app can miss relationships that don't follow the calendar; a symptom-first approach that logs how you feel day by day captures them better and gives your doctor concrete patterns to act on.",
+    },
+  ],
+  "self-care-routines-for-perimenopause": [
+    {
+      question: "What self-care actually helps in perimenopause?",
+      answer:
+        "Symptom-matched routines, not vague pampering. Cool the room and keep a consistent, boring evening for sleep and night sweats; layer clothing and watch known triggers for hot flashes; add regular movement with some strength work for energy and mood; and protect steady daily rhythms for harder days. The NHS lists common perimenopause symptoms as hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint pain — build for the ones actually costing you.",
+    },
+    {
+      question: "Which perimenopause symptoms should I prioritize?",
+      answer:
+        "For most women, energy, mood, and sleep matter most. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue led at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%). Hot flashes get the headlines but were recognized as a perimenopause sign by only 71% of respondents, so aim your routines at the quieter symptoms that wreck a day.",
+    },
+    {
+      question: "How long do I need to keep these routines going?",
+      answer:
+        "Think in years, not a one-week reset. The U.S. Office on Women's Health notes perimenopause usually begins in the mid- to late 40s and lasts about four years on average, sometimes up to eight. Because hormone levels fluctuate — the Cleveland Clinic describes them moving 'like a rollercoaster' — symptoms come and go, so these are routines to sustain and adjust over time.",
+    },
+    {
+      question: "When should I see a doctor instead of relying on self-care?",
+      answer:
+        "Self-care manages daily life; it does not replace medical care. See a qualified professional if symptoms disrupt your sleep, work, mood, or relationships, or if anything feels new, severe, or out of character. The American College of Obstetricians and Gynecologists advises seeing a doctor for very heavy bleeding (soaking a pad or tampon hourly for two or more hours), bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause.",
+    },
+  ],
+  "explaining-perimenopause-to-others": [
+    {
+      question: "How do I explain perimenopause simply to someone who dismisses it?",
+      answer:
+        "Name it plainly, tie it to something they already understand, and make the invisible visible with concrete examples. Perimenopause is the hormonal transition leading to your final period; per the U.S. Office on Women's Health it usually starts in the mid- to late 40s and lasts about four years on average, sometimes up to eight. The most useful single fact to share is that hormones don't decline smoothly — the Cleveland Clinic describes them fluctuating \"like a rollercoaster,\" which is why symptoms come and go unpredictably.",
+    },
+    {
+      question: "Isn't perimenopause basically just hot flashes?",
+      answer:
+        "No — that's the most common misconception. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue topped the list of symptoms at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%). Hot flashes were recognized as a perimenopause sign by only 71% of respondents. The symptoms that actually run people's days are more common than the one everyone associates with the stage.",
+    },
+    {
+      question: "What should a doctor-style symptom summary include?",
+      answer:
+        "Keep it short and factual: which symptoms, how often, how severe, and what pattern — for example, poor sleep 4-5 nights a week clustered before each period, fatigue most days, and two to three hot flashes daily. The Menopause Society notes each hot flash or night sweat episode typically lasts only one to five minutes, a detail worth getting right. A dated, specific record is far harder to dismiss than a vague \"I've been off lately.\"",
+    },
+    {
+      question: "When is perimenopause officially over and menopause confirmed?",
+      answer:
+        "Menopause is confirmed only after 12 consecutive months with no period and no other medical cause, according to the World Health Organization. Everything before that final period — including the years of fluctuating symptoms — is perimenopause, which is why it's a transition rather than a single event.",
+    },
+  ],
+  "should-you-still-track-your-period-in-perimenopause": [
+    {
+      question: "Should I still track my period once I hit perimenopause?",
+      answer:
+        "Yes, but change what you track for. In your reproductive years the point is prediction — averaging past cycles to forecast the next period. The U.S. Office on Women's Health notes that in perimenopause periods can run longer or shorter, heavier or lighter, skip months, and you may not ovulate every cycle, so past cycles stop predicting future ones. Keep logging, but focus on the trend of your bleeding and the symptoms that disrupt your days rather than a next-period date.",
+    },
+    {
+      question: "Why does my period-tracking app keep getting the prediction wrong?",
+      answer:
+        "Standard apps predict by averaging your recent cycle lengths, which only works while cycles are regular. The STRAW+10 staging system defines the early transition as when consecutive cycle lengths persistently differ by seven or more days, and the late transition as a stretch of 60+ days with no period. The Cleveland Clinic describes perimenopausal hormones as fluctuating 'like a rollercoaster' rather than declining smoothly. The app isn't broken — the input is no longer regular enough to project.",
+    },
+    {
+      question: "What should I track instead of my next period date?",
+      answer:
+        "Two things: the shape of your bleeding over months (cycle length, flow, skipped months, and warning signs) and the symptoms that actually disrupt your life. The NHS lists hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint pain. In an international survey of 17,000+ women analyzed by The Menopause Society, fatigue was the most reported symptom at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%) — so logging sleep, mood, energy, and hot flashes often matters more than any date.",
+    },
+    {
+      question: "When should bleeding changes send me to a doctor rather than a tracker?",
+      answer:
+        "The American College of Obstetricians and Gynecologists advises seeing a clinician for very heavy bleeding — soaking a pad or tampon every hour for two or more hours in a row — as well as bleeding between periods or after sex, cycles that stay consistently closer together than about 21 days, or any bleeding after menopause. Tracking flow and timing is exactly what makes these patterns easy to spot and describe to your doctor.",
+    },
+  ],
 };

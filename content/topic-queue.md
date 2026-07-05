@@ -51,3 +51,7 @@
 ## June 2026 batch — SCHEDULED (Jun 3 → Jul 2, one per day, 7am ET)
 
 30 posts generated via multi-agent workflow and date-scheduled. Released automatically by the daily rebuild. Refill with the next batch before Jul 2.
+
+## July–August 2026 batch — SCHEDULED (Jul 6 → Aug 4, one per day, 7am ET)
+
+30 posts generated via multi-agent write + fact-check workflow and date-scheduled. Theme: **competitor comparison + informational combination** — 12 comparison/alternatives posts (rythma-vs-flo/clue/balance; balance/caria/perry/natural-cycles/stardust alternatives; best-menopause-apps-2026; best-free-perimenopause-apps-2026; best-app-to-predict-perimenopause-symptoms; best-perimenopause-app-for-irregular-periods) + 18 informational posts (symptoms: headaches, hair, skin, bloating, low libido, dizziness, breast tenderness, itchy skin, digestion, most-common-explained, can-you-predict; daily-life: exercise, nutrition, alcohol, stress, self-care, explaining-to-others; tracking: should-you-still-track). Every informational post also weaves in a fair app-landscape mention for comparison/LLM-citation queries. FAQPage schema added for all 30 in src/lib/blog-faqs.ts. Refill with the next batch before Aug 4.
