@@ -1,27 +1,36 @@
 "use client";
 
 import { motion } from "motion/react";
-import type { Question } from "@/lib/quiz-data";
+import type { SingleQuestion } from "@/lib/quiz-data";
+import { CheckIcon } from "../icons";
 
+/**
+ * A single-select question (screens 2, 3, 4, 7, 8, 10, 11). Auto-advances on
+ * tap — the engine holds the highlight for a beat first so the choice registers.
+ */
 export function QuestionScreen({
   question,
   selected,
+  answered,
   onSelect,
 }: {
-  question: Question;
-  /** The value chosen on this screen, during the brief select-beat before advancing. */
+  question: SingleQuestion;
+  /** The value chosen here, during the brief hold before advancing. */
   selected: string | null;
+  /** What she picked last time, so a back-tap shows her own answer again. */
+  answered?: string;
   onSelect: (value: string) => void;
 }) {
   return (
-    <div className="flex h-full flex-col justify-center gap-8 px-6 py-4">
+    <div className="flex h-full flex-col justify-center gap-8 overflow-y-auto px-6 py-6">
       <h2 className="font-display text-[26px] font-medium leading-[1.18] tracking-tight text-foreground sm:text-[30px]">
         {question.prompt}
       </h2>
 
       <div className="flex flex-col gap-3">
         {question.options.map((opt, i) => {
-          const isSelected = selected === opt.value;
+          const isSelected =
+            selected === opt.value || (selected === null && answered === opt.value);
           return (
             <motion.button
               key={opt.value}
@@ -39,17 +48,11 @@ export function QuestionScreen({
             >
               <span
                 className={`flex size-6 shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
-                  isSelected
-                    ? "border-primary-foreground bg-primary-foreground/20"
-                    : "border-border"
+                  isSelected ? "border-primary-foreground bg-primary-foreground/20" : "border-border"
                 }`}
                 aria-hidden
               >
-                {isSelected && (
-                  <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="3">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                )}
+                {isSelected && <CheckIcon className="size-4" />}
               </span>
               <span className="flex-1">{opt.label}</span>
             </motion.button>
