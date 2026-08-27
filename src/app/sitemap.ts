@@ -9,36 +9,34 @@ const SITE_URL = "https://rythma.co";
 export const dynamic = "force-dynamic";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const buildTime = new Date();
+  // lastmod must be honest — Google learns to ignore sitemaps whose dates
+  // change on every fetch. Use the real content dates only (this route is
+  // force-dynamic, so `new Date()` here would restamp every request).
+  const published = allPosts.filter((post) => isPublished(post.date));
 
-  const posts = allPosts
-    .filter((post) => isPublished(post.date))
-    .map((post) => {
-      const postDate = new Date(post.date);
-      const daysSincePublish = Math.floor((buildTime.getTime() - postDate.getTime()) / (1000 * 60 * 60 * 24));
+  const posts = published.map((post) => {
+    const lastModified = new Date(post.lastVerified ?? post.lastUpdated ?? post.date);
+    return {
+      url: `${SITE_URL}${post.url}`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: post.isHub ? 0.9 : 0.8,
+    };
+  });
 
-      let lastModified: Date;
-      if (post.lastVerified) {
-        lastModified = new Date(post.lastVerified);
-      } else if (post.lastUpdated) {
-        lastModified = new Date(post.lastUpdated);
-      } else if (daysSincePublish <= 7) {
-        lastModified = buildTime;
-      } else {
-        lastModified = postDate;
-      }
-
-      return {
-        url: `${SITE_URL}${post.url}`,
-        lastModified,
-        changeFrequency: "weekly" as const,
-        priority: post.isHub ? 0.9 : 0.8,
-      };
-    });
+  // Home and /blog genuinely change when a new post publishes — stamp them
+  // with the newest published post's date rather than the request time.
+  const newestPostDate = published.reduce(
+    (max, post) => (new Date(post.date) > max ? new Date(post.date) : max),
+    new Date(0)
+  );
 
   const routes = [
-    { url: SITE_URL, changeFrequency: "daily" as const, priority: 1.0, lastModified: buildTime },
-    { url: `${SITE_URL}/blog`, changeFrequency: "daily" as const, priority: 0.9, lastModified: buildTime },
+    { url: SITE_URL, changeFrequency: "daily" as const, priority: 1.0, lastModified: newestPostDate },
+    { url: `${SITE_URL}/blog`, changeFrequency: "daily" as const, priority: 0.9, lastModified: newestPostDate },
+    { url: `${SITE_URL}/privacy`, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${SITE_URL}/terms`, changeFrequency: "yearly" as const, priority: 0.3 },
+    { url: `${SITE_URL}/support`, changeFrequency: "monthly" as const, priority: 0.4 },
   ];
 
   return [...routes, ...posts];

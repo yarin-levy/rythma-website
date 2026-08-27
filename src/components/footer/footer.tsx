@@ -16,6 +16,11 @@ const links = [
         href: "/#faq",
         title: "Frequently asked questions",
       },
+      {
+        label: "Blog",
+        href: "/blog",
+        title: "Perimenopause guides and answers",
+      },
     ],
   },
   {

@@ -5,6 +5,8 @@
   "scripts": {
     "predev": "contentlayer2 build",
     "dev": "next dev --turbopack",
+    "validate:content": "node scripts/validate-content.mjs",
+    "prebuild": "node scripts/validate-content.mjs",
     "build": "NODE_OPTIONS='--max-old-space-size=7168' next build",
     "start": "next start",
     "lint": "next lint",

@@ -10,6 +10,10 @@ const navItems = [
     label: "FAQ",
     href: "/#faq",
   },
+  {
+    label: "Blog",
+    href: "/blog",
+  },
 ];
 
 export function Nav() {
