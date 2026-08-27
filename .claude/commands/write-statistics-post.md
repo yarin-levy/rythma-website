@@ -395,6 +395,23 @@ Name the source org in prose at least once per stat. Don't rely solely on the ci
 
 ### STEP 11 — Validation Loop
 
+#### 11.0 — Universal checklist + automated gate (HARD GATE)
+
+Read `content/writing-checklist.md` and satisfy every item. After saving the
+post (Step 14), run:
+
+```bash
+npm run validate:content
+```
+
+Zero errors required — this same script gates every deploy, so a failing post
+blocks the site build. It enforces: title/description limits, bare `<`-before-
+number MDX breakers (write "under 90 days", never "<90 days"), internal links
+resolving to real posts, and FAQ parity (the in-body FAQ section from 9.7 must
+be word-for-word identical to the `src/lib/blog-faqs.ts` entry from Step 12 —
+the page renders FAQPage schema from the lib, and Google requires schema to
+match visible content).
+
 #### 11.1 — Character limits (HARD GATE)
 - Title ≤60 chars
 - Description ≤160 chars

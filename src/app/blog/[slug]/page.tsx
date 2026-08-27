@@ -12,10 +12,18 @@ import { isPublished } from "@/lib/blog-date";
 
 const SITE_URL = "https://rythma.co";
 
-// Render per request so the time-based publish gate (isPublished) is evaluated
-// live — a scheduled post flips from 404 to 200 the moment its 7am ET publish
-// time passes, with no rebuild or external scheduler.
-export const dynamic = "force-dynamic";
+// ISR: serve cached HTML (fast TTFB for users and crawlers) but re-render every
+// 5 minutes so the time-based publish gate (isPublished) still flips a
+// scheduled post from 404 to 200 shortly after its 7am ET publish time —
+// no rebuild or external scheduler needed.
+export const revalidate = 300;
+
+// Prerender all published posts at build time. Future-dated posts are omitted
+// here but still render on demand (dynamicParams default), where the runtime
+// isPublished check 404s them until their publish time passes.
+export async function generateStaticParams() {
+  return allPosts.filter((post) => isPublished(post.date)).map((post) => ({ slug: post.slug }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -24,7 +32,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!isPublished(post.date)) return {};
 
   return {
-    title: `${post.title} | Rythma Blog`,
+    // Bare title — no "| Rythma Blog" suffix. All frontmatter titles fit in
+    // 60 chars on their own; the suffix pushed half of them past the SERP
+    // truncation point, and Google shows the site name separately anyway.
+    title: post.title,
     description: post.description,
     authors: post.author ? [{ name: post.author }] : [{ name: "The Rythma Team" }],
     alternates: {
@@ -56,6 +67,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (!isPublished(post.date)) notFound();
 
   const faqs = blogFAQs[slug];
+  // Some older posts already carry an FAQ section inside the MDX body (same
+  // Q&As as blogFAQs). Only render the shared FAQ block when the body doesn't,
+  // so every post shows its FAQs exactly once — Google requires FAQPage schema
+  // to match content that is visible on the page.
+  const hasInlineFaq = /^#{2,3}\s+(FAQ|Frequently asked)/im.test(post.body.raw);
 
   // Related posts — same-cluster first, then most-recent published as fallback.
   // This adds 3–4 internal links to every post, creating crawl paths between
@@ -93,7 +109,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               rel="noopener noreferrer"
               className="relative mb-8 block aspect-video cursor-pointer overflow-hidden rounded-2xl transition-opacity hover:opacity-90"
             >
-              <Image src={post.image || "/og-cover.jpg"} alt={post.title} fill className="object-cover" priority />
+              <Image
+                src={post.image || "/og-cover.jpg"}
+                alt={post.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+                priority
+              />
             </a>
 
             <MDXContent code={post.body.code} />
@@ -101,6 +124,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <div className="mt-12 flex flex-col items-center gap-6">
               <CTAButton variant="large" />
             </div>
+
+            {faqs && faqs.length > 0 && !hasInlineFaq && (
+              <section className="mt-16 border-t border-border pt-10">
+                <h2 className="font-display mb-6 text-2xl font-medium tracking-tight text-ink">
+                  Frequently asked questions
+                </h2>
+                <div className="flex flex-col gap-8">
+                  {faqs.map((faq) => (
+                    <div key={faq.question}>
+                      <h3 className="font-display mb-2 text-lg font-medium text-ink">{faq.question}</h3>
+                      <p className="text-ink-soft">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {relatedPosts.length > 0 && (
               <section className="mt-16 border-t border-border pt-10">
@@ -149,6 +188,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.svg` },
                   },
                   mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}/blog/${slug}` },
+                }),
+              }}
+            />
+
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "BreadcrumbList",
+                  itemListElement: [
+                    { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+                    { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+                    { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${slug}` },
+                  ],
                 }),
               }}
             />

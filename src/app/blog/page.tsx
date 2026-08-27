@@ -5,9 +5,9 @@ import Image from "next/image";
 import { BlogNav } from "@/components/blog/blog-nav";
 import { isPublished } from "@/lib/blog-date";
 
-// Render per request so newly-due posts appear in the listing the moment their
-// 7am ET publish time passes — no rebuild or scheduler needed.
-export const dynamic = "force-dynamic";
+// ISR: cached HTML, re-rendered every 5 minutes so newly-due posts appear in
+// the listing shortly after their 7am ET publish time — no rebuild needed.
+export const revalidate = 300;
 
 export const metadata = {
   title: "Blog | Rythma",
@@ -51,6 +51,7 @@ export default async function BlogPage() {
                   src={post.image || "/og-cover.jpg"}
                   alt={post.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover transition-transform group-hover:scale-105"
                 />
               </div>
