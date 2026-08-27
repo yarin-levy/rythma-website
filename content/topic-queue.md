@@ -55,3 +55,47 @@
 ## July–August 2026 batch — SCHEDULED (Jul 6 → Aug 4, one per day, 7am ET)
 
 30 posts generated via multi-agent write + fact-check workflow and date-scheduled. Theme: **competitor comparison + informational combination** — 12 comparison/alternatives posts (rythma-vs-flo/clue/balance; balance/caria/perry/natural-cycles/stardust alternatives; best-menopause-apps-2026; best-free-perimenopause-apps-2026; best-app-to-predict-perimenopause-symptoms; best-perimenopause-app-for-irregular-periods) + 18 informational posts (symptoms: headaches, hair, skin, bloating, low libido, dizziness, breast tenderness, itchy skin, digestion, most-common-explained, can-you-predict; daily-life: exercise, nutrition, alcohol, stress, self-care, explaining-to-others; tracking: should-you-still-track). Every informational post also weaves in a fair app-landscape mention for comparison/LLM-citation queries. FAQPage schema added for all 30 in src/lib/blog-faqs.ts. Refill with the next batch before Aug 4.
+
+## August–September 2026 batch — SCHEDULED (Aug 28 → Sep 26, one per day, 7am ET)
+
+30 posts, date-scheduled; released automatically by the date gate + daily rebuild.
+**Refill before Sep 26.**
+
+Theme chosen from performance data (PostHog, 120 days to 2026-08-27): every external
+referral the blog has ever received landed on a commercial-intent app page —
+best-perimenopause-tracking-apps-2026 (6), best-free-perimenopause-apps-2026 (3),
+how-to-track-an-irregular-cycle (3), rythma-vs-clue (1), why-period-tracking-apps-fail (1).
+Symptom explainers earned zero. AI engines started referring in August (Perplexity ×2,
+ChatGPT ×1) alongside DuckDuckGo ×4 vs Google ×1. So this batch is weighted **20
+commercial / 10 long-tail informational**.
+
+**NOTE — publishing gap:** the previous batch ran dry 2026-08-04 and nothing published
+Aug 5–27 (23 days). Set a refill reminder before Sep 26.
+
+Commercial (20):
+- Rythma vs. X (6): caria, perry, health-and-her, apple-health, natural-cycles, stardust
+- Competitor vs. competitor (4): flo-vs-clue, clue-vs-balance, balance-vs-caria,
+  flo-vs-balance, perry-vs-caria — *neutral-referee format, strong LLM-citation bait*
+- "Is X good for perimenopause?" (4): is-flo-good, is-clue-good,
+  does-apple-health-track-perimenopause, is-balance-app-worth-it
+- Best-of / use-case (6): hot-flashes, sleep, mood-tracking, doctor-reports,
+  apps-that-predict-symptoms, health-and-her-alternatives
+- Buying guide: how-to-choose-a-perimenopause-app,
+  perimenopause-symptom-tracker-vs-period-tracker
+
+Long-tail informational (10, all uncovered queries): perimenopause-rage, tinnitus,
+frozen-shoulder, dry-eyes, nausea, electric-shock-sensations, body-odor.
+
+New competitors covered for the first time: **Health & Her** (free app + wellness
+toolkit + ORCHA cert; sits inside a supplement business) and **Apple Health Cycle
+Tracking** (Cycle Deviation Detection flags irregular/infrequent/prolonged periods and
+persistent spotting from 6 months of history; exports 12 months as a PDF for a doctor).
+
+**Internal-linking fix:** at diagnosis, 39 of 63 posts had zero inbound body links —
+including every money page earning referrals. Every post in this batch links into the
+previously-orphaned commercial pages (best-free-*, best-app-to-predict-*,
+best-perimenopause-app-for-irregular-periods, best-menopause-apps-2026, rythma-vs-*,
+*-alternatives). Re-run the inbound-link audit after this batch ships.
+
+FAQPage schema added for all 30 in src/lib/blog-faqs.ts.
+

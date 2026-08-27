@@ -1383,4 +1383,814 @@ export const blogFAQs: Record<string, FAQ[]> = {
         "The American College of Obstetricians and Gynecologists advises seeing a clinician for very heavy bleeding — soaking a pad or tampon every hour for two or more hours in a row — as well as bleeding between periods or after sex, cycles that stay consistently closer together than about 21 days, or any bleeding after menopause. Tracking flow and timing is exactly what makes these patterns easy to spot and describe to your doctor.",
     },
   ],
+  "rythma-vs-caria-for-perimenopause": [
+    {
+      question: "What is the main difference between Rythma and Caria?",
+      answer:
+        "Caria pairs symptom logging with AI-assisted conversational guidance, so you can ask what you are experiencing and get information framed for perimenopause. Rythma learns your personal symptom patterns and forecasts difficult days before they arrive, then generates a shareable doctor report. In short, Caria is built to explain what is happening now; Rythma is built to anticipate what is coming. Both are designed for midlife rather than adapted from a reproductive-age period tracker, so neither depends on a regular 28-day cycle.",
+    },
+    {
+      question: "Is Caria or Rythma better for irregular perimenopausal cycles?",
+      answer:
+        "Both handle irregularity far better than a standard period app, because neither is built around averaging recent cycle lengths. Under the STRAW+10 staging system, the early menopause transition is defined by consecutive cycle lengths persistently differing by seven or more days, and the late transition by a gap of 60 or more days. If your main need is anticipating high-symptom days despite that irregularity, a prediction-first app like Rythma is designed for it. If your main need is understanding your symptoms, Caria's guidance may suit you better.",
+    },
+    {
+      question: "Does Caria predict difficult days like Rythma does?",
+      answer:
+        "Caria is built to respond to what you are experiencing rather than forecast it. Its distinguishing feature is conversational AI guidance alongside symptom tracking, which answers questions after you have noticed a symptom. Rythma's distinguishing feature is prediction: it identifies your personal pattern from your logs and flags likely high-symptom stretches — fatigue, poor sleep, mood shifts, hot flashes, brain fog — in advance. Feature sets change, so check Caria's current store listing before deciding.",
+    },
+    {
+      question: "Which app is better for preparing for a doctor's appointment?",
+      answer:
+        "Rythma generates a structured, shareable doctor report summarizing your symptoms and trends, which is designed specifically to be handed over at an appointment. With Caria you have a symptom history you can refer to, but assembling a summary is more manual. Either way, consistent logging is what lets you flag the bleeding changes ACOG says warrant medical attention, such as soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, or cycles consistently closer than about 21 days.",
+    },
+    {
+      question: "Is Rythma available on Android?",
+      answer:
+        "No. Rythma is an iPhone app today, so if you use Android it is not currently an option and you should check Caria's own store listing for its current platform availability. Both apps are free to download where available, which means trying one for a few weeks costs little. Whichever you choose, prediction and pattern detection only become useful once there is enough logged data behind them, so the first few weeks are mostly data-gathering.",
+    },
+  ],
+  "flo-vs-clue-for-perimenopause": [
+    {
+      question: "Is Flo or Clue better for perimenopause?",
+      answer:
+        "It depends on what you weight most. Flo is the larger, more polished app and, according to the company, its perimenopause experience includes a Perimenopause Score it describes as the first digital assessment tool designed and validated specifically for perimenopause symptoms, plus a window-based next-period estimate and an anonymous community. Clue is the privacy-forward option, built in Berlin and handling health data under EU data-protection law, with a perimenopause mode whose cycle view adapts to changing cycle lengths. Choose Flo for assessment and community, Clue for privacy.",
+    },
+    {
+      question: "Does Clue have a perimenopause mode?",
+      answer:
+        "Yes. Clue Perimenopause adds symptom tracking for this stage and, per its makers, a cycle view designed to account for changing cycle lengths rather than simply flagging a period as late. That is a meaningful design choice, because an app that reports you as weeks late every month is misdescribing perimenopause rather than tracking it. Clue remains cycle-first by origin, so perimenopause is one mode among several rather than the app's foundation.",
+    },
+    {
+      question: "Which is more private, Flo or Clue?",
+      answer:
+        "Clue has the stronger privacy reputation of the two. It is headquartered in Berlin and, per its own policy, handles sensitive health data under strict EU data-protection rules, which is a reason many users specifically choose it. If data handling is your top decision factor, read both apps' current privacy policies directly rather than relying on reputation, since policies change. Privacy is a genuine point of difference here rather than a marketing distinction.",
+    },
+    {
+      question: "Can Flo or Clue still predict my period in perimenopause?",
+      answer:
+        "Only loosely, and both have adjusted for that honestly. Standard prediction works by averaging recent cycle lengths, which stops working when those lengths destabilize — the STRAW+10 system defines the early transition as consecutive cycles persistently differing by seven or more days, and the late transition as a gap of 60 or more days. Flo has moved to a prediction window rather than a single date, and Clue's perimenopause cycle view accounts for changing lengths. Treat any app promising a precise date in late perimenopause with suspicion.",
+    },
+    {
+      question: "Do Flo or Clue predict which days will be difficult?",
+      answer:
+        "Neither is built for that. Both are cycle trackers with perimenopause features layered on, so their focus is the cycle and the symptoms you log against it, not learning your individual symptom pattern to forecast high-symptom days. If anticipating hard days is your main goal, that is a different category of app — perimenopause-native tools such as Rythma, which is our own app, along with options like Balance, Caria, and Perry, which approach midlife from different angles.",
+    },
+  ],
+  "perimenopause-rage": [
+    {
+      question: "Is perimenopause rage a real thing?",
+      answer:
+        "It is not a clinical diagnosis, but the experience is well documented. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, irritability was the second most reported symptom of the transition at 80%, behind only fatigue at 83% and ahead of hot flashes at 71%. The NHS also lists mood changes, including mood swings and irritability, among common perimenopause symptoms. So the intensity many women describe is a recognized part of this stage rather than something they are imagining.",
+    },
+    {
+      question: "Why does anger feel so much more intense in perimenopause?",
+      answer:
+        "Several things stack. Hormones fluctuate rather than decline smoothly — the Cleveland Clinic describes levels going up and down like a rollercoaster, with estrogen swinging out of balance with progesterone — and estrogen interacts with serotonin and other systems involved in mood regulation. Sleep loss lowers the threshold further: 76% of women in the Menopause Society survey reported sleep problems. Add the life stage, which typically arrives in the mid- to late 40s alongside teenagers, aging parents, and work pressure, and a real physiological signal lands on an already heavy load.",
+    },
+    {
+      question: "How long does perimenopause irritability last?",
+      answer:
+        "It varies widely and tends to come in stretches rather than as a constant state. Perimenopause itself usually begins in the mid- to late 40s and lasts about four years on average, though it can run up to eight, according to the U.S. Office on Women's Health. Many women notice bad patches of several days rather than an even spread, which is the pattern that becomes visible once you log it. Because cycles no longer run to a calendar, that rhythm can exist without being regular.",
+    },
+    {
+      question: "Does tracking actually help with perimenopause anger?",
+      answer:
+        "It helps more than with most symptoms, because anger is the one you can least assess from memory and the one most easily blamed on circumstance. Logging separates the trigger from the threshold — the argument was the trigger, four broken nights were the threshold — and reveals whether hard stretches cluster. It also turns a vague report into evidence at an appointment: three months of data showing irritability, poor sleep, and fatigue moving together is a very different conversation from saying you have been irritable.",
+    },
+    {
+      question: "When should I see a doctor about perimenopause rage?",
+      answer:
+        "Raise it promptly with a healthcare professional if anger is escalating toward frightening you or someone else, if it comes with persistent low mood, hopelessness, or loss of interest in things you normally care about, or if you are having thoughts of harming yourself. Depressive mood was reported by 77% of women in the Menopause Society survey, so this is common ground and there are recognized management options for perimenopausal mood symptoms. That is a medical conversation rather than something an app can settle.",
+    },
+  ],
+  "rythma-vs-perry-for-perimenopause": [
+    {
+      question: "What is the difference between Rythma and Perry?",
+      answer:
+        "Perry pairs symptom tracking with a peer community of women going through perimenopause at the same time, so its central benefit is shared experience and validation. Rythma learns your individual symptom patterns and forecasts difficult days before they arrive, then generates a shareable doctor report. Both are built for perimenopause rather than adapted from a reproductive-age period tracker, so neither breaks on an irregular cycle. The choice comes down to whether you most need to feel less alone or to anticipate and plan around hard days.",
+    },
+    {
+      question: "Does Perry predict perimenopause symptoms?",
+      answer:
+        "Perry is community-first rather than prediction-first. Its community can tell you that skipped periods, 3am waking, and sudden irritability are normal for this stage, which is genuinely valuable, but it is not designed to model your personal history and tell you which specific days ahead are likely to be difficult. Rythma is built for that forecast. Perry's tracking features continue to evolve, so check its own store listing for current capabilities before deciding.",
+    },
+    {
+      question: "Why does peer community matter in perimenopause?",
+      answer:
+        "Because the most common symptoms are the least recognized. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue topped the list at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%) — all outranking hot flashes at 71%. The symptoms most likely to affect your work and relationships are the ones least likely to be attributed to perimenopause, so hearing another woman describe exactly what you are experiencing corrects a very common form of dismissal.",
+    },
+    {
+      question: "Which app is better for a doctor's appointment, Rythma or Perry?",
+      answer:
+        "Rythma generates a structured, shareable doctor report summarizing your symptoms and trends, which is designed to be handed over. With Perry you have your own log and community context, but you assemble the summary yourself. Either way, tracking is what lets you spot the bleeding changes ACOG says warrant medical attention: very heavy bleeding such as soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, or cycles staying consistently closer than about 21 days.",
+    },
+    {
+      question: "Can I use both Rythma and Perry?",
+      answer:
+        "Yes, and many women effectively do, because the two solve different problems. A community addresses isolation and self-doubt; a prediction-focused tracker addresses planning and appointments. Both are free to download, so trying each for a few weeks costs little. The one constraint worth knowing is platform: Rythma is iPhone-only today, so if you use Android you should check Perry's current availability instead. Whichever you use, log consistently — patterns only surface with enough data.",
+    },
+  ],
+  "best-perimenopause-app-for-hot-flashes": [
+    {
+      question: "What is the best app for tracking hot flashes?",
+      answer:
+        "The best one records timing, intensity, and context rather than just a daily count. Timestamps show whether flashes cluster in the late afternoon or wake you at 3am, which are different problems. Intensity separates six mild flushes from two that soak your shirt. Context — sleep, alcohol, caffeine, stress — is how you find your individual triggers. Among 2026 options, Rythma (our app) forecasts high-symptom days and produces a doctor report, Balance leads on clinician-backed education, Flo offers a validated assessment and community, and Clue offers privacy-first tracking.",
+    },
+    {
+      question: "Are hot flashes the most common perimenopause symptom?",
+      answer:
+        "No, despite being the most associated with it. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, hot flashes were recognized as a perimenopause sign by 71% — behind fatigue at 83%, irritability at 80%, depressive mood at 77%, and sleep problems at 76%. That ranking is a good argument for using an app that tracks the full symptom range rather than one focused narrowly on flashes, since what disrupts your days may not be the flushing itself.",
+    },
+    {
+      question: "Can an app identify my hot flash triggers?",
+      answer:
+        "Only if you log the context alongside the flash. Triggers are individual — the usual suspects are alcohol, caffeine, spicy food, stress, and poor sleep, but the mix differs per person. An app can surface what tends to travel together in your data, which is far more reliable than memory. This takes several weeks of consistent logging to become meaningful, and it works best when you record the flash as it happens rather than reconstructing the day at bedtime.",
+    },
+    {
+      question: "Does a free app work for tracking hot flashes?",
+      answer:
+        "For plain logging, yes. Apple Health Cycle Tracking is built into the iPhone and records periods and some symptoms at no cost, which is enough if you only want a record. What free minimal logging does not give you is interpretation: no prediction of difficult days and no doctor-ready report. Most of the perimenopause-specific apps are also free to download with paid tiers for advanced features, so trying one costs nothing up front.",
+    },
+    {
+      question: "When should I see a doctor about hot flashes?",
+      answer:
+        "Hot flashes are common and generally not dangerous, but they are treatable, so severity that disrupts your sleep, work, or wellbeing is worth a conversation rather than endurance. Separately, the American College of Obstetricians and Gynecologists advises seeing a clinician for very heavy bleeding — soaking a pad or tampon every hour for two or more hours in a row — as well as bleeding between periods or after sex, cycles consistently closer together than about 21 days, or any bleeding after menopause.",
+    },
+  ],
+  "is-flo-good-for-perimenopause": [
+    {
+      question: "Is Flo good for perimenopause?",
+      answer:
+        "Yes, with a caveat. Flo has a dedicated perimenopause experience that, per the company, includes a Perimenopause Score it describes as the first digital assessment tool designed and validated specifically for perimenopause symptoms, symptom tracking beyond bleeding, a window-based next-period estimate, doctor-question guidance, and an anonymous community. Those are sensible responses to midlife. The caveat is structural: Flo grew up around regular reproductive-age cycles, so perimenopause is a layer on top rather than the app's foundation.",
+    },
+    {
+      question: "Does Flo still predict periods accurately in perimenopause?",
+      answer:
+        "Not precisely, and Flo has adjusted honestly by moving to a prediction window rather than a single date. Standard prediction averages recent cycle lengths, which only works while they are stable. The STRAW+10 staging system defines the early menopause transition as consecutive cycle lengths persistently differing by seven or more days, and the late transition as a stretch of 60 or more days without a period. Treat any app promising a confident date in late perimenopause with suspicion — the input for it no longer exists.",
+    },
+    {
+      question: "What is Flo's Perimenopause Score?",
+      answer:
+        "According to Flo, it is a digital assessment tool that the company describes as the first designed and validated specifically for perimenopause symptoms. Practically, it turns a general sense of feeling unwell into a structured result you can bring to an appointment, which matters given how routinely midlife symptoms get attributed to stress. It is an assessment of how you are doing overall rather than a forecast of which upcoming days will be difficult — those are different capabilities.",
+    },
+    {
+      question: "Should I switch from Flo to a perimenopause-specific app?",
+      answer:
+        "It depends on what you need. Stay with Flo if you value its community, want a structured assessment, are early in the transition, or are on Android. Look elsewhere if your main need is anticipating hard days rather than estimating a period, if you want a report built for handing to a clinician, or if privacy is your leading concern — in which case Clue's Berlin base and EU data-protection posture are worth weighing. Perimenopause-native apps include Balance, Caria, Perry, and our own app, Rythma.",
+    },
+    {
+      question: "Does Flo tell you which days will be difficult?",
+      answer:
+        "No. Flo's Perimenopause Score assesses your overall symptom burden and its logging records what has happened, but the app is not designed to learn your individual symptom pattern and forecast that particular days ahead are likely to be rough for you. That forecasting job is what prediction-first perimenopause apps such as Rythma are built around. If planning your week around likely bad stretches is your priority, that is the capability to look for.",
+    },
+  ],
+  "perimenopause-and-tinnitus": [
+    {
+      question: "Can perimenopause cause tinnitus?",
+      answer:
+        "A direct hormonal cause is not established. Tinnitus does not appear on the standard symptom lists from health bodies — the NHS lists hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint pain as common perimenopause symptoms, and tinnitus is not among them. What is plausible is an indirect route: tinnitus perception worsens with poor sleep, stress, and anxiety, all of which are characteristic of this stage. So it can genuinely get worse during perimenopause without perimenopause being its cause.",
+    },
+    {
+      question: "Why does my tinnitus seem worse at night in perimenopause?",
+      answer:
+        "Silence removes anything for the ringing to compete with, so tinnitus is usually loudest in a quiet room. That collides directly with a stage where sleep is heavily disrupted — 76% of women reported sleep problems in an international survey of more than 17,000 women analyzed by The Menopause Society. Waking at 3am in a silent house with your nervous system already activated makes previously unnoticed ringing the loudest thing present. Low background sound at night helps many people for exactly this reason.",
+    },
+    {
+      question: "What else causes tinnitus besides hormones?",
+      answer:
+        "Several things more likely than perimenopause, and some are easily fixed. Cumulative noise exposure is the most common driver. Earwax build-up is trivially treatable and often overlooked. Age-related hearing change frequently presents as tinnitus before hearing loss becomes obvious. Some common medications list tinnitus among their effects. Ear infections, middle-ear problems, blood pressure and cardiovascular factors, and jaw or neck problems can all contribute. Working through that list is a clinician's job, not an app's.",
+    },
+    {
+      question: "When should I see a doctor about ringing in my ears?",
+      answer:
+        "Seek assessment promptly if the tinnitus is only in one ear, pulses in time with your heartbeat, arrives with sudden hearing loss, comes with dizziness, vertigo, or ear pain, follows a head injury, or is distressing enough to affect your sleep, mood, or concentration. Sudden hearing loss in particular is treated as urgent and delay matters. None of these should be attributed to perimenopause without being properly checked first.",
+    },
+    {
+      question: "Does tracking help with tinnitus in perimenopause?",
+      answer:
+        "Once serious causes have been ruled out, yes — not for diagnosis but for identifying what modulates it. Logging tinnitus alongside sleep quality often shows that bad ear nights follow broken sleep rather than causing it, which points the useful intervention at sleep. Recording stress separately from loudness distinguishes how loud it is from how much it bothers you, and those move independently. Alcohol and caffeine are commonly reported modulators and easy to test by their absence.",
+    },
+  ],
+  "rythma-vs-health-and-her-for-perimenopause": [
+    {
+      question: "What is the difference between Rythma and Health & Her?",
+      answer:
+        "They are different kinds of product. Health & Her is a free hormone-health app pairing a daily symptom log and a symptom checker with a wellness toolkit — pelvic floor training, meditation audio, interactive CBT, hydration reminders — plus a personal task list and product recommendations, since it sits inside a supplement business. Rythma is narrower and prediction-focused: it learns your personal symptom patterns, forecasts difficult days before they arrive, and generates a shareable doctor report. One helps you act today; the other tells you about tomorrow.",
+    },
+    {
+      question: "Is the Health & Her app free?",
+      answer:
+        "Yes, the app itself is free, and per its makers it is certified by the digital-health assessor ORCHA. The commercial model is different from a subscription tracker: Health & Her is also a supplement and product business, and the app surfaces personalized recommendations to its own products and articles. That is disclosed rather than hidden, and many people find the recommendations useful, but it is worth knowing when you read one. Confirm current features on the Health & Her app page.",
+    },
+    {
+      question: "Does Health & Her predict perimenopause symptoms?",
+      answer:
+        "It is built around tracking and daily habits rather than forecasting. Its symptom checker, which the company says is based on the British Menopause Society's most commonly reported symptoms, assesses what you are experiencing, and its toolkit gives you exercises and reminders to act on it. Neither is designed to model your individual history and tell you which specific days ahead are likely to be difficult. That prediction job is what Rythma is built around.",
+    },
+    {
+      question: "Which is better for a doctor's appointment?",
+      answer:
+        "Rythma generates a structured, shareable doctor report summarizing symptoms and trends over time, designed to be handed over. Health & Her gives you a daily log and symptom-checker results you can refer to, but assembling a summary is more manual. Either way, consistent logging is what lets you catch the bleeding changes ACOG says warrant medical attention: soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, or cycles consistently closer than about 21 days.",
+    },
+    {
+      question: "Can I use both apps together?",
+      answer:
+        "Yes, and it is a reasonable combination because they address different problems. A habit toolkit helps when you know what would help and struggle to do it consistently; a prediction-focused tracker helps when good and bad days seem to arrive at random and you cannot plan around them. The main constraint is platform — Rythma is iPhone-only today, so check Health & Her's current availability if you use Android. Both are free to download, so trying each costs little.",
+    },
+  ],
+  "health-and-her-alternatives-for-perimenopause": [
+    {
+      question: "What are the best alternatives to Health & Her?",
+      answer:
+        "It depends on which gap sent you looking. For forecasting difficult days and a doctor report, a prediction-first app like Rythma, which is our own app. For the deepest clinician-backed education, Balance from Newson Health. For conversational AI guidance, Caria. For peer community, Perry. For privacy and no commercial product layer, Clue. For scale, a validated assessment, and a community, Flo. Most are free to download, so trying one or two costs little before committing.",
+    },
+    {
+      question: "Why do people switch away from Health & Her?",
+      answer:
+        "Four reasons come up most. They want their hard days predicted rather than managed after the fact — a hydration reminder does not help you decide whether to schedule a difficult meeting on Thursday. They want deeper clinician-authored education than a practical toolkit provides. They want other women rather than exercises, since isolation is a large part of this stage. Or they prefer a tool with no commercial product adjacency, since Health & Her sits inside a supplement business.",
+    },
+    {
+      question: "What does Health & Her do well?",
+      answer:
+        "Its toolkit is genuinely practical. Most menopause apps tell you what is happening; Health & Her also gives you structured things to do about it — pelvic floor training, meditation audio, interactive CBT, hydration reminders — organized as daily habits with a personal task list and reminders. If your frustration is knowing roughly what would help and never doing it consistently, that scaffolding is the product working as intended. The app is free and, per its makers, certified by ORCHA.",
+    },
+    {
+      question: "Which alternative is best if I want my hard days predicted?",
+      answer:
+        "That is a specific capability, and the apps built around it are perimenopause-native and prediction-first rather than general trackers. Rythma, our app, learns your individual symptom patterns from consistent logging and forecasts high-symptom stretches — fatigue, poor sleep, mood shifts, hot flashes, brain fog — before they arrive. It is iPhone-only today and prediction improves the longer you log, so the first weeks are mostly data-gathering rather than useful forecasts.",
+    },
+    {
+      question: "Do any alternatives work without a regular cycle?",
+      answer:
+        "The perimenopause-native ones are designed for exactly that. Under the STRAW+10 staging system, the early menopause transition is defined by consecutive cycle lengths persistently differing by seven or more days, and the late transition by a stretch of 60 or more days without a period, so an app that treats irregularity as an error is describing the wrong body. Rythma, Balance, Caria, and Perry all expect midlife irregularity; Clue and Flo are cycle-first but have added perimenopause modes that account for changing cycle lengths.",
+    },
+  ],
+  "how-to-choose-a-perimenopause-app": [
+    {
+      question: "How do I choose the right perimenopause app?",
+      answer:
+        "Choose by the job you need done rather than the feature list. Six questions settle it: does the app assume a regular cycle; does it track symptoms beyond bleeding; does it forecast difficult days or only record them; does it produce something you can hand a doctor; what happens to your data; and is it on your platform. Perimenopause-native apps like Rythma, Balance, Caria, Perry, and Health & Her are built for midlife irregularity, while general trackers like Flo, Clue, and Apple Health add perimenopause features on top.",
+    },
+    {
+      question: "What's the fastest way to tell if an app is built for perimenopause?",
+      answer:
+        "See what it does with a skipped month. If it reports that you are 42 days late, it is describing a body you no longer have. If it adjusts to changing cycle lengths, as Clue's perimenopause mode does per its makers, or shows a prediction window rather than a single date, as Flo does, it is at least honest about the uncertainty. Perimenopause-native apps avoid the problem entirely by not organizing everything around a predicted period date.",
+    },
+    {
+      question: "What's the difference between an app that records and one that predicts?",
+      answer:
+        "Recording tells you what happened — you had nine bad days last month. Forecasting tells you what is likely — next Tuesday and Wednesday look rough. Only the second lets you move a meeting, decline an invitation, or protect a weekend, which is the practical payoff most women in this stage are actually after. Most trackers record. Prediction of difficult days from your own logged patterns is a specific capability worth checking explicitly rather than assuming any app advertising 'insights' provides it.",
+    },
+    {
+      question: "Which symptoms should a perimenopause app let me track?",
+      answer:
+        "More than bleeding and hot flashes. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, fatigue led at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%) — all outranking hot flashes at 71%. The NHS also lists brain fog, weight gain, palpitations, and joint aches. If you can only log what the app anticipated, your record will miss your worst days.",
+    },
+    {
+      question: "How long should I try a perimenopause app before deciding?",
+      answer:
+        "Four to six weeks, logging daily rather than in bursts, since gaps are what break pattern detection. Record intensity as well as occurrence — six mild hot flashes and two severe ones are not the same day. Then judge it on one question: did it tell you something you did not already know? If not, the app is not fitting the job you need done, and switching costs little since most are free to download.",
+    },
+  ],
+  "is-clue-good-for-perimenopause": [
+    {
+      question: "Is Clue good for perimenopause?",
+      answer:
+        "Yes, particularly if privacy matters to you. Clue is a long-running, science-forward tracker headquartered in Berlin that, per its own policy, handles sensitive health data under strict EU data-protection rules. Clue Perimenopause adds symptom tracking for this stage and, per its makers, a cycle view designed to account for changing cycle lengths rather than reporting a period as late. The limit is structural: Clue grew up around reproductive-age cycles, so it records and displays rather than forecasting which days will be difficult.",
+    },
+    {
+      question: "What does Clue's perimenopause mode actually do?",
+      answer:
+        "It is a mode within the app rather than a separate product. Per its makers, it adds symptom tracking relevant to this stage — hot flashes, sleep shifts, irregular cycles — and a cycle view designed to account for changing cycle lengths. That second point matters more than it sounds: a tracker built on averaging recent cycles will otherwise spend most of the year telling you that you are weeks late, which misdescribes perimenopause rather than tracking it.",
+    },
+    {
+      question: "Is Clue private enough for health data?",
+      answer:
+        "Clue has the strongest privacy reputation in the mainstream category. It is headquartered in Berlin and, per its own policy, handles sensitive health data under strict EU data-protection rules, which is a genuine differentiator rather than a marketing line. That said, policies change, so read the current privacy policy directly rather than relying on reputation. If data handling is your leading decision factor, Clue deserves serious weight against any alternative.",
+    },
+    {
+      question: "Does Clue predict which days will be hard?",
+      answer:
+        "No. Clue records and displays your logged data; it is not designed to model your personal symptom history and forecast that the middle of next week is likely to be rough. That is a different capability, and it is the single biggest functional gap if planning around bad stretches is your goal. Prediction-first perimenopause apps such as Rythma, which is our own app, are built around exactly that forecast rather than around the cycle.",
+    },
+    {
+      question: "Should I switch from Clue in perimenopause?",
+      answer:
+        "Stay if privacy is your leading concern, you value a calm and non-hyped tool, you are early in the transition, or you are on Android and want a trusted cross-platform tracker. Switch if you want hard days forecast rather than recorded, want a report built for handing to a clinician, want peer community, or the cycle-centred framing has started to feel like it describes someone else. Balance, Caria, Perry, Health & Her, and Rythma each solve a different one of those problems.",
+    },
+  ],
+  "perimenopause-and-frozen-shoulder": [
+    {
+      question: "Is frozen shoulder linked to perimenopause?",
+      answer:
+        "There is a striking demographic overlap but not an established causal link. Frozen shoulder concentrates in the 40 to 60 age band and affects women more than men, which is largely the same window in which perimenopause occurs — the U.S. Office on Women's Health puts onset in the mid- to late 40s. Joint and muscle aches are recognized by the NHS as common perimenopause symptoms, and a hormonal contribution to capsular changes is biologically plausible. But research is active rather than concluded, and stronger risk factors exist.",
+    },
+    {
+      question: "What is frozen shoulder and how do I recognize it?",
+      answer:
+        "Frozen shoulder, or adhesive capsulitis, is a thickening and tightening of the capsule around the shoulder joint that progressively restricts movement. It typically runs through a painful freezing phase, a stiff frozen phase where everyday movements like reaching behind your back become difficult, and a gradual thawing phase. The hallmark distinguishing it from ordinary shoulder pain is loss of passive range: someone else moving your arm also cannot get it past a certain point.",
+    },
+    {
+      question: "Should I wait for frozen shoulder to resolve on its own?",
+      answer:
+        "No. The natural course commonly runs for many months and sometimes years, and intervention generally goes better earlier than later, with the right approach depending on which phase you are in. That makes waiting an active choice with a cost rather than a neutral one. Attributing progressive shoulder stiffening to perimenopause and waiting it out is the main avoidable mistake here — even if hormones contribute, the shoulder needs assessing and treating on its own terms.",
+    },
+    {
+      question: "What else raises the risk of frozen shoulder?",
+      answer:
+        "Several factors are better documented than hormones. Diabetes is a well-recognized risk factor, as are thyroid disorders and a period of shoulder immobilization following injury or surgery. Any of those deserve consideration before a hormonal explanation. If you have diabetes or a thyroid condition and develop shoulder pain with stiffness, that combination is worth raising with a clinician promptly rather than monitoring at home.",
+    },
+    {
+      question: "When should I see a doctor about shoulder pain in perimenopause?",
+      answer:
+        "See a doctor if you have shoulder pain with progressive loss of movement, if someone else moving your arm also cannot achieve full range, if the pain wakes you at night or you cannot lie on that side, if dressing or reaching overhead has become difficult, if it followed a period of immobilization, or if you have diabetes or a thyroid condition. Ask specifically about frozen shoulder rather than describing it as general shoulder pain — naming the pattern speeds up assessment.",
+    },
+  ],
+  "does-apple-health-track-perimenopause": [
+    {
+      question: "Does Apple Health track perimenopause?",
+      answer:
+        "Partly, and more usefully than most people assume. Apple's Cycle Tracking logs periods, flow, spotting, and symptoms for free on iPhone and Apple Watch. Its Cycle Deviation Detection can notify you if your logged history over the previous six months shows irregular cycles, infrequent periods, prolonged periods, or persistent spotting, and lets you export the last 12 months as a PDF for a healthcare provider. What it does not do is anything perimenopause-specific: no staging, no midlife framing, and no forecasting of difficult days.",
+    },
+    {
+      question: "What is Apple's Cycle Deviation Detection?",
+      answer:
+        "According to Apple, it is a feature that reviews your logged cycle history from the previous six months and can notify you about patterns of irregular cycles, infrequent periods, prolonged periods, or persistent spotting — and you choose which of those to be alerted about. It is not perimenopause staging, but that list closely resembles how the transition presents, so for many women it is the first concrete signal that something has changed. It is not on by default, so turn it on deliberately.",
+    },
+    {
+      question: "Can I give my doctor a report from Apple Health?",
+      answer:
+        "Yes. Apple states that if you receive a cycle deviation alert you can review your logged history and, if it is accurate, export the last 12 months of cycle history as a PDF to share with your healthcare provider. That is genuinely useful for a midlife appointment, where reconstructing a year of cycles from memory is close to impossible. It is a cycle history rather than a symptom summary, so it covers bleeding patterns more thoroughly than fatigue, sleep, or mood.",
+    },
+    {
+      question: "Are Apple Health's period predictions reliable in perimenopause?",
+      answer:
+        "They become less meaningful as the transition progresses, because they rest on cycle-length regularity. The STRAW+10 staging system defines the early menopause transition as consecutive cycle lengths persistently differing by seven or more days, and the Cleveland Clinic describes perimenopausal hormones as fluctuating like a rollercoaster rather than declining smoothly. Apple's own Cycle Deviation Detection is effectively the feature telling you when to stop trusting the predictions.",
+    },
+    {
+      question: "Is Apple Health enough for perimenopause, or do I need another app?",
+      answer:
+        "It is enough if you want a free, private, low-effort record and a nudge when your cycles change, or you specifically want a PDF for your doctor. It is not enough if you want to understand what is happening rather than just record it, want difficult days forecast so you can plan, or want to track the wider midlife symptom set — fatigue, irritability, low mood, and sleep problems all outrank hot flashes in reported frequency and are not what a cycle-centred logger is built around.",
+    },
+  ],
+  "rythma-vs-apple-health-for-perimenopause": [
+    {
+      question: "Is Apple Health good enough for perimenopause, or is Rythma worth it?",
+      answer:
+        "Apple Health is genuinely enough if you want a free record and a nudge when your cycles change — its Cycle Deviation Detection flags irregular, infrequent, or prolonged periods and persistent spotting from six months of history, and exports 12 months as a PDF for your doctor. Rythma earns its place if you want difficult days forecast from your own symptom patterns so you can plan around them, and a symptom-led doctor report rather than a cycle history. Be honest about whether you will open a second app.",
+    },
+    {
+      question: "What can Rythma do that Apple Health cannot?",
+      answer:
+        "Three things. It forecasts high-symptom stretches before they arrive, based on your logged history, rather than only predicting periods. It is organized around midlife symptoms — fatigue, sleep, mood, brain fog, hot flashes — with bleeding as one input among several, which matters once you may skip months entirely. And its doctor report summarizes symptom trends rather than cycle history, which is closer to what a midlife appointment actually covers.",
+    },
+    {
+      question: "What does Apple Health do better than a dedicated app?",
+      answer:
+        "It is free, already on your phone, and requires no decision to adopt — which is a real advantage, because the best tracker is the one you actually open. It also collects sleep and activity passively in the background without any logging effort, and keeps data inside Apple's health framework rather than a third-party product, which some women weigh heavily for reproductive health data. On supported Apple Watch models it records wrist temperature overnight too.",
+    },
+    {
+      question: "Can I use Apple Health and Rythma together?",
+      answer:
+        "Yes, and it is a sensible combination. Apple Health handles passive measurement — sleep, activity, and on supported Watch models overnight wrist temperature — while a perimenopause app handles interpretation and forecasting. Measurement without interpretation leaves you with numbers you cannot act on; interpretation without measurement relies on recalling nights you were barely conscious for. Rythma is iPhone-only today, so this pairing only applies on iOS.",
+    },
+    {
+      question: "Which is better for a doctor's appointment?",
+      answer:
+        "Both give you a document, but they contain different things. Apple exports 12 months of cycle history as a PDF, which is strong evidence about bleeding patterns. Rythma's doctor report summarizes symptoms and trends over time, which is closer to what a midlife consultation is about. Either way, tracking is how you catch what ACOG says warrants attention: soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, or cycles consistently closer than about 21 days.",
+    },
+  ],
+  "best-perimenopause-app-for-sleep": [
+    {
+      question: "What is the best app for perimenopause sleep problems?",
+      answer:
+        "The best setup is usually a pairing rather than a single app: passive measurement from Apple Health or a wearable, plus a perimenopause app that interprets it. Dedicated sleep trackers measure duration and stages well but know nothing about hormones; perimenopause apps understand the context but rarely measure sleep directly. Among the interpreters, Rythma (our app) links bad nights to forecast hard days, Balance leads on education, Health & Her offers wind-down tools, and Clue and Flo offer cycle-aware logging.",
+    },
+    {
+      question: "How common are sleep problems in perimenopause?",
+      answer:
+        "Very. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, sleep problems were reported by 76%, ranking fourth behind fatigue (83%), irritability (80%), and depressive mood (77%) — and ahead of hot flashes at 71%. The NHS also lists sleep problems among common perimenopause and menopause symptoms. This is a recognized feature of the transition rather than a personal failure of sleep hygiene.",
+    },
+    {
+      question: "Why does a sleep score not help much in perimenopause?",
+      answer:
+        "Because it records the effect and misses the cause. In midlife the waking is often symptom-driven — a night sweat is a thermoregulatory event, not a sleep-architecture problem — so an app reporting that you woke four times without capturing what woke you leaves you no action to take. What helps is logging the trigger, whether that is sweating, anxiety, pain, or the bathroom, and seeing it beside the next day's fatigue and mood.",
+    },
+    {
+      question: "Should I use a wearable or a perimenopause app for sleep?",
+      answer:
+        "Both, if you can. A wearable or Apple Health measures sleep while you are unconscious, which removes the least reliable link in the chain — nobody logs accurately at 3am. A perimenopause app supplies the interpretation: what woke you, what it cost you the next day, and whether bad nights are clustering. Since hormones fluctuate rather than following a schedule, bad sleep tends to arrive in stretches, which only shows up in a view of weeks rather than days.",
+    },
+    {
+      question: "When should I see a doctor about perimenopause sleep problems?",
+      answer:
+        "Persistent disruption is worth a conversation rather than endurance, particularly if night sweats are the trigger — that is a treatable symptom rather than a sleep problem. Raise it promptly if broken sleep comes with persistent low mood or hopelessness, since depressive mood was reported by 77% of women in the Menopause Society survey and is treatable. Also see a clinician for very heavy bleeding, bleeding between periods or after sex, or cycles consistently closer than about 21 days.",
+    },
+  ],
+  "perimenopause-and-dry-eyes": [
+    {
+      question: "Can perimenopause cause dry eyes?",
+      answer:
+        "The association is better supported than for most symptoms outside the standard lists. Dry eye is not among the NHS's named perimenopause symptoms, but dry eye disease is consistently more common in women than men and becomes more common with age, and the tear-producing lacrimal glands and oil-producing meibomian glands are hormonally responsive tissue. Androgens in particular have a recognized role in meibomian gland function. So a hormonal contribution is credible, though age, screen use, and medications matter too.",
+    },
+    {
+      question: "Why do my eyes water if they are dry?",
+      answer:
+        "Because watery eyes are a classic dry eye presentation rather than the opposite of one. Your tear film has a watery layer, an oily layer that stops it evaporating, and a mucin layer. When that film breaks down the eye surface becomes irritated, and irritation triggers a reflex flood of poor-quality tears. Eyes that stream in the wind or by the end of a workday are usually signalling an unstable tear film, not an excess of good tears.",
+    },
+    {
+      question: "What else causes dry eyes besides hormones?",
+      answer:
+        "Several things, and many are more fixable. Blink rate drops substantially during focused screen work, which is a large contributor. Antihistamines, some antidepressants, decongestants, and certain blood pressure medications are recognized causes. Contact lens wear, air conditioning, forced-air heating, planes, and wind all accelerate evaporation. Blepharitis and other lid-margin conditions frequently coexist. Autoimmune conditions such as Sjögren's cause dry eyes and dry mouth together and are more common in women in this age range.",
+    },
+    {
+      question: "When should I see someone about dry eyes in perimenopause?",
+      answer:
+        "Book an assessment if symptoms are persistent rather than occasional, if over-the-counter drops have not helped after a few weeks, if you have dry eyes and a persistently dry mouth, if your vision is affected beyond a brief blur that clears on blinking, if you have eye pain, marked redness, or light sensitivity, or if you can no longer tolerate contact lenses you previously wore comfortably. Management depends on which type of dry eye you have, and that needs someone to examine your tear film.",
+    },
+    {
+      question: "What helps with dry eyes day to day?",
+      answer:
+        "General comfort measures include preservative-free lubricating drops, which matter if you use them several times a day, and warm compresses with lid hygiene, which target the oil-layer problem that is the more common type. Deliberate blinking during screen work and looking away periodically address the biggest modifiable contributor. Humidifying dry rooms and avoiding direct airflow to the face from car vents, fans, and air conditioning help more than people expect. Discuss lens type and wear time if you use contacts.",
+    },
+  ],
+  "balance-vs-caria-for-perimenopause": [
+    {
+      question: "What is the difference between Balance and Caria?",
+      answer:
+        "They answer the same need — understanding what is happening to you — in opposite ways. Balance, from Newson Health and founded by Dr. Louise Newson, offers symptom tracking, a large library of evidence-based articles, and a Health Report for appointments; per its makers it has been recognized by the NHS and certified by ORCHA. Caria pairs symptom logging with conversational AI guidance, so you ask a question and get an answer framed for this stage. Balance rewards reading; Caria rewards asking.",
+    },
+    {
+      question: "Which is more credible, Balance or Caria?",
+      answer:
+        "Balance has the clearer credibility advantage, because its content has provenance: named authorship, an editorial position, and an organization behind it, plus NHS recognition and ORCHA certification per its makers. Caria's AI-assisted guidance is fast and specific to your situation, but it is information rather than medical advice and does not carry citable authorship. If part of your problem is being dismissed and you want something you can point at, that difference matters.",
+    },
+    {
+      question: "Does Balance or Caria predict difficult days?",
+      answer:
+        "Neither does. Both are built around understanding what has already happened — Balance through education and a Health Report, Caria through conversational answers. Neither is designed to learn your individual symptom pattern and forecast that particular days ahead are likely to be difficult. That is a third job, and if what you want is to move a meeting off a bad day rather than understand why the day was bad, prediction-first apps such as Rythma, our own app, are built for it.",
+    },
+    {
+      question: "Do Balance and Caria work with irregular cycles?",
+      answer:
+        "Yes, because neither is built around a fixed monthly rhythm. Both are midlife-first apps rather than reproductive-age trackers adapted for menopause, so irregularity is the expected input. That matters, since under the STRAW+10 staging system the early menopause transition is defined by consecutive cycle lengths persistently differing by seven or more days, and the late transition by a stretch of 60 or more days without a period. A tracker that treats that as an error is describing the wrong body.",
+    },
+    {
+      question: "Which app is better for a doctor's appointment?",
+      answer:
+        "Balance, which generates a Health Report designed for exactly that. With Caria you have your symptom log plus whatever you noted from a conversation, so assembling a summary is more manual. Ten-minute appointments do not favour recall, so arriving with a structured document changes the conversation. Either way, tracking is what lets you spot the bleeding changes ACOG says warrant attention: soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, or cycles consistently closer than about 21 days.",
+    },
+  ],
+  "rythma-vs-natural-cycles-for-perimenopause": [
+    {
+      question: "Is Natural Cycles good for perimenopause?",
+      answer:
+        "It is a regulated contraceptive product rather than a perimenopause tool. Natural Cycles was the first birth-control app cleared by the FDA, in 2018, and uses daily basal body temperature plus cycle data to identify fertile days. It is not designed to interpret midlife symptoms or track perimenopause. It also depends on ovulation, which becomes inconsistent in this stage — the U.S. Office on Women's Health notes you may not ovulate every cycle — so its method gets harder to apply as the transition progresses.",
+    },
+    {
+      question: "Can I still get pregnant in perimenopause?",
+      answer:
+        "Yes. Irregular cycles do not mean infertile cycles, and the fact that periods have become unpredictable is not on its own a reason to stop using contraception. Pregnancy remains possible during perimenopause until menopause is confirmed. Because ovulation becomes inconsistent — anovulatory cycles concentrate in the later part of the transition — this is a question for a healthcare professional rather than an app. Ask specifically what is appropriate for your stage and how long to continue it.",
+    },
+    {
+      question: "Does Rythma do contraception or fertility tracking?",
+      answer:
+        "No. Rythma is a tracking and educational tool, not a medical device, and it makes no fertility or contraceptive claims. Its purpose is the symptom side of midlife: learning your personal patterns from what you log, forecasting high-symptom stretches such as fatigue, poor sleep, mood shifts, hot flashes, and brain fog before they arrive, and generating a doctor report. If you need contraception, that is a separate decision to make with a clinician.",
+    },
+    {
+      question: "Which should I use in my 40s, Natural Cycles or Rythma?",
+      answer:
+        "They solve different problems and both can be live at once. Natural Cycles answers which days you are fertile; Rythma answers which days are likely to be difficult. If contraception matters to you, talk to a clinician about what suits your stage rather than relying on an app comparison. If you want to understand and plan around your symptoms, that is what a perimenopause app is for — Rythma for forecasting, Balance for education, Caria for AI guidance, Perry for community.",
+    },
+    {
+      question: "Why does a temperature-based method get harder in perimenopause?",
+      answer:
+        "Because it detects the hormonal signature of ovulation, and perimenopause disrupts exactly that. The U.S. Office on Women's Health notes that during the transition periods may run longer or shorter, skip months entirely, and you may not ovulate every cycle, while the Cleveland Clinic describes hormones fluctuating like a rollercoaster rather than declining smoothly. When ovulation is inconsistent, the temperature pattern the method relies on becomes inconsistent too, which makes the readings harder to interpret.",
+    },
+  ],
+  "perimenopause-symptom-tracker-vs-period-tracker": [
+    {
+      question: "What is the difference between a symptom tracker and a period tracker?",
+      answer:
+        "A period tracker exists to answer one question — when is my next period — and answers it by averaging your recent cycle lengths, with symptoms treated as annotations on cycle position. A symptom tracker inverts that: symptoms are the primary object and bleeding is one signal among several. The first depends on your recent past predicting your near future; the second depends only on consistent logging. In perimenopause the first assumption fails and the second question becomes the urgent one.",
+    },
+    {
+      question: "Should I stop using a period tracker in perimenopause?",
+      answer:
+        "Not necessarily, but the centre of gravity should shift. Some cycle trackers have adapted sensibly — Clue's perimenopause mode adds a cycle view accounting for changing lengths, per its makers, and Flo has moved to a prediction window rather than a single date. The useful test for any app is whether it assumes your cycle is predictable. If it keeps telling you that you are 34 days late, it is doing arithmetic on inputs that no longer describe you.",
+    },
+    {
+      question: "Should I stop tracking my periods in perimenopause?",
+      answer:
+        "No — this is the part people get wrong when they switch focus. Bleeding remains one of the most clinically important things you log, because it is what identifies problems that are not perimenopause. ACOG advises seeing a clinician for very heavy bleeding such as soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause. What changes is the purpose: you log to notice a reportable change, not to get a prediction.",
+    },
+    {
+      question: "What should I track instead of my next period date?",
+      answer:
+        "A workable set in rough priority: sleep quality and what woke you, energy, mood and irritability, hot flashes and night sweats with intensity, brain fog, bleeding timing and flow, and one or two contextual factors you suspect matter such as alcohol or stress. The NHS lists hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint aches as common symptoms. Resist logging everything — a short list you complete daily beats a comprehensive one you abandon.",
+    },
+    {
+      question: "Can a symptom tracker predict anything in perimenopause?",
+      answer:
+        "Not a period date reliably, but potentially something more useful. Period prediction depends on cycle-length stability, which the STRAW+10 system defines the early transition by the loss of — consecutive cycles persistently differing by seven or more days. Anticipating a high-symptom stretch depends instead on your personal symptom history, which does not require a regular cycle. That is the shift from asking when your period is due to asking which days you should protect.",
+    },
+  ],
+  "perimenopause-and-nausea": [
+    {
+      question: "Can perimenopause cause nausea?",
+      answer:
+        "Not directly, as far as the standard symptom lists go — the NHS names hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint aches, and nausea is not among them. But there are credible indirect routes. Migraine is the biggest: nausea is a core migraine feature, and hormonally triggered migraine commonly worsens in perimenopause. Anxiety produces genuine nausea, and severe sleep deprivation, strong hot flashes, and digestive changes all contribute.",
+    },
+    {
+      question: "Is my nausea actually migraine?",
+      answer:
+        "Quite possibly, and it is worth considering. Nausea and vomiting are core diagnostic features of migraine rather than side notes, and migraine is strongly influenced by hormonal fluctuation — the Cleveland Clinic describes perimenopausal hormones going up and down like a rollercoaster, and it is the swing rather than the level that tends to matter. If your nausea arrives with head pain, light or sound sensitivity, visual disturbance, or a need to lie down in the dark, you are likely describing migraine. Nausea can also dominate with little head pain.",
+    },
+    {
+      question: "What should I rule out before blaming nausea on perimenopause?",
+      answer:
+        "Several things, and some are easily missed. Medications and supplements are the most overlooked — iron supplements, often started for heavy perimenopausal bleeding, are a common culprit. Also consider reflux and gastric conditions, gallbladder problems (classically nausea after fatty meals, more common in women in this age range), thyroid disorders, inner ear and balance problems if dizziness accompanies it, migraine, and pregnancy, since irregular cycles do not mean infertile cycles.",
+    },
+    {
+      question: "When should I see a doctor about nausea in perimenopause?",
+      answer:
+        "Seek assessment if nausea is persistent or recurring rather than occasional, if you are vomiting repeatedly or cannot keep fluids down, if it comes with unintentional weight loss or severe abdominal pain, if there is blood in your vomit or stool, if it arrives with chest pain or shortness of breath, if it accompanies a sudden severe headache unlike your usual ones, or if it started after beginning a new medication. None of those belong in the probably-perimenopause pile.",
+    },
+    {
+      question: "How does tracking help with unexplained nausea?",
+      answer:
+        "It identifies the company the nausea keeps, which is what points to the cause. Log what it arrives with — head pain, light sensitivity, anxiety, a hot flash, a meal, a medication dose — and log the timing, since morning, post-meal, and evening nausea point in different directions. Log it against bleeding too, though without expecting calendar regularity. The result is a record that lets a clinician distinguish between several plausible causes in one appointment rather than three.",
+    },
+  ],
+  "best-app-for-perimenopause-doctor-reports": [
+    {
+      question: "Which app makes the best doctor report for perimenopause?",
+      answer:
+        "It depends what your appointment is about. For a symptom-led summary covering fatigue, sleep, mood, brain fog, and bleeding together, Rythma (our app) generates a doctor report, and Balance produces a Health Report backed by a clinician-founded, NHS-recognized brand per its makers. For bleeding history specifically, Apple Health can export the last 12 months of cycle history as a PDF for free. For knowing what to ask, Flo frames guidance around doctor questions.",
+    },
+    {
+      question: "Can I get a free perimenopause report for my doctor?",
+      answer:
+        "Yes. Apple's Cycle Tracking, built into every iPhone at no cost, includes Cycle Deviation Detection that can notify you if six months of logged history shows irregular cycles, infrequent periods, prolonged periods, or persistent spotting — and if a deviation is detected, Apple states you can export the last 12 months of cycle history as a PDF to share with a healthcare provider. That covers the bleeding half of the conversation well; it does not document fatigue, mood, sleep, or brain fog.",
+    },
+    {
+      question: "How long should I track before a doctor's appointment?",
+      answer:
+        "At least eight weeks, logged consistently rather than in bursts — a fortnight of data documents a fortnight. Record intensity as well as occurrence, since severity and frequency are what get assessed and 'hot flashes: yes' tells a clinician nothing. Keep logging bleeding even once it becomes erratic, because erratic is the clinically interesting part. Then bring one page and two or three clear asks rather than forty pages of raw logs.",
+    },
+    {
+      question: "Why does bringing a report to a perimenopause appointment matter?",
+      answer:
+        "Because recall for fluctuating symptoms is genuinely poor, and because presented one at a time these symptoms look like unrelated complaints rather than a stage. In an international survey of more than 17,000 women analyzed by The Menopause Society, fatigue led at 83%, ahead of irritability (80%), depressive mood (77%), and sleep problems (76%). A document joins them up and shifts how the conversation starts, which matters given how routinely midlife symptoms get attributed to stress.",
+    },
+    {
+      question: "What bleeding changes should a report flag to my doctor?",
+      answer:
+        "The American College of Obstetricians and Gynecologists advises seeing a clinician for very heavy bleeding — soaking a pad or tampon every hour for two or more hours in a row — as well as bleeding between periods or after sex, cycles that stay consistently closer together than about 21 days, and any bleeding after menopause. Describing these accurately from memory is close to impossible, which is exactly why a dated record of flow and timing is worth more than a general impression.",
+    },
+  ],
+  "clue-vs-balance-for-perimenopause": [
+    {
+      question: "What is the difference between Clue and Balance?",
+      answer:
+        "Clue is a tracker that added midlife; Balance is a menopause product that includes tracking. Clue is a Berlin-headquartered period and cycle tracker that, per its own policy, handles health data under strict EU data-protection rules, with a perimenopause mode whose cycle view accounts for changing cycle lengths. Balance, from Newson Health and founded by Dr. Louise Newson, centres on a large evidence-based article library and a Health Report for appointments; per its makers it has been recognized by the NHS and certified by ORCHA.",
+    },
+    {
+      question: "Which is better for privacy, Clue or Balance?",
+      answer:
+        "Clue, clearly. It is headquartered in Berlin and, per its own policy, handles sensitive health data under strict EU data-protection rules, which is a substantive distinction in a category where reproductive health data is genuinely sensitive. That said, policies change, so read both current privacy policies directly rather than relying on reputation. If data handling is your leading decision factor, Clue is the stronger choice of the two.",
+    },
+    {
+      question: "Which app gives me a report for my doctor?",
+      answer:
+        "Balance. It generates a Health Report designed to take to appointments, and its article library helps you frame what you are asking for rather than only what you are experiencing. Clue leaves you to summarize your own log. Either way, tracking is what lets you catch the bleeding changes ACOG says warrant attention: soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, cycles consistently closer than about 21 days, or any bleeding after menopause.",
+    },
+    {
+      question: "Does Clue or Balance handle irregular cycles better?",
+      answer:
+        "They handle irregularity differently rather than one being simply better. Clue's perimenopause mode adds a cycle view designed to account for changing cycle lengths, which matters because STRAW+10 defines the early transition by consecutive cycle lengths persistently differing by seven or more days. Balance sidesteps the issue by treating the cycle as one input among many midlife symptoms. Which suits you depends on how central bleeding still is — early in the transition it usually is, later it usually is not.",
+    },
+    {
+      question: "Do Clue or Balance predict difficult days?",
+      answer:
+        "Neither does. Clue records and displays; Balance records and explains. Neither is designed to learn your individual symptom pattern and forecast that particular days ahead are likely to be rough. Anticipation is a third capability, and it is what prediction-first perimenopause apps such as Rythma, our own app, are built around. If your goal is moving a meeting off a bad day rather than understanding why the day was bad, that is the capability to look for.",
+    },
+  ],
+  "perimenopause-and-electric-shock-sensations": [
+    {
+      question: "What are electric shock sensations in perimenopause?",
+      answer:
+        "Women describe a brief snap, jolt, or rubber-band flick under the skin — often in the head, scalp, neck, or torso — usually lasting under a second and more startling than painful. The detail that comes up most is that it often arrives immediately before a hot flash, almost as a warning shot. Some report it on falling asleep or waking. The descriptions are strikingly consistent, which is part of why the symptom is taken seriously despite thin formal evidence.",
+    },
+    {
+      question: "Are electric shock sensations a recognized perimenopause symptom?",
+      answer:
+        "No. The NHS lists hot flushes, night sweats, sleep problems, mood changes, brain fog, weight gain, palpitations, and joint aches as common perimenopause symptoms, and electric shock sensations are not among them. The formal evidence base is thin. That absence does not mean women are inventing it — the reports are consistent and widespread — but it does mean this is not an established hallmark of the transition, and treating it as one risks missing another cause.",
+    },
+    {
+      question: "Why would hormones cause a shock-like sensation?",
+      answer:
+        "The mechanism is not settled, and anyone explaining it confidently is going beyond the evidence. The most discussed hypothesis follows from the hot flash association: a hot flash is a thermoregulatory event coordinated by the nervous system, and estrogen influences neurological signalling in ways that are studied but not fully mapped. Since the Cleveland Clinic describes perimenopausal hormones as fluctuating like a rollercoaster, sharp swings rather than low levels would fit a symptom this abrupt. That is a reasonable inference, not a demonstrated mechanism.",
+    },
+    {
+      question: "What else causes electric shock or zapping sensations?",
+      answer:
+        "Several things worth ruling out. Nerve compression, such as a pinched cervical nerve, is common and treatable. Peripheral neuropathy has many causes including diabetes and vitamin B12 deficiency, which is easily tested and corrected. Thyroid disorders overlap heavily with perimenopause. Medication changes — particularly starting, stopping, or missing doses of certain antidepressants — can produce sensations often described as brain zaps. Migraine aura, anxiety-related paraesthesia, and neurological conditions including multiple sclerosis can also present this way.",
+    },
+    {
+      question: "When should I see a doctor about these sensations?",
+      answer:
+        "Seek assessment if they are new and recurring, one-sided or always in the same place, accompanied by numbness, weakness, loss of coordination, or vision changes, if they follow a head or neck injury, if there is persistent tingling rather than momentary jolts, if you have recently started, stopped, or changed a medication, or if they disrupt your sleep or daily life. Ask specifically about nerve causes and about testing B12 and thyroid function — naming what you want considered speeds things up.",
+    },
+  ],
+  "rythma-vs-stardust-for-perimenopause": [
+    {
+      question: "Is Stardust good for perimenopause?",
+      answer:
+        "It depends on whether your cycle still has recognizable structure. Stardust frames everything through the four cycle phases — period, follicular, ovulation, luteal — links logged symptoms to those phases, and reads sleep, energy, and activity from Apple Health and wearables. That framework works well when the phases exist. Perimenopause erodes them: the U.S. Office on Women's Health notes you may not ovulate every cycle, and without reliable ovulation the follicular and luteal phases stop being reliably identifiable.",
+    },
+    {
+      question: "What does Stardust do that Rythma does not?",
+      answer:
+        "Three things. It reads data from Apple Health and wearables to surface sleep, energy, and activity trends, which is genuine passive measurement rather than manual logging. It offers partner and friend sharing so people close to you can follow along. And it includes a pregnancy mode. Rythma has none of those — it relies on what you log, has no sharing feature, and makes no fertility or pregnancy claims. Stardust also has a distinctive astronomy-tinged presentation that some people prefer to a clinical one.",
+    },
+    {
+      question: "What does Rythma do that Stardust does not?",
+      answer:
+        "It forecasts difficult days. Rythma learns your individual symptom patterns from consistent logging and flags likely high-symptom stretches — fatigue, poor sleep, mood shifts, hot flashes, brain fog — before they arrive. Crucially, that forecast is built from symptom history rather than cycle-length averages, so it does not require ovulation to be happening on schedule. It also generates a shareable doctor report summarizing symptoms and trends over time.",
+    },
+    {
+      question: "Why does cycle-phase tracking stop working in perimenopause?",
+      answer:
+        "Because the phases depend on ovulation. The follicular phase leads to it and the luteal phase follows it, defined by the progesterone produced afterward. Remove reliable ovulation and the phases stop being identifiable. That is exactly what the transition does: periods may run longer or shorter, skip months entirely, and you may not ovulate every cycle. STRAW+10 defines the early transition by consecutive cycle lengths persistently differing by seven or more days, and the late transition by a gap of 60 or more days.",
+    },
+    {
+      question: "Can I use Stardust and a perimenopause app together?",
+      answer:
+        "Yes, though there is overlap. A reasonable split is passive measurement in one place — Stardust already reads sleep, energy, and activity from Apple Health and wearables — and symptom interpretation in a perimenopause-specific app. If you would rather not run two, pairing Apple Health directly with a perimenopause app achieves something similar. Both Stardust and Rythma are free to download, so trying either for a few weeks costs little before committing.",
+    },
+  ],
+  "best-perimenopause-app-for-mood-tracking": [
+    {
+      question: "What is the best app for tracking mood in perimenopause?",
+      answer:
+        "One that logs mood beside sleep, hot flashes, and energy rather than in isolation, shows multi-week stretches rather than daily scores, and does not explain your mood by a cycle phase that may no longer exist. Among 2026 options, Rythma (our app) feeds mood into a forecast of hard days, Balance gives clinician-backed context, Health & Her offers CBT-style tools, Caria answers questions on demand, Perry offers peer validation, and Clue and Flo offer cycle-aware logging.",
+    },
+    {
+      question: "How common are mood changes in perimenopause?",
+      answer:
+        "More common than hot flashes. In an international survey of more than 17,000 women across 158 countries analyzed by The Menopause Society, irritability was reported by 80% and depressive mood by 77%, both ranking above hot flashes at 71% and behind only fatigue at 83%. The NHS also lists mood changes, including low mood, anxiety, and mood swings, among common perimenopause symptoms. These are recognized features of the transition rather than personal failings.",
+    },
+    {
+      question: "Why track mood alongside sleep?",
+      answer:
+        "Because sleep is usually the driver. Sleep problems affect 76% of women in this stage, and frustration tolerance collapses on broken sleep in anyone — so a great deal of what feels like a mood problem is a sleep problem presenting as one. You only see that relationship if both are logged in the same place over several weeks. Tracking mood alone tends to produce a record of bad days with no explanation and nothing actionable attached.",
+    },
+    {
+      question: "Should I use a general mood app or a perimenopause app?",
+      answer:
+        "A perimenopause app usually wins, despite generic mood apps often having a nicer logging interface. General mood trackers record mood well but do not sit it beside hot flashes, night sweats, energy, and bleeding, and they cannot tell you whether your hard stretches cluster with other midlife symptoms. Since the useful finding in this stage is almost always a cluster rather than a single symptom, having everything in one record matters more than the polish of the mood screen.",
+    },
+    {
+      question: "When does perimenopause mood need a doctor rather than an app?",
+      answer:
+        "Raise it promptly with a healthcare professional if low mood is persistent, if you have lost interest in things you normally care about, if anxiety is interfering with daily life, if anger is escalating toward frightening you or someone else, or if you are having thoughts of harming yourself. Depressive mood was reported by 77% of women in the Menopause Society survey, so this is common ground, and there are recognized management options for perimenopausal mood symptoms that no tracker can provide.",
+    },
+  ],
+  "is-balance-app-worth-it-for-perimenopause": [
+    {
+      question: "Is the Balance app worth it for perimenopause?",
+      answer:
+        "For education and appointment preparation, yes. Balance, from Newson Health and founded by Dr. Louise Newson, combines symptom tracking, a large library of evidence-based articles, and a Health Report for appointments; per its makers it has been recognized by the NHS and certified by ORCHA. That combination is genuinely useful in a stage where symptoms get attributed to stress. It fits less well if you want your difficult days forecast, since Balance records and explains rather than predicting.",
+    },
+    {
+      question: "Is Balance a perimenopause app or a menopause app?",
+      answer:
+        "A menopause app that covers perimenopause within its scope. The distinction matters: menopause is a single point in time — 12 consecutive months since your final period with no other medical cause, per the World Health Organization — while perimenopause is the years of instability before it. Balance covers the whole territory well, which means it is less specifically tuned to the unpredictability that defines the earlier stage than an app built only for that.",
+    },
+    {
+      question: "Should I pay for Balance or stay on the free tier?",
+      answer:
+        "The free tier is enough if you mainly want the articles and basic logging. Paying makes more sense if you will genuinely use the tracking and Health Report — which realistically means logging consistently for at least eight weeks before an appointment, since a report built on a fortnight of scattered entries documents very little. Be honest about that: the most common way any of these apps fails is being opened twice and abandoned, not a missing feature.",
+    },
+    {
+      question: "What does Balance not do?",
+      answer:
+        "It does not forecast which of your days will be difficult — it records and explains rather than predicting, which is the biggest functional gap if planning is your goal. It is not a community, so if isolation is your main problem Perry or Flo's in-app community fit better. And reading is slower than asking, so if your instinct is to pose a question and get an immediate answer, Caria's conversational guidance may suit you better, bearing in mind AI answers are information rather than medical advice.",
+    },
+    {
+      question: "Who should choose something other than Balance?",
+      answer:
+        "Anyone whose main need is different. For knowing which days will be hard, a prediction-first app such as Rythma, which is ours. For an immediate answer rather than an article, Caria. For peer community, Perry or Flo. For privacy above all, Clue, which is headquartered in Berlin and per its own policy handles health data under strict EU data-protection rules. For free and minimal, Apple Health logs the basics and can export 12 months of cycle history as a PDF for your doctor.",
+    },
+  ],
+  "perimenopause-and-body-odor": [
+    {
+      question: "Does perimenopause change your body odor?",
+      answer:
+        "It plausibly does, through a clear mechanism even though body odor is not on the standard symptom lists. Odor comes from skin bacteria breaking down apocrine sweat — the thicker, protein-rich type produced in the armpits and groin — rather than from sweat itself. Hot flushes and night sweats increase sweating overall, and apocrine glands respond strongly to stress arousal rather than temperature alone. More of the odor-producing sweat reaching more bacteria more often is enough to change how you smell.",
+    },
+    {
+      question: "Why does stress sweat smell different from exercise sweat?",
+      answer:
+        "Because it comes from different glands. Eccrine glands cover most of the body and produce thin, watery sweat for cooling, which barely smells on its own. Apocrine glands, concentrated in the armpits and groin, produce a thicker secretion rich in proteins and lipids that skin bacteria metabolize into the compounds you actually smell — and they respond strongly to emotional and stress arousal. Perimenopause raises anxiety and irritability for many women, so apocrine activation increases.",
+    },
+    {
+      question: "What should I rule out before blaming body odor on hormones?",
+      answer:
+        "Several things. Infection, particularly if the odor is localized — any change in vaginal odor with discharge, itching, or discomfort warrants assessment rather than deodorizing. Uncontrolled diabetes can produce a distinctive sweet or fruity smell and needs prompt attention. Thyroid disorders increase sweating and overlap with perimenopause. Medications and supplements affect sweating and odor. Diet and alcohol are excreted partly through the skin. Kidney or liver problems can alter odor too.",
+    },
+    {
+      question: "What actually helps with body odor changes?",
+      answer:
+        "Target the bacteria, not just the sweat: antibacterial washing of apocrine areas addresses the source, antiperspirant reduces sweat production, and deodorant masks smell — three different jobs, and many people use only the third. Natural, breathable fabrics hold less damp against skin than synthetics, which trap moisture and can retain odor through washing. Wash bedding and sleepwear more often if night sweats are involved. Reducing hot flash triggers tackles the problem at source.",
+    },
+    {
+      question: "Could it be my sense of smell that changed, not my odor?",
+      answer:
+        "Possibly, and it is worth considering seriously. Some women in this stage report altered smell sensitivity, and becoming more aware of your own odor is not the same as producing more of it. If nobody around you has noticed anything and you have become preoccupied with it, heightened self-awareness is a real explanation. Tracking odor alongside hot flashes, stress, alcohol, and sleep over several weeks helps distinguish a genuine trigger pattern from anxious monitoring.",
+    },
+  ],
+  "flo-vs-balance-for-perimenopause": [
+    {
+      question: "Is Flo or Balance better for perimenopause?",
+      answer:
+        "They come at midlife from opposite ends. Flo is the largest general cycle tracker and, per the company, its perimenopause experience includes a Perimenopause Score described as validated specifically for perimenopause symptoms, a window-based next-period estimate, doctor-question guidance, and an anonymous community. Balance, from Newson Health and founded by Dr. Louise Newson, centres on clinician-authored articles and a Health Report; per its makers it has been recognized by the NHS and certified by ORCHA. Choose Flo for reach and peers, Balance for depth and authority.",
+    },
+    {
+      question: "Which has more credibility, Flo or Balance?",
+      answer:
+        "Balance, clearly. Its content carries named clinical authorship, it was founded by a clinician through Newson Health, and per its makers it has NHS recognition and ORCHA certification. Flo's credibility signal is different — scale, product investment, and a Perimenopause Score the company describes as validated for perimenopause symptoms. If part of your problem is being dismissed and you want something you can point at in an appointment, Balance is the stronger position to argue from.",
+    },
+    {
+      question: "Does Flo or Balance have a community?",
+      answer:
+        "Flo does; Balance does not. Flo's perimenopause experience includes an anonymous in-app community, which matters because this stage is isolating in a specific way — the most common symptoms are the least recognized as belonging to it. In an international survey analyzed by The Menopause Society, fatigue was reported by 83%, irritability by 80%, and depressive mood by 77%, all above hot flashes at 71%. Reading other women describe exactly that is not a minor feature.",
+    },
+    {
+      question: "Which app gives a better doctor report?",
+      answer:
+        "Balance generates a Health Report designed to be taken to appointments, which is the stronger document. Flo contributes differently: it frames guidance around questions to raise with your doctor and gives you a Perimenopause Score result to reference, which helps when you are not sure what to ask for. They are different tools for the same appointment, and using both is coherent — the score plus the report cover complementary ground.",
+    },
+    {
+      question: "Do Flo or Balance predict difficult days?",
+      answer:
+        "Neither does. Flo's Perimenopause Score assesses your overall symptom burden now; Balance explains what is happening and documents it. Neither is designed to learn your individual symptom pattern and forecast that particular days ahead are likely to be rough. That anticipation is a third capability, and it is what prediction-first perimenopause apps such as Rythma, our own app, are built around — the difference between understanding a bad day afterward and moving a meeting off it beforehand.",
+    },
+  ],
+  "perimenopause-apps-that-predict-symptoms": [
+    {
+      question: "Can an app actually predict perimenopause symptoms?",
+      answer:
+        "Partially, and only for the right thing. Predicting your next period date is not credible in late perimenopause — that depends on cycle-length stability, and STRAW+10 defines the early transition by consecutive cycle lengths persistently differing by seven or more days. What can be forecast is symptom load, because it is built from your own symptom history rather than a calendar. The honest framing is probabilistic: not 'Tuesday will be bad' but 'the next few days look higher-risk than usual'.",
+    },
+    {
+      question: "Why can symptom load be forecast when a period date can't?",
+      answer:
+        "Because they depend on different inputs. Cycle prediction needs stable cycle lengths, which is exactly what the transition removes. Symptom-load forecasting needs your own symptom history — how fatigue, sleep, mood, and flashes have behaved together before, and what tends to precede a bad stretch. That input survives irregularity. It works because symptoms cluster rather than distributing evenly: the Cleveland Clinic describes hormones fluctuating like a rollercoaster, and swings produce runs of difficult days with recognizable leading edges.",
+    },
+    {
+      question: "Which perimenopause apps actually forecast rather than record?",
+      answer:
+        "Very few. Rythma, our app, is built around forecasting difficult days from your logged symptom patterns. Flo offers a Perimenopause Score the company describes as validated for perimenopause symptoms, but that is an assessment of now rather than a forecast. Apple Health's Cycle Deviation Detection flags changes that have already happened across six months of history. Balance, Caria, Perry, Clue, and Health & Her explain, answer, support, or log — legitimate jobs, but not prediction.",
+    },
+    {
+      question: "How long before a prediction app becomes useful?",
+      answer:
+        "Weeks of consistent logging, not days. Every credible prediction claim in this category depends on having enough personal history behind it, so the first stretch of use is mostly data-gathering rather than useful output. An app producing confident forecasts from ten days of scattered entries is producing decoration. Ask any app you are considering how long before its output is meaningful, and treat an answer of 'immediately' as a warning sign.",
+    },
+    {
+      question: "How do I judge whether a prediction claim is honest?",
+      answer:
+        "Ask four questions. Predict what, exactly — a period date, a symptom score, or a difficult stretch? Based on what input — cycle-length averages will fail here, personal symptom history will not. After how long, since any credible forecast needs weeks of data. And how confident does it sound? Appropriate hedging is a good sign in a domain this variable; certainty is the warning sign. No app can tell you a hot flash will happen at a specific time.",
+    },
+  ],
+  "perry-vs-caria-for-perimenopause": [
+    {
+      question: "What is the difference between Perry and Caria?",
+      answer:
+        "Both are midlife-first apps answering the same question — is this normal, and what do I do about it — in opposite ways. Perry pairs symptom tracking with a peer community, so the answer comes from other women in the same stage. Caria pairs symptom tracking with conversational AI guidance, so the answer comes instantly, framed for perimenopause and menopause. Human versus machine, in effect: Perry gives recognition and shared experience, Caria gives availability and specificity.",
+    },
+    {
+      question: "Is peer community or AI guidance more useful in perimenopause?",
+      answer:
+        "It depends on what your problem actually is. If you have spent years being told your symptoms are stress, another woman describing exactly what you are experiencing does something an AI answer cannot — recognition rather than information. If you are lying awake at 3am worried about a symptom now, waiting for a community reply does something worse than nothing. Neither is a clinical source: peer experience is anecdote and AI guidance is generated information, so both suit orientation rather than decisions.",
+    },
+    {
+      question: "Do Perry or Caria work with irregular cycles?",
+      answer:
+        "Yes. Both are built for midlife rather than adapted from a reproductive-age period tracker, so neither breaks when your cycle becomes unpredictable — which is the main reason both beat a standard tracker in this stage. Under the STRAW+10 staging system, the early menopause transition is defined by consecutive cycle lengths persistently differing by seven or more days, and the late transition by a stretch of 60 or more days without a period. Both treat that as ordinary input.",
+    },
+    {
+      question: "Do Perry or Caria generate a doctor report?",
+      answer:
+        "Neither generates a structured report designed to be handed over — both give you a symptom log to work from, and assembling a summary is your job. If a report matters to you, Balance produces a Health Report and Rythma, our own app, generates a doctor report. Either way, tracking is what lets you catch the bleeding changes ACOG says warrant attention: soaking a pad or tampon hourly for two or more hours, bleeding between periods or after sex, or cycles consistently closer than about 21 days.",
+    },
+    {
+      question: "Do Perry or Caria predict difficult days?",
+      answer:
+        "No. Both are reactive by design — you bring a question or a bad day, and they respond, whether through community or AI. Neither is built to learn your individual symptom pattern and forecast which days ahead are likely to be difficult. That anticipation is a separate job, and it is what prediction-first apps such as Rythma are built around. If clinician-authored depth is what you want instead of peers or AI, Balance is the option to look at.",
+    },
+  ],
 };
