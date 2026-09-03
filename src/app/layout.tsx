@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { Toaster } from "sonner";
 import { PostHogProvider } from "@/components/posthog-provider";
 import "./globals.css";
@@ -55,8 +56,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <script
+      <body className={`${inter.variable} ${newsreader.variable} antialiased`}>
+        {/* FB Pixel loads after hydration (next/script) so it doesn't block
+            first paint / LCP the way the old inline <head> script did. */}
+        <Script
+          id="facebook-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               !function(f,b,e,v,n,t,s)
@@ -81,52 +86,10 @@ export default function RootLayout({
             src="https://www.facebook.com/tr?id=862926626501765&ev=PageView&noscript=1"
           />
         </noscript>
-      </head>
-      <body className={`${inter.variable} ${newsreader.variable} antialiased`}>
-        {/* Organization Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Rythma",
-              url: "https://rythma.co",
-              logo: "https://rythma.co/logo.svg",
-              description:
-                "Rythma is the period and symptom tracker built for the unpredictability of perimenopause — it learns your patterns and predicts difficult days before they arrive.",
-              slogan: "Know your hard days before they hit.",
-              knowsAbout: [
-                "Perimenopause",
-                "Perimenopause symptoms",
-                "Menopause",
-                "Hot flashes",
-                "Hormone changes",
-                "Menstrual cycle tracking",
-                "Women's midlife health",
-              ],
-            }),
-          }}
-        />
-
-        {/* MobileApplication Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "MobileApplication",
-              name: "Rythma",
-              operatingSystem: "iOS",
-              applicationCategory: "HealthApplication",
-              description:
-                "Rythma learns your patterns and predicts perimenopause symptoms before they arrive, so you can plan your life around hard days.",
-              url: "https://rythma.co",
-              downloadUrl: "https://apps.apple.com/us/app/rythma-perimenopause-tracker/id6762185611",
-              publisher: { "@type": "Organization", name: "Rythma", url: "https://rythma.co" },
-            }),
-          }}
-        />
+        {/* Organization + MobileApplication schema render on the homepage only
+            (components/site-schema.tsx). Keeping them here put "Perimenopause",
+            "Hot flashes" and applicationCategory:"HealthApplication" into the
+            HTML of /quiz, which must stay neutral for Meta's crawler. */}
 
         <PostHogProvider>{children}</PostHogProvider>
         <Toaster />

@@ -1,12 +1,7 @@
-import { QuizFunnel } from "@/components/quiz/quiz-funnel";
+import { QuizApp } from "@/components/quiz/quiz-app";
 
-// Ad-angle headline variant comes in via ?v= (e.g. /quiz?v=sleep). See
-// HEADLINE_VARIANTS in lib/quiz-data.ts.
-export default async function QuizPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ v?: string; screen?: string }>;
-}) {
-  const { v, screen } = await searchParams;
-  return <QuizFunnel initialVariant={v} initialScreen={screen} />;
+// One URL for the whole funnel (spec hard rule 2): no ?step=, no /quiz/results,
+// no variant params. Quiz state lives in memory only.
+export default function QuizPage() {
+  return <QuizApp />;
 }
