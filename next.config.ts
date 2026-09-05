@@ -35,6 +35,16 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Branded App Store link for ads, bio links, email signatures and print.
+      // No country code in the destination: Apple then routes each visitor to
+      // their own storefront instead of pinning everyone to the US store.
+      // Deliberately NOT permanent — a 308 gets cached hard by browsers, and the
+      // whole point of owning this hop is being able to change where it goes.
+      {
+        source: "/app",
+        destination: "https://apps.apple.com/app/id6762185611",
+        permanent: false,
+      },
       {
         source: "/privacy-policy",
         destination: "/privacy",
