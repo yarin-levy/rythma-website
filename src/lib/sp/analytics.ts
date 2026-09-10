@@ -113,6 +113,14 @@ export function trackCheckoutViewed(plan: string) {
   ph("web_quiz_checkout_viewed", { plan });
 }
 
+/**
+ * She tapped back out of the checkout form. The completed event is fired
+ * server-side by the Stripe webhook, never here (build brief rule 5).
+ */
+export function trackCheckoutAbandoned(plan: string) {
+  ph("web_quiz_checkout_abandoned", { plan });
+}
+
 export function trackHandoffViewed() {
   ph("web_quiz_handoff_viewed");
 }
