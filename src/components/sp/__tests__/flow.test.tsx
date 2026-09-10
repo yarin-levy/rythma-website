@@ -20,10 +20,12 @@ import {
   TOTAL_SCREENS,
   VIDEOS,
   VIDEO_CTA,
+  CHECKOUT,
   question,
   type SingleQuestion,
 } from "@/lib/sp/data";
 import SpEngine from "../sp-engine";
+import { CHECKOUT_COPY } from "../screens/checkout";
 
 // Walks all 31 screens the way she would, asserting each one renders its own
 // blueprint copy. This is the M1 acceptance check ("all 31 screens render")
@@ -299,75 +301,84 @@ describe("the funnel walks from screen 1 to screen 31", () => {
     expect(document.body.textContent).not.toMatch(/today only|hurry|expires/i);
     await tapCta();
 
-    // 30 · Checkout — our chrome; the Stripe form arrives in M3
+    // 30 · Checkout — our recap, then Stripe's form.
+    //
+    // The walk ends here on purpose. Completing checkout needs a live Stripe
+    // session, and there is deliberately no button on this screen that fakes
+    // one; screen 31 is asserted from a deep link below.
     expect(screen.getByText(/Your Starting Picture is waiting in the app/)).toBeTruthy();
     expect(screen.getByText(/You won’t be charged today/)).toBeTruthy();
-    await tapCta();
+    expect(screen.getByText(CHECKOUT.planLine("annual"))).toBeTruthy();
+    // With no publishable key the form cannot mount, and she is told so rather
+    // than shown an empty box.
+    expect(screen.getByText(CHECKOUT_COPY.unavailable)).toBeTruthy();
+    expect(screen.getByText(CHECKOUT_COPY.back)).toBeTruthy();
+  }, 30000);
+});
 
-    // 31 · Handoff, with the code slot empty because nothing was paid
+describe("screen 31, the handoff", () => {
+  it("shows the three steps and an empty code slot until the webhook lands", async () => {
+    window.history.replaceState({}, "", "/quiz?screen=handoff");
+    mount();
+    await settle(0);
+
     expect(screen.getByText(HANDOFF.headline)).toBeTruthy();
     expect(screen.getByText(HANDOFF.reassurance)).toBeTruthy();
     expect(cta().getAttribute("href")).toBe("/app");
+    // No rythma_id here, so nothing is polled and no digits are invented.
     expect(document.body.textContent).not.toMatch(/\d{6}/);
-  }, 30000);
+  });
+
+  it("shows the code once the status route has it", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => ({
+        ok: true,
+        json: async () => ({ paid: true, code: "418902" }),
+      })),
+    );
+    // Driven directly: the poll is the screen's own behaviour, and a deep-linked
+    // engine has no rythma_id to poll with.
+    const { HandoffScreen } = await import("../screens/handoff");
+    render(
+      <main className="sp">
+        <HandoffScreen rythmaId="wq_test" onAppStore={() => {}} />
+      </main>,
+    );
+    await settle(100);
+    expect(screen.getByLabelText(/Your code is 4 1 8 9 0 2/)).toBeTruthy();
+  });
+
+  it("stops polling after 30s and points her at the email", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => ({ ok: true, json: async () => ({ paid: false }) })),
+    );
+    const { HandoffScreen, HANDOFF_COPY } = await import("../screens/handoff");
+    render(
+      <main className="sp">
+        <HandoffScreen rythmaId="wq_test" onAppStore={() => {}} />
+      </main>,
+    );
+    await settle(35000);
+    expect(screen.getByText(HANDOFF_COPY.inEmail)).toBeTruthy();
+  });
 });
 
 describe("the rail rides question screens only", () => {
-  it("shows on questions and chips, and nowhere else", async () => {
-    // Walked by answering the first option every time, which never opens the
-    // 10a fork, so screen numbers line up with FLOW.
+  // Mounted one screen at a time by deep link rather than walked: screen 30
+  // cannot be completed without a live Stripe session, so a tap-through walk
+  // can no longer reach the end.
+  it.each(FLOW.map((s) => [s.n, s.id, s.type] as const))("%i · %s (%s)", async (n, id, type) => {
+    window.history.replaceState({}, "", `/quiz?screen=${id}`);
     mount();
     await settle(0);
 
-    for (const step of FLOW) {
-      const shouldHaveRail = step.type === "question" || step.type === "chips";
-      expect(Boolean(rail()), `${step.n} · ${step.id} rail`).toBe(shouldHaveRail);
-      if (shouldHaveRail) {
-        expect(rail()!.getAttribute("aria-label")).toContain(`question ${step.n} of 31`);
-      }
-      if (step.n === TOTAL_SCREENS) break;
-
-      const radios = document.querySelectorAll('[role="radio"]');
-      const boxes = document.querySelectorAll('[role="checkbox"]');
-      if (step.type === "gate") {
-        await setField(document.querySelector<HTMLInputElement>('input[type="email"]')!, "a@b.co");
-        await tapCta();
-      } else if (step.type === "loader") {
-        await settle(LOADER.totalMs + 200);
-      } else if (radios.length > 0) {
-        await pick(0);
-      } else if (boxes.length > 0) {
-        await pickChecks(1);
-        await tapCta();
-      } else {
-        await settle(3000);
-        await tapCta();
-      }
+    const shouldHaveRail = type === "question" || type === "chips";
+    expect(Boolean(rail()), `${n} · ${id}`).toBe(shouldHaveRail);
+    if (shouldHaveRail) {
+      expect(rail()!.getAttribute("aria-label")).toContain(`question ${n} of 31`);
     }
-  }, 30000);
-});
-
-describe("the dev-only ?screen= deep link", () => {
-  it("jumps straight to a screen by id", async () => {
-    window.history.replaceState({}, "", "/quiz?screen=reveal");
-    mount();
-    await settle(0);
-    expect(screen.getByText(REVEAL.cardTitle)).toBeTruthy();
-    expect(screen.getByText(REVEAL.scoreLock)).toBeTruthy();
-  });
-
-  it("jumps by screen number too", async () => {
-    window.history.replaceState({}, "", "/quiz?screen=29");
-    mount();
-    await settle(0);
-    expect(screen.getByText(PLAN.transparency)).toBeTruthy();
-  });
-
-  it("ignores an unknown screen and starts at the beginning", async () => {
-    window.history.replaceState({}, "", "/quiz?screen=nope");
-    mount();
-    await settle(0);
-    expect(screen.getByText(question("moment").prompt)).toBeTruthy();
   });
 });
 

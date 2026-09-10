@@ -25,6 +25,7 @@ import {
   type SpAnswers,
 } from "@/lib/sp/reveal";
 import type { PlanId } from "@/lib/sp/pricing";
+import { checkoutPath } from "@/lib/sp/checkout-path";
 import {
   metaInitiateCheckout,
   metaLead,
@@ -34,6 +35,7 @@ import {
   trackActViewed,
   trackAgeBand,
   trackAppStoreRedirect,
+  trackCheckoutAbandoned,
   trackCheckoutViewed,
   trackCtaTapped,
   trackGateFailed,
@@ -51,6 +53,7 @@ import {
 import { SectionRail } from "./rail";
 import { AdvertorialScreen, BridgeScreen, EchoScreen, RecognizedScreen, RuledBeatScreen } from "./screens/beats";
 import { CheckoutScreen } from "./screens/checkout";
+import { StoreHandoffScreen } from "./screens/store-handoff";
 import { GateScreen } from "./screens/gate";
 import { HandoffScreen } from "./screens/handoff";
 import { LoaderScreen } from "./screens/loader";
@@ -122,6 +125,11 @@ export default function SpEngine({
   const [email, setEmail] = useState("");
   const [plan, setPlan] = useState<PlanId>("annual");
   const [gatePending, setGatePending] = useState(false);
+  /**
+   * The abandon rescue (blueprint §4, screen 30): coming back from checkout
+   * highlights the monthly row ONCE. Never a second time, and never a popup.
+   */
+  const [rescued, setRescued] = useState(false);
   const [gateError, setGateError] = useState<string | undefined>();
   /**
    * Her profile key. Sent back on a resubmit so a corrected email updates her
@@ -288,6 +296,16 @@ export default function SpEngine({
     trackGateSubmitted();
     advance();
   }, [advance, answers, email, firstName, rythmaId]);
+
+  /** She tapped back out of Stripe's form. One highlight, then never again. */
+  const handleCheckoutBack = useCallback(() => {
+    trackCheckoutAbandoned(plan);
+    if (!rescued) {
+      setRescued(true);
+      setPlan("monthly");
+    }
+    goTo(index - 1);
+  }, [goTo, index, plan, rescued]);
 
   const handlePlanCta = useCallback(() => {
     trackCtaTapped(plan);
@@ -461,6 +479,7 @@ export default function SpEngine({
             quoteId={selectQuoteOrder(answers.moment)[0]}
             urgency={selectUrgency(answers.intensity)}
             plan={plan}
+            rescued={rescued}
             onSelectPlan={(next) => {
               setPlan(next);
               trackPlanSelected(next);
@@ -470,10 +489,24 @@ export default function SpEngine({
         );
 
       case "checkout":
-        return <CheckoutScreen firstName={firstName} topSymptoms={topSymptoms} plan={plan} onContinue={advance} />;
+        // Path B has no web checkout at all: 30 and 31 collapse into the store
+        // handoff. Kept compiling for the day Path A cannot stand.
+        if (checkoutPath() === "B") return <StoreHandoffScreen onAppStore={trackAppStoreRedirect} />;
+        return (
+          <CheckoutScreen
+            firstName={firstName}
+            topSymptoms={topSymptoms}
+            plan={plan}
+            rythmaId={rythmaId}
+            email={email}
+            onComplete={advance}
+            onBack={handleCheckoutBack}
+          />
+        );
 
       case "handoff":
-        return <HandoffScreen onAppStore={trackAppStoreRedirect} />;
+        if (checkoutPath() === "B") return <StoreHandoffScreen onAppStore={trackAppStoreRedirect} />;
+        return <HandoffScreen rythmaId={rythmaId} onAppStore={trackAppStoreRedirect} />;
 
       default:
         return null;
