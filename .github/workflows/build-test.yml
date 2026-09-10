@@ -39,6 +39,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # The funnel's guards: WCAG contrast on every text token, the
+      # banned-substring scan over every string the quiz can produce, and a
+      # walk of all 31 screens. They gate the PR here rather than in
+      # `prebuild`, because Vercel's install can omit devDependencies and a
+      # missing `vitest` would fail the deploy instead of the check.
+      - name: Test
+        run: npm test
+
       - name: Build
         run: npm run build
         env:

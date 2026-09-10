@@ -57,6 +57,19 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --shadow-3xl: var(--shadow-3xl);
+  /* Starting Picture funnel. The values are defined only under `.sp` (see the
+     bottom of this file), so these utilities resolve to nothing outside the
+     funnel and cannot leak into the marketing site. */
+  --color-sp-page: var(--sp-page);
+  --color-sp-ink: var(--sp-ink);
+  --color-sp-ink2: var(--sp-ink2);
+  --color-sp-ink3: var(--sp-ink3);
+  --color-sp-hair: var(--sp-hair);
+  --color-sp-lime: var(--sp-lime);
+  --color-sp-lime-wash: var(--sp-lime-wash);
+  --color-sp-amber: var(--sp-amber);
+  --font-sp-serif: var(--font-instrument-serif);
+  --font-sp-sans: var(--font-archivo);
 }
 
 :root {
@@ -67,111 +80,111 @@
     0px 6.65px 5.32px 0px rgba(0, 0, 0, 0.09), 0px 2.767px 2.214px 0px rgba(0, 0, 0, 0.13);
 
   /* Radiant Curator Palette */
-  --primary: #00464A;
+  --primary: #00464a;
   --primary-foreground: #ffffff;
-  --secondary: #F4F4F4;
-  --secondary-foreground: #1A1C1C;
-  --accent: #00464A;
+  --secondary: #f4f4f4;
+  --secondary-foreground: #1a1c1c;
+  --accent: #00464a;
   --accent-foreground: #ffffff;
-  --background: #F9F9F8;
-  --foreground: #1A1C1C;
+  --background: #f9f9f8;
+  --foreground: #1a1c1c;
   --card: #ffffff;
-  --card-foreground: #1A1C1C;
+  --card-foreground: #1a1c1c;
   --popover: #ffffff;
-  --popover-foreground: #1A1C1C;
-  --muted: #F4F4F4;
-  --muted-foreground: #6B7070;
-  --border: #BEC8C9;
-  --input: #E2E2E2;
-  --ring: #00464A;
-  --destructive: #B5403B;
-  --success: #2D7D5F;
-  --skeleton: #F4F4F4;
+  --popover-foreground: #1a1c1c;
+  --muted: #f4f4f4;
+  --muted-foreground: #6b7070;
+  --border: #bec8c9;
+  --input: #e2e2e2;
+  --ring: #00464a;
+  --destructive: #b5403b;
+  --success: #2d7d5f;
+  --skeleton: #f4f4f4;
 
   /* Named brand colors */
-  --raspberry: #00464A;
+  --raspberry: #00464a;
   --raspberry-soft: rgba(0, 70, 74, 0.12);
-  --tangerine: #C4872E;
+  --tangerine: #c4872e;
   --tangerine-soft: rgba(196, 135, 46, 0.12);
   --cyan: #006064;
   --cyan-soft: rgba(0, 96, 100, 0.12);
-  --green: #2D7D5F;
+  --green: #2d7d5f;
   --green-soft: rgba(45, 125, 95, 0.12);
-  --lemon: #D4E520;
-  --lemon-dark: #5B6300;
+  --lemon: #d4e520;
+  --lemon-dark: #5b6300;
 
   /* Ink (text hierarchy) */
-  --ink: #1A1C1C;
-  --ink-soft: #6B7070;
-  --ink-muted: #9EA3A3;
+  --ink: #1a1c1c;
+  --ink-soft: #6b7070;
+  --ink-muted: #9ea3a3;
 
   /* Chart colors */
-  --chart-1: #00464A;
-  --chart-2: #2D7D5F;
-  --chart-3: #C4872E;
+  --chart-1: #00464a;
+  --chart-2: #2d7d5f;
+  --chart-3: #c4872e;
   --chart-4: #006064;
-  --chart-5: #9EA3A3;
+  --chart-5: #9ea3a3;
 
   /* Sidebar */
   --sidebar: #ffffff;
-  --sidebar-foreground: #1A1C1C;
-  --sidebar-primary: #00464A;
+  --sidebar-foreground: #1a1c1c;
+  --sidebar-primary: #00464a;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #F4F4F4;
-  --sidebar-accent-foreground: #1A1C1C;
-  --sidebar-border: #BEC8C9;
-  --sidebar-ring: #00464A;
+  --sidebar-accent: #f4f4f4;
+  --sidebar-accent-foreground: #1a1c1c;
+  --sidebar-border: #bec8c9;
+  --sidebar-ring: #00464a;
 }
 
 .dark {
-  --background: #1A1C1C;
-  --foreground: #F9F9F8;
-  --card: #2A2D2D;
-  --card-foreground: #F9F9F8;
-  --popover: #2A2D2D;
-  --popover-foreground: #F9F9F8;
-  --primary: #00464A;
+  --background: #1a1c1c;
+  --foreground: #f9f9f8;
+  --card: #2a2d2d;
+  --card-foreground: #f9f9f8;
+  --popover: #2a2d2d;
+  --popover-foreground: #f9f9f8;
+  --primary: #00464a;
   --primary-foreground: #ffffff;
-  --secondary: #2A2D2D;
-  --secondary-foreground: #F9F9F8;
-  --muted: #2A2D2D;
-  --muted-foreground: #9EA3A3;
-  --accent: #00464A;
+  --secondary: #2a2d2d;
+  --secondary-foreground: #f9f9f8;
+  --muted: #2a2d2d;
+  --muted-foreground: #9ea3a3;
+  --accent: #00464a;
   --accent-foreground: #ffffff;
-  --skeleton: #2A2D2D;
-  --destructive: #B5403B;
+  --skeleton: #2a2d2d;
+  --destructive: #b5403b;
   --border: rgba(255, 255, 255, 0.1);
   --input: rgba(255, 255, 255, 0.15);
-  --ring: #00464A;
-  --success: #2D7D5F;
+  --ring: #00464a;
+  --success: #2d7d5f;
 
-  --raspberry: #00464A;
+  --raspberry: #00464a;
   --raspberry-soft: rgba(0, 70, 74, 0.2);
-  --tangerine: #C4872E;
+  --tangerine: #c4872e;
   --tangerine-soft: rgba(196, 135, 46, 0.2);
   --cyan: #006064;
   --cyan-soft: rgba(0, 96, 100, 0.2);
-  --green: #2D7D5F;
+  --green: #2d7d5f;
   --green-soft: rgba(45, 125, 95, 0.2);
-  --lemon: #D4E520;
-  --lemon-dark: #5B6300;
-  --ink: #F9F9F8;
-  --ink-soft: #9EA3A3;
-  --ink-muted: #6B7070;
+  --lemon: #d4e520;
+  --lemon-dark: #5b6300;
+  --ink: #f9f9f8;
+  --ink-soft: #9ea3a3;
+  --ink-muted: #6b7070;
 
-  --chart-1: #00464A;
-  --chart-2: #2D7D5F;
-  --chart-3: #C4872E;
+  --chart-1: #00464a;
+  --chart-2: #2d7d5f;
+  --chart-3: #c4872e;
   --chart-4: #006064;
-  --chart-5: #9EA3A3;
-  --sidebar: #2A2D2D;
-  --sidebar-foreground: #F9F9F8;
-  --sidebar-primary: #00464A;
+  --chart-5: #9ea3a3;
+  --sidebar: #2a2d2d;
+  --sidebar-foreground: #f9f9f8;
+  --sidebar-primary: #00464a;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #2A2D2D;
-  --sidebar-accent-foreground: #F9F9F8;
+  --sidebar-accent: #2a2d2d;
+  --sidebar-accent-foreground: #f9f9f8;
   --sidebar-border: rgba(255, 255, 255, 0.1);
-  --sidebar-ring: #00464A;
+  --sidebar-ring: #00464a;
 }
 
 @layer base {
@@ -206,17 +219,17 @@
 
 /* Phone mockup styles */
 .phone-frame {
-  background: #F9F9F8;
+  background: #f9f9f8;
   border-radius: 44px;
   padding: 10px;
   box-shadow:
-    0 50px 100px rgba(0,0,0,0.15),
-    0 0 0 1px rgba(0,0,0,0.05);
+    0 50px 100px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
   position: relative;
 }
 
 .phone-frame::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 10px;
   left: 50%;
@@ -231,15 +244,22 @@
 .phone-screen {
   width: 100%;
   height: 100%;
-  background: #F9F9F8;
+  background: #f9f9f8;
   border-radius: 36px;
   overflow: hidden;
 }
 
 /* Pulse animation for indicators */
 @keyframes pulse-soft {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
 }
 
 .animate-pulse-soft {
@@ -248,7 +268,8 @@
 
 /* Breathing gradient animations for hero */
 @keyframes breathe-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -257,7 +278,8 @@
 }
 
 @keyframes breathe-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -266,7 +288,8 @@
 }
 
 @keyframes breathe-3 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -275,7 +298,8 @@
 }
 
 @keyframes breathe-4 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -301,7 +325,8 @@
 
 /* Orb floating animations */
 @keyframes orb-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(-50%) translateY(0) scale(1);
   }
   33% {
@@ -313,7 +338,8 @@
 }
 
 @keyframes orb-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(1);
   }
   50% {
@@ -322,7 +348,8 @@
 }
 
 @keyframes orb-3 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) translateX(0) scale(1);
   }
   40% {
@@ -334,7 +361,8 @@
 }
 
 @keyframes orb-4 {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1) rotate(0deg);
   }
   50% {
@@ -343,7 +371,8 @@
 }
 
 @keyframes orb-5 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(1);
     opacity: 1;
   }
@@ -386,7 +415,8 @@
 
 /* Pulsing glow effect for CTA buttons */
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 4px 14px 0 rgba(0, 70, 74, 0.3);
   }
   50% {
@@ -490,6 +520,114 @@
     animation: none;
   }
   .quiz-rise {
+    animation-name: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ============================================================
+   Starting Picture funnel (/quiz behind NEXT_PUBLIC_QUIZ_V3) — blueprint §2
+   ============================================================
+
+   Every token lives under `.sp`, which is set on the funnel shell and nowhere
+   else, so the marketing site and the blog are untouched by them. The values
+   are mirrored from src/lib/sp/tokens.ts and src/lib/sp/__tests__/tokens.test.ts
+   diffs this block against that file, so the pair cannot drift.
+
+   Single theme, white. There is deliberately no `prefers-color-scheme` rule
+   anywhere in the funnel and the background is painted explicitly, so the OS
+   setting is ignored. Type is in rem, so her phone's text-size setting applies;
+   nothing readable is below 15px and pinch-zoom stays on. */
+.sp {
+  --sp-page: #ffffff;
+  --sp-ink: #084734;
+  --sp-ink2: #3e6a5b;
+  --sp-ink3: #5f8577;
+  --sp-hair: rgba(8, 71, 52, 0.16);
+  --sp-lime: #cef17b;
+  --sp-lime-wash: #eaf7ce;
+  --sp-amber: #c4872e;
+
+  /* 19px body, 15px floor, 30px prompts, 40–44px serif headlines. */
+  --sp-text-label: 0.9375rem; /* 15px — rail, counts, hairline labels, footnotes */
+  --sp-text-chip: 1.0625rem; /* 17px — chips, captions, secondary actions */
+  --sp-text-body: 1.1875rem; /* 19px — body, answer options, primary button */
+  --sp-text-prompt: 1.875rem; /* 30px — question prompts */
+  --sp-text-serif: clamp(2.5rem, 9vw, 2.75rem); /* 40–44px — emotional beats */
+
+  color-scheme: only light;
+  background-color: var(--sp-page);
+  color: var(--sp-ink);
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--sp-text-body);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Long screens (the reveal, the plan) scroll the document rather than an
+     inner pane, so iOS Safari's own address-bar collapse does the right thing.
+     The shell is at least a viewport tall and the CTA sticks above the inset. */
+  min-height: 100svh;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Stop iOS double-tap zoom and the grey tap flash on anything interactive. */
+.sp-tap {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Visible focus for keyboard and switch users (blueprint §2, Primary button). */
+.sp-tap:focus-visible,
+.sp a:focus-visible,
+.sp input:focus-visible {
+  outline: 2px solid var(--sp-ink);
+  outline-offset: 3px;
+}
+
+/* The primary action rides above the home indicator on scrolling screens. */
+.sp-actions {
+  position: sticky;
+  bottom: 0;
+  background: var(--sp-page);
+  padding-bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
+}
+
+/* 320ms fade + 16px slide. Used by the LP, which carries no motion library so
+   first paint on a cold tap-through stays cheap. */
+@keyframes sp-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.sp-rise {
+  animation: sp-rise 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* The loader's four lines tick in over ~5s; nothing spins, nothing counts down. */
+@keyframes sp-tick {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.sp-tick {
+  animation: sp-tick 0.32s ease-out both;
+}
+
+/* prefers-reduced-motion drops the slide and every stagger (blueprint §2). */
+@media (prefers-reduced-motion: reduce) {
+  .sp-rise,
+  .sp-tick {
+    animation-delay: 0ms !important;
     animation-name: none;
     opacity: 1;
     transform: none;
