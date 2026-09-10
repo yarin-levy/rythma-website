@@ -48,7 +48,6 @@ function submission(over: Record<string, unknown> = {}) {
   return {
     email: "sarah@example.com",
     firstName: "Sarah",
-    variant: 3,
     eventId: "evt-1",
     answers: {
       moment: "dismissed",
@@ -88,7 +87,6 @@ describe("a submitted profile round-trips with the exact enum values", () => {
     const stored = __mockProfile(body.rythmaId)!;
     expect(stored.email).toBe("sarah@example.com");
     expect(stored.first_name).toBe("Sarah");
-    expect(stored.variant).toBe(3);
     expect(stored.symptoms).toEqual(["brainFog", "anxiety", "nightSweats"]);
     expect(stored.answers).toEqual({
       moment: "dismissed",
@@ -131,11 +129,14 @@ describe("a submitted profile round-trips with the exact enum values", () => {
     expect(__mockProfile(first.rythmaId)!.email).toBe("corrected@example.com");
   });
 
-  it("clamps a variant it does not recognise instead of refusing her", async () => {
-    const res = await post(submission({ variant: 99 }));
+  // Build brief rule 0: one landing page, so there is no variant to report.
+  // The app handout's §2 still lists `variant (1-6)` as required — that field
+  // has to become optional on the edge function before the real URL is set.
+  it("never sends a variant, and ignores one a client tries to add", async () => {
+    const res = await post(submission({ variant: 3 }));
     expect(res.status).toBe(200);
     const { rythmaId } = (await res.json()) as { rythmaId: string };
-    expect(__mockProfile(rythmaId)!.variant).toBe(1);
+    expect(__mockProfile(rythmaId)).not.toHaveProperty("variant");
   });
 });
 

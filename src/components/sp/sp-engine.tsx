@@ -106,13 +106,11 @@ function devScreenIndex(allowed: boolean): number | null {
 }
 
 export default function SpEngine({
-  variant,
   onExit,
   // Defaults to on outside a production build, so a direct mount in a test
   // gets the deep link without having to opt in.
   devLinks = process.env.NODE_ENV !== "production",
 }: {
-  variant: number;
   onExit: () => void;
   devLinks?: boolean;
 }) {
@@ -138,12 +136,12 @@ export default function SpEngine({
   const lastAct = useRef<string | null>(null);
 
   useEffect(() => {
-    trackStarted(variant);
+    trackStarted();
     const start = devScreenIndex(devLinks);
     if (start !== null) setIndex(start);
     const t = timers.current;
     return () => t.forEach(clearTimeout);
-  }, [devLinks, variant]);
+  }, [devLinks]);
 
   const screen = FLOW[index];
   const picture = useMemo(() => buildStartingPicture(answers), [answers]);
@@ -266,7 +264,6 @@ export default function SpEngine({
           rythmaId,
           email,
           firstName,
-          variant,
           eventId,
           answers,
           symptoms: answers.symptoms ?? [],
@@ -290,7 +287,7 @@ export default function SpEngine({
     }
     trackGateSubmitted();
     advance();
-  }, [advance, answers, email, firstName, rythmaId, variant]);
+  }, [advance, answers, email, firstName, rythmaId]);
 
   const handlePlanCta = useCallback(() => {
     trackCtaTapped(plan);

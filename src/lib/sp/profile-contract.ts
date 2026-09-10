@@ -9,7 +9,6 @@
 // which is what lets the tests run it directly.
 
 import { CANDIDATE_TESTS, SYMPTOM_IDS, optionIds, type CandidateTestId } from "./data";
-import { LP_HEADLINES } from "./landing";
 import type { PlanCardId } from "./data";
 
 /** Answer keys the edge function validates against the app's enums. */
@@ -26,12 +25,21 @@ export const VALIDATED_ANSWER_KEYS = [
 /** Kept in `answers` and stored as given — the app has no field for these. */
 export const WEB_ONLY_ANSWER_KEYS = ["moment", "how_long", "harder", "inputs", "reflection"] as const;
 
+/**
+ * NOTE FOR THE APP SESSION — `variant` is gone.
+ *
+ * Yarin removed the six `?a=` landing-page variants on 2026-09-10 (build brief
+ * rule 0), so the web has nothing to report and no longer sends the field. The
+ * handout's §2 request shape still lists `variant (1–6)` as required, and the
+ * edge function still validates it, so `web-profile-upsert` MUST make it
+ * optional before SP_PROFILE_API_URL is set — otherwise the first real write
+ * 400s. Flagged in the M1 pull request.
+ */
 export type UpsertRequest = {
   /** Absent on the first call; the function mints it. */
   rythma_id?: string;
   email: string;
   first_name?: string;
-  variant: number;
   answers: Record<string, string | string[]>;
   symptoms: string[];
   candidate_test?: CandidateTestId;
@@ -74,7 +82,6 @@ export class ProfileApiError extends Error {
 }
 
 const CANDIDATE_IDS = Object.keys(CANDIDATE_TESTS);
-const VARIANTS = Object.keys(LP_HEADLINES).map(Number);
 
 function invalid(field: string, message: string): ContractError {
   return { error: "invalid", field, message };
@@ -88,10 +95,6 @@ export function validateUpsert(payload: UpsertRequest): ContractError | null {
   if (!payload.email || !payload.email.includes("@")) {
     return invalid("email", "an email address is required");
   }
-  if (!VARIANTS.includes(payload.variant)) {
-    return invalid("variant", `variant must be one of ${VARIANTS.join(", ")}`);
-  }
-
   for (const key of VALIDATED_ANSWER_KEYS) {
     const value = payload.answers?.[key];
     if (value === undefined || value === null || value === "") continue;

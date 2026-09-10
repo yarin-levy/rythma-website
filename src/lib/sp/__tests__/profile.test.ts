@@ -14,7 +14,6 @@ function payload(over: Partial<UpsertRequest> = {}): UpsertRequest {
   return {
     email: "sarah@example.com",
     first_name: "Sarah",
-    variant: 1,
     answers: {
       moment: "dismissed",
       age: "fortyThreeToFortySeven",
@@ -85,12 +84,11 @@ describe("validation mirrors the edge function", () => {
     expect(validateUpsert(payload({ candidate_test: "caffeineCutoff2pm" as never }))?.field).toBe("candidate_test");
   });
 
-  it("rejects a variant outside 1–6", () => {
-    expect(validateUpsert(payload({ variant: 0 }))?.field).toBe("variant");
-    expect(validateUpsert(payload({ variant: 7 }))?.field).toBe("variant");
-    for (const v of [1, 2, 3, 4, 5, 6]) {
-      expect(validateUpsert(payload({ variant: v }))).toBeNull();
-    }
+  // Yarin removed the landing-page variants on 2026-09-10 (build brief rule 0),
+  // so the web has nothing to report and the field is gone from the payload.
+  it("has no variant in the payload at all", () => {
+    expect(payload()).not.toHaveProperty("variant");
+    expect(validateUpsert(payload())).toBeNull();
   });
 
   it("rejects a missing address", () => {
@@ -139,7 +137,7 @@ describe("the in-process mock stands in for the edge functions", () => {
     expect(stored.symptoms).toEqual(["brainFog", "sleepDisruption", "nightSweats"]);
     expect(stored.candidate_test).toBe("caffeine_cutoff");
     expect(stored.first_name).toBe("Sarah");
-    expect(stored.variant).toBe(1);
+    expect(stored).not.toHaveProperty("variant");
   });
 
   it("updates the same row when the id comes back, and does not mint a second", async () => {
@@ -165,7 +163,7 @@ describe("the in-process mock stands in for the edge functions", () => {
   });
 
   it("throws ProfileApiError, so the route can read status and field", async () => {
-    const error = await upsertProfile(payload({ variant: 99 })).catch((e) => e);
+    const error = await upsertProfile(payload({ symptoms: ["nope"] })).catch((e) => e);
     expect(error).toBeInstanceOf(ProfileApiError);
     expect(error.status).toBe(400);
   });

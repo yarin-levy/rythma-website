@@ -3,7 +3,6 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { QUESTIONS, SYMPTOMS, type SingleQuestion } from "@/lib/sp/data";
 import { buildStartingPicture, type SpAnswers } from "@/lib/sp/reveal";
-import { landingVariant } from "@/lib/sp/landing";
 import { upsertProfile, usingMock } from "@/lib/sp/profile-api";
 import { ProfileApiError, validateUpsert } from "@/lib/sp/profile-contract";
 import { STARTING_PICTURE_SUBJECT, startingPictureEmailHtml } from "@/lib/sp/starting-picture-email";
@@ -32,7 +31,6 @@ type Payload = {
   rythmaId?: string;
   email?: string;
   firstName?: string;
-  variant?: number;
   /** Dedup key shared with the browser pixel's `Lead`. */
   eventId?: string;
   answers?: SpAnswers;
@@ -125,7 +123,6 @@ export async function POST(request: Request) {
       rythmaId: existingId,
       email,
       firstName,
-      variant,
       eventId,
       answers = {},
       symptoms = [],
@@ -153,7 +150,6 @@ export async function POST(request: Request) {
       ...(existingId ? { rythma_id: existingId } : {}),
       email: email.trim(),
       ...(firstName?.trim() ? { first_name: firstName.trim() } : {}),
-      variant: landingVariant(variant === undefined ? undefined : String(variant)),
       answers: answerFields,
       symptoms,
       candidate_test: picture.candidate.id,
@@ -255,7 +251,7 @@ export async function POST(request: Request) {
             <h2 style="margin:0 0 8px;">New Starting Picture</h2>
             <p style="margin:0 0 4px;"><strong>${escapeHtml(email)}</strong></p>
             <p style="margin:0 0 16px;color:#3E6A5B;font-size:14px;">
-              ${escapeHtml(rythmaId)} · variant ${upsertPayload.variant} ·
+              ${escapeHtml(rythmaId)} ·
               ${picture.count} recognized · ${escapeHtml(picture.candidate.label)}
               ${usingMock() ? " · <strong>MOCK PROFILE STORE</strong>" : ""}
             </p>

@@ -1,9 +1,12 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { LANDING, LP_HEADLINES, landingHeadline, landingVariant } from "../landing";
+import { LANDING, LP_HEADLINE } from "../landing";
 import { bannedHits, collectStrings } from "../copy-guards";
 
 const SOURCE = readFileSync(new URL("../landing.ts", import.meta.url), "utf8");
+
+/** The source with comments stripped — these tests are about code, not prose. */
+const CODE = SOURCE.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
 
 // The LP module is the compliance line. It is the only funnel copy that reaches
 // the HTML at /quiz, so if it ever imports data.ts the questions, beats, video
@@ -25,7 +28,7 @@ describe("the LP module is import-free", () => {
 // menopause|hormone|symptom|hot flash'` returning nothing. These are the same
 // terms, asserted against the strings that actually render server-side.
 describe("no condition term reaches the server HTML", () => {
-  const strings = [...collectStrings(LANDING), ...Object.values(LP_HEADLINES)];
+  const strings = [...collectStrings(LANDING), LP_HEADLINE];
 
   it.each(["perimenopause", "menopause", "hormone", "symptom", "hot flash"])("says nothing about %s", (term) => {
     for (const s of strings) expect(s.toLowerCase()).not.toContain(term);
@@ -41,31 +44,27 @@ describe("no condition term reaches the server HTML", () => {
   });
 });
 
-describe("the ?a= variant", () => {
-  it("has the six territories, and every one has a headline", () => {
-    expect(Object.keys(LP_HEADLINES)).toEqual(["1", "2", "3", "4", "5", "6"]);
-    for (let a = 1; a <= 6; a++) expect(landingHeadline(a).length).toBeGreaterThan(0);
+// Build brief rule 0 (Yarin, 2026-09-10): one landing page, one headline, the
+// same for every ad. The six `?a=` territories of blueprint §4/§12.9 are gone.
+// These tests are what stops them growing back through the URL.
+describe("one page, one headline", () => {
+  it("is the locked going-mad line", () => {
+    expect(LP_HEADLINE).toBe("You\u2019re not going mad. Tracking alone was never enough.");
   });
 
-  it.each([
-    ["3", 3],
-    ["1", 1],
-    ["6", 6],
-    ["7", 1],
-    ["0", 1],
-    ["-2", 1],
-    ["banana", 1],
-    ["", 1],
-    [undefined, 1],
-  ])("clamps ?a=%s to variant %i", (raw, expected) => {
-    expect(landingVariant(raw)).toBe(expected);
+  it("exports a single headline, not a table of them", () => {
+    expect(typeof LP_HEADLINE).toBe("string");
   });
 
-  it("takes the first value when the param repeats", () => {
-    expect(landingVariant(["4", "2"])).toBe(4);
+  it("has no variant lookup left to call", async () => {
+    const exports = (await import("../landing")) as Record<string, unknown>;
+    for (const gone of ["LP_HEADLINES", "landingHeadline", "landingVariant", "LP_VARIANT_DEFAULT"]) {
+      expect(exports[gone], `${gone} is back`).toBeUndefined();
+    }
   });
 
-  it("is an integer, so no health term can ever sit in the query string", () => {
-    for (const key of Object.keys(LP_HEADLINES)) expect(key).toMatch(/^\d$/);
+  it("reads nothing from a query string — the module has no parameter at all", () => {
+    expect(CODE).not.toMatch(/searchParams|URLSearchParams|\?a=/);
+    expect(CODE).not.toMatch(/variant/i);
   });
 });

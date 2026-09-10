@@ -1,6 +1,6 @@
 "use client";
 
-import { LANDING, landingHeadline } from "@/lib/sp/landing";
+import { LANDING, LP_HEADLINE } from "@/lib/sp/landing";
 
 /**
  * The mini LP. The only funnel markup that reaches the HTML at /quiz, so it
@@ -13,11 +13,9 @@ import { LANDING, landingHeadline } from "@/lib/sp/landing";
  * server-rendered.
  */
 export function SpLanding({
-  variant,
   onStart,
   below,
 }: {
-  variant: number;
   onStart: () => void;
   /** The client-only below-the-fold chunk, injected by the shell. */
   below?: React.ReactNode;
@@ -35,7 +33,7 @@ export function SpLanding({
           </p>
           {/* The LCP element. No web font blocks it: both faces are `swap`. */}
           <h1 className="sp-rise font-sp-serif text-sp-ink mt-4 text-[length:var(--sp-text-serif)] leading-[1.1]">
-            {landingHeadline(variant)}
+            {LP_HEADLINE}
           </h1>
           <p className="sp-rise text-sp-ink2 mt-5 text-[length:var(--sp-text-body)] leading-[1.5] [animation-delay:120ms]">
             {LANDING.sub} <em className="font-sp-serif text-sp-ink italic">{LANDING.subItalic}</em>

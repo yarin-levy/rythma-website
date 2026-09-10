@@ -33,15 +33,12 @@ function person(props: Record<string, unknown>) {
   }
 }
 
-export function trackLpViewed(variant: number) {
-  ph("web_quiz_viewed", { variant });
-  // Person properties are `quiz_variant` and `quiz_age_band` only. Never the
-  // email, never a symptom (blueprint §10).
-  person({ quiz_variant: variant });
+export function trackLpViewed() {
+  ph("web_quiz_viewed");
 }
 
-export function trackStarted(variant: number) {
-  ph("web_quiz_started", { variant });
+export function trackStarted() {
+  ph("web_quiz_started");
 }
 
 export function trackStepViewed(screenId: string, screenIndex: number, act: string) {

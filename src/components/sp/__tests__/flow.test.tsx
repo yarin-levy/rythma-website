@@ -114,7 +114,7 @@ afterEach(() => {
 function mount() {
   return render(
     <main className="sp">
-      <SpEngine variant={1} onExit={() => {}} />
+      <SpEngine onExit={() => {}} />
     </main>,
   );
 }
@@ -398,7 +398,7 @@ describe("screen 24 when the profile write fails", () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
-  it("sends her answers and the variant, and reuses her rythma_id on a retry", async () => {
+  it("sends her answers, no variant, and reuses her rythma_id on a retry", async () => {
     const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ rythmaId: "wq_abc" }) });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -411,7 +411,8 @@ describe("screen 24 when the profile write fails", () => {
     const body = JSON.parse(fetchMock.mock.calls[0][1].body);
     expect(fetchMock.mock.calls[0][0]).toBe("/api/sp/profile");
     expect(body.email).toBe("s@e.co");
-    expect(body.variant).toBe(1);
+    // Build brief rule 0: one landing page, so there is no variant to send.
+    expect(body).not.toHaveProperty("variant");
     expect(body.eventId, "the dedup key for the CAPI Lead").toBeTruthy();
     expect(body.rythmaId, "no id to reuse on a first submit").toBeUndefined();
   });

@@ -1,6 +1,6 @@
 import { act, cleanup, render, screen } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { LANDING, landingHeadline } from "@/lib/sp/landing";
+import { LANDING, LP_HEADLINE } from "@/lib/sp/landing";
 import { REVEAL, question } from "@/lib/sp/data";
 import { SpApp } from "../sp-app";
 
@@ -36,10 +36,10 @@ afterEach(() => {
 });
 
 describe("the mini LP", () => {
-  it("is what she lands on, with her variant's headline", async () => {
-    render(<SpApp variant={4} />);
+  it("is what she lands on, with the one headline every ad shares", async () => {
+    render(<SpApp />);
     await settle();
-    expect(screen.getByText(landingHeadline(4))).toBeTruthy();
+    expect(screen.getByText(LP_HEADLINE)).toBeTruthy();
     expect(screen.getByText(LANDING.cta)).toBeTruthy();
     expect(screen.queryByText(question("moment").prompt)).toBeNull();
   });
@@ -51,7 +51,7 @@ describe("the mini LP", () => {
 describe("the ?screen= deep link", () => {
   it("opens the engine straight onto the screen, skipping the LP", async () => {
     window.history.replaceState({}, "", "/quiz?screen=reveal");
-    render(<SpApp variant={1} devLinks />);
+    render(<SpApp devLinks />);
     await settle(50);
     expect(screen.getByText(REVEAL.cardTitle)).toBeTruthy();
     expect(screen.getByText(REVEAL.scoreLock)).toBeTruthy();
@@ -60,21 +60,21 @@ describe("the ?screen= deep link", () => {
 
   it("opens on a screen number too", async () => {
     window.history.replaceState({}, "", "/quiz?screen=1");
-    render(<SpApp variant={1} devLinks />);
+    render(<SpApp devLinks />);
     await settle(50);
     expect(screen.getByText(question("moment").prompt)).toBeTruthy();
   });
 
   it("is inert when the route did not enable it — production keeps one URL", async () => {
     window.history.replaceState({}, "", "/quiz?screen=reveal");
-    render(<SpApp variant={1} devLinks={false} />);
+    render(<SpApp devLinks={false} />);
     await settle(50);
     expect(screen.getByText(LANDING.cta)).toBeTruthy();
     expect(screen.queryByText(REVEAL.scoreLock)).toBeNull();
   });
 
   it("leaves the LP alone when there is no screen param", async () => {
-    render(<SpApp variant={1} devLinks />);
+    render(<SpApp devLinks />);
     await settle(50);
     expect(screen.getByText(LANDING.cta)).toBeTruthy();
   });

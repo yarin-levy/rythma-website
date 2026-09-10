@@ -10,41 +10,15 @@
 // still, the evidence footer) is deliberately NOT here. It renders client-side
 // after hydration, from data.ts, because the evidence footer names a condition
 // body. See LP_BELOW in data.ts.
+//
+// ONE PAGE, ONE HEADLINE (Yarin, 2026-09-10, build brief rule 0). The six `?a=`
+// ad variants of blueprint §4/§12.9 are gone: no param, no per-ad copy, and
+// nothing in the URL for a headline to key off. If a headline test is wanted
+// later it runs behind a PostHog flag on the page, never through the URL.
 
-/**
- * Headline by opaque `?a=` variant (blueprint §4 LP; decision §12.9). Six
- * territories, keyed to the ad creative she clicked. An integer, never a word —
- * no health term may appear in a query string.
- */
-export const LP_HEADLINES: Record<number, string> = {
-  // going mad (the locked line)
-  1: "You’re not going mad. Tracking alone was never enough.",
-  // fog / word-finding
-  2: "You used to hold a room, a list, a plan. Now words hide.",
-  // rage
-  3: "A single email shouldn’t rearrange your whole day. Lately it does.",
-  // doctor shrug
-  4: "Fine labs. Fine tone. Empty hands.",
-  // tracker broke
-  5: "Your cycle changed. Your tracker didn’t.",
-  // flat / spent
-  6: "Not sad, exactly. Just flat. Spent.",
-};
+/** The locked headline. Territory: "going mad" (keyword bank #1, #2). */
+export const LP_HEADLINE = "You’re not going mad. Tracking alone was never enough.";
 
-export const LP_VARIANT_DEFAULT = 1;
-
-/** Clamp `?a=` to a real variant. Anything else falls back to 1, silently. */
-export function landingVariant(raw: string | string[] | undefined): number {
-  const value = Array.isArray(raw) ? raw[0] : raw;
-  const n = Number.parseInt(value ?? "", 10);
-  return Object.hasOwn(LP_HEADLINES, n) ? n : LP_VARIANT_DEFAULT;
-}
-
-export function landingHeadline(variant: number): string {
-  return LP_HEADLINES[variant] ?? LP_HEADLINES[LP_VARIANT_DEFAULT];
-}
-
-/** Identical for every variant. */
 export const LANDING = {
   eyebrow: "YOUR STARTING PICTURE · ABOUT 4 MINUTES",
   sub: "Answer honestly, watch four short clips of how Rythma actually helps, and leave with your Starting Picture: what’s weighing on you most, what tracking alone couldn’t tell you, and the first thing worth trying.",
