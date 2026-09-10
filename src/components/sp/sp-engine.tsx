@@ -90,12 +90,13 @@ function previousQuestionIndex(index: number): number {
 }
 
 /**
- * Dev-only deep link: `?screen=<id>` jumps straight to a screen. Never in
- * production — the funnel has one URL and no step in the query string
+ * `?screen=<id>` jumps straight to a screen, by id or by number. Enabled by the
+ * route for local development and for preview deployments, never for
+ * production: the live funnel has one URL and no step in the query string
  * (blueprint §9).
  */
-function devScreenIndex(): number | null {
-  if (process.env.NODE_ENV === "production" || typeof window === "undefined") return null;
+function devScreenIndex(allowed: boolean): number | null {
+  if (!allowed || typeof window === "undefined") return null;
   const id = new URLSearchParams(window.location.search).get("screen");
   if (!id) return null;
   const byId = FLOW.findIndex((s) => s.id === id);
@@ -104,7 +105,17 @@ function devScreenIndex(): number | null {
   return byNumber >= 0 ? byNumber : null;
 }
 
-export default function SpEngine({ variant, onExit }: { variant: number; onExit: () => void }) {
+export default function SpEngine({
+  variant,
+  onExit,
+  // Defaults to on outside a production build, so a direct mount in a test
+  // gets the deep link without having to opt in.
+  devLinks = process.env.NODE_ENV !== "production",
+}: {
+  variant: number;
+  onExit: () => void;
+  devLinks?: boolean;
+}) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<SpAnswers>({});
   const [selected, setSelected] = useState<string | null>(null);
@@ -128,11 +139,11 @@ export default function SpEngine({ variant, onExit }: { variant: number; onExit:
 
   useEffect(() => {
     trackStarted(variant);
-    const start = devScreenIndex();
+    const start = devScreenIndex(devLinks);
     if (start !== null) setIndex(start);
     const t = timers.current;
     return () => t.forEach(clearTimeout);
-  }, [variant]);
+  }, [devLinks, variant]);
 
   const screen = FLOW[index];
   const picture = useMemo(() => buildStartingPicture(answers), [answers]);

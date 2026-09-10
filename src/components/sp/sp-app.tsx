@@ -28,18 +28,25 @@ const SpLandingBelow = dynamic(() => import("./landing-below"), {
  * `.sp` is set here and nowhere else: it is what scopes the funnel's tokens so
  * the marketing site and the blog are untouched by them.
  */
-export function SpApp({ variant }: { variant: number }) {
+export function SpApp({ variant, devLinks = false }: { variant: number; devLinks?: boolean }) {
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
     captureAttribution();
     metaViewContent();
     trackLpViewed(variant);
+    // `?screen=` has to open the engine, not just position it: the engine does
+    // not mount until she taps Begin, so without this the deep link silently
+    // did nothing and left her on the LP. Read here rather than during render,
+    // so the server and the first client pass agree.
+    if (devLinks && new URLSearchParams(window.location.search).has("screen")) {
+      setStarted(true);
+    }
     // Warm the engine chunk while she reads the headline, so the first tap is
     // instant. Importing it puts none of its copy in the HTML.
     const idle = setTimeout(() => void import("./sp-engine"), 1200);
     return () => clearTimeout(idle);
-  }, [variant]);
+  }, [devLinks, variant]);
 
   const handleStart = useCallback(() => setStarted(true), []);
   const handleExit = useCallback(() => setStarted(false), []);
@@ -47,7 +54,7 @@ export function SpApp({ variant }: { variant: number }) {
   return (
     <main className="sp flex flex-col">
       {started ? (
-        <SpEngine variant={variant} onExit={handleExit} />
+        <SpEngine variant={variant} devLinks={devLinks} onExit={handleExit} />
       ) : (
         <SpLanding variant={variant} onStart={handleStart} below={<SpLandingBelow />} />
       )}
