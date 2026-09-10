@@ -22,35 +22,31 @@ const SpLandingBelow = dynamic(() => import("./landing-below"), {
 /**
  * The Starting Picture funnel's shell. State lives in memory only — never in
  * the path or the query string — so the whole funnel runs at one URL and Meta
- * sees one neutral page. The `?a=` variant is the single exception, and it is
- * an opaque integer.
+ * sees one neutral page — and now literally one page: there are no ad variants
+ * and no `?a=` param (build brief rule 0).
  *
  * `.sp` is set here and nowhere else: it is what scopes the funnel's tokens so
  * the marketing site and the blog are untouched by them.
  */
-export function SpApp({ variant }: { variant: number }) {
+export function SpApp() {
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
     captureAttribution();
     metaViewContent();
-    trackLpViewed(variant);
+    trackLpViewed();
     // Warm the engine chunk while she reads the headline, so the first tap is
     // instant. Importing it puts none of its copy in the HTML.
     const idle = setTimeout(() => void import("./sp-engine"), 1200);
     return () => clearTimeout(idle);
-  }, [variant]);
+  }, []);
 
   const handleStart = useCallback(() => setStarted(true), []);
   const handleExit = useCallback(() => setStarted(false), []);
 
   return (
     <main className="sp flex flex-col">
-      {started ? (
-        <SpEngine variant={variant} onExit={handleExit} />
-      ) : (
-        <SpLanding variant={variant} onStart={handleStart} below={<SpLandingBelow />} />
-      )}
+      {started ? <SpEngine onExit={handleExit} /> : <SpLanding onStart={handleStart} below={<SpLandingBelow />} />}
     </main>
   );
 }

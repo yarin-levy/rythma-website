@@ -36,7 +36,7 @@ The old 14-screen funnel stays reachable until cutover: build v3 behind `NEXT_PU
 
 ### M1 — Skeleton with stills (no payment, no email)
 - Fonts: Instrument Serif (regular + italic) and Archivo variable, self-hosted like Inter/Newsreader. Scope the funnel's tokens (blueprint §2, **the decided version: white single theme, solid green primary buttons, lime as highlight only, 19px body, 15px minimum, solid secondary inks that clear AA**) to a `.sp` root class on the quiz shell so the marketing site is untouched. Add a Vitest that computes WCAG contrast for every text token in `tokens.ts` against `#FFFFFF` and fails below 4.5:1. No dark-mode CSS anywhere in the funnel; paint the background explicitly.
-- `src/lib/sp/` (new): `landing.ts` (LP strings only, import-free), `data.ts` (acts, screens, options with the app enum raw values from the app handout §2 table, branch tables, LP variants), `reveal.ts` (pure `buildStartingPicture(answers)` → count, categories, unknowns, candidate test, plan order), `copy-guards.ts` (the banned-substring list: `App Store`, `review`, `rating`, `★`, `4.9`, `%`, `cure`, `treat`, `reduce`, `fix`, `clinically`, `diagnos`).
+- `src/lib/sp/` (new): `landing.ts` (LP strings only, import-free), `data.ts` (acts, screens, options with the app enum raw values from the app handout §2 table, branch tables), `reveal.ts` (pure `buildStartingPicture(answers)` → count, categories, unknowns, candidate test, plan order), `copy-guards.ts` (the banned-substring list: `App Store`, `review`, `rating`, `★`, `4.9`, `%`, `cure`, `treat`, `reduce`, `fix`, `clinically`, `diagnos`).
 - Engine: extend the step union with `echo`, `video`, `advertorial`, `method`, `loader`, `gate`, `reveal`, `plan-cards`, `quotes`, `bridge`, `plan`, `checkout`, `handoff`. Section rail on question screens only. Screen 10a is a fork, not a step (rail count unchanged).
 - Video component with poster + caption + honesty line; when `src` is empty it renders the still. Continue at 3s. 25% progress events. `playsinline muted autoplay loop={false}`.
 - All 31 screens render with the blueprint copy. Dev `?screen=<id>` deep link works (non-production only, as today).
@@ -59,12 +59,11 @@ The old 14-screen funnel stays reachable until cutover: build v3 behind `NEXT_PU
 
 ### M4 — Analytics and Meta
 - Events exactly as blueprint §10, snake_case, through the existing `ph()` helper. Meta: `ViewContent` on the LP, `Lead` once at 24, `InitiateCheckout` at 29's CTA, purchase events **server-side only**. Zero custom parameters on any Meta event. Assert this in a unit test that wraps `fbq`.
-- Person properties `quiz_variant`, `quiz_age_band`. Never email, never symptoms, on the person.
+- Person property `quiz_age_band`. Never email, never symptoms, on the person.
 - Save one PostHog funnel insight (LP → started → 7 → 24 → 25 → 29 → checkout completed → app store redirect) in the website project (id 454280) and paste its link in the PR.
 
 ### M5 — Cutover checklist (don't do it, prepare it)
 - Old funnel files deleted in a separate PR after Yarin's word.
-- `?a=` variants documented for the ads (1–6 → territory).
 - Lighthouse mobile ≥ 90 performance on the LP; LCP is the headline, so no web font blocks it (use `font-display: swap`, preload the two woff2).
 - Reduced-motion pass, VoiceOver pass on the chips and the rail.
 
@@ -110,6 +109,8 @@ Existing `RESEND_*`, `META_*`, `NEXT_PUBLIC_POSTHOG_*`, `UNSUBSCRIBE_SECRET` sta
 ---
 
 ## 4. Rules that override your judgment
+
+0. **One landing page, one headline, no ad variants** (Yarin, 2026-09-10). No `?a=` param, no per-ad copy. If a headline test is wanted later it runs behind a PostHog flag on the page, never through the URL.
 
 1. **Every user-facing string comes from the blueprint.** If you need a string it doesn't have (an error state, a loading label), write it in the blueprint's voice, run it through the banned list, and list it in the PR under "new strings for Yarin".
 2. **No health terms in server HTML, URLs, query strings, event properties sent to Meta, or the `<title>`.** The LP module stays import-free.

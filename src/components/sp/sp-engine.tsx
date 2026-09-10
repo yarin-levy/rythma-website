@@ -96,7 +96,7 @@ function devScreenIndex(): number | null {
   return byNumber >= 0 ? byNumber : null;
 }
 
-export default function SpEngine({ variant, onExit }: { variant: number; onExit: () => void }) {
+export default function SpEngine({ onExit }: { onExit: () => void }) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<SpAnswers>({});
   const [selected, setSelected] = useState<string | null>(null);
@@ -111,12 +111,12 @@ export default function SpEngine({ variant, onExit }: { variant: number; onExit:
   const lastAct = useRef<string | null>(null);
 
   useEffect(() => {
-    trackStarted(variant);
+    trackStarted();
     const start = devScreenIndex();
     if (start !== null) setIndex(start);
     const t = timers.current;
     return () => t.forEach(clearTimeout);
-  }, [variant]);
+  }, []);
 
   const screen = FLOW[index];
   const picture = useMemo(() => buildStartingPicture(answers), [answers]);

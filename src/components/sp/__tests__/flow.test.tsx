@@ -107,7 +107,7 @@ afterEach(() => {
 function mount() {
   return render(
     <main className="sp">
-      <SpEngine variant={1} onExit={() => {}} />
+      <SpEngine onExit={() => {}} />
     </main>,
   );
 }
