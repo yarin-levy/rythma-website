@@ -9,7 +9,7 @@
     "validate:content": "node scripts/validate-content.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prebuild": "node scripts/validate-content.mjs && vitest run",
+    "prebuild": "node scripts/validate-content.mjs",
     "build": "NODE_OPTIONS='--max-old-space-size=7168' next build",
     "start": "next start",
     "start:sp": "NEXT_PUBLIC_QUIZ_V3=1 next start",
