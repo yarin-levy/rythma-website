@@ -1,0 +1,56 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import dynamic from "next/dynamic";
+import { SpLanding } from "./landing";
+import { captureAttribution, metaViewContent, trackLpViewed } from "@/lib/sp/analytics";
+
+// Screens 1–31 and the LP's below-the-fold block both live in chunks that are
+// fetched, not rendered, until after hydration. `ssr:false` is the compliance
+// line (blueprint §9): no question, beat, video caption or evidence footer is
+// ever present in the HTML served at rythma.co/quiz.
+const SpEngine = dynamic(() => import("./sp-engine"), {
+  ssr: false,
+  loading: () => <div className="min-h-svh" aria-hidden />,
+});
+
+const SpLandingBelow = dynamic(() => import("./landing-below"), {
+  ssr: false,
+  loading: () => null,
+});
+
+/**
+ * The Starting Picture funnel's shell. State lives in memory only — never in
+ * the path or the query string — so the whole funnel runs at one URL and Meta
+ * sees one neutral page. The `?a=` variant is the single exception, and it is
+ * an opaque integer.
+ *
+ * `.sp` is set here and nowhere else: it is what scopes the funnel's tokens so
+ * the marketing site and the blog are untouched by them.
+ */
+export function SpApp({ variant }: { variant: number }) {
+  const [started, setStarted] = useState(false);
+
+  useEffect(() => {
+    captureAttribution();
+    metaViewContent();
+    trackLpViewed(variant);
+    // Warm the engine chunk while she reads the headline, so the first tap is
+    // instant. Importing it puts none of its copy in the HTML.
+    const idle = setTimeout(() => void import("./sp-engine"), 1200);
+    return () => clearTimeout(idle);
+  }, [variant]);
+
+  const handleStart = useCallback(() => setStarted(true), []);
+  const handleExit = useCallback(() => setStarted(false), []);
+
+  return (
+    <main className="sp flex flex-col">
+      {started ? (
+        <SpEngine variant={variant} onExit={handleExit} />
+      ) : (
+        <SpLanding variant={variant} onStart={handleStart} below={<SpLandingBelow />} />
+      )}
+    </main>
+  );
+}
