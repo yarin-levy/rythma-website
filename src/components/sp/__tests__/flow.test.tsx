@@ -90,6 +90,12 @@ async function pickChecks(count: number) {
 
 beforeEach(() => {
   vi.useFakeTimers({ shouldAdvanceTime: true });
+  // Screen 24 posts to /api/sp/profile. jsdom has no server and no base URL, so
+  // the route is stubbed here; `profile.test.ts` covers the contract itself.
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () => ({ ok: true, json: async () => ({ rythmaId: "wq_test" }) })),
+  );
   // jsdom has no scrollTo, and the engine scrolls to the top on every step.
   window.scrollTo = () => {};
   window.history.replaceState({}, "", "/quiz");
@@ -97,6 +103,7 @@ beforeEach(() => {
 
 afterEach(() => {
   vi.useRealTimers();
+  vi.unstubAllGlobals();
   cleanup();
 });
 
@@ -361,5 +368,51 @@ describe("the dev-only ?screen= deep link", () => {
     mount();
     await settle(0);
     expect(screen.getByText(question("moment").prompt)).toBeTruthy();
+  });
+});
+
+describe("screen 24 when the profile write fails", () => {
+  it("keeps her on the gate with a worded error, and lets her retry", async () => {
+    // The profile write is the handoff. Dropping her into a reveal whose code
+    // and prefill would never arrive is worse than asking her to try again.
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, status: 502, json: async () => ({}) })
+      .mockResolvedValue({ ok: true, json: async () => ({ rythmaId: "wq_test" }) });
+    vi.stubGlobal("fetch", fetchMock);
+
+    window.history.replaceState({}, "", "/quiz?screen=gate");
+    mount();
+    await settle(0);
+
+    await setField(document.querySelector<HTMLInputElement>('input[type="email"]')!, "s@e.co");
+    await tapCta();
+
+    // Still on the gate, and told so in words.
+    expect(screen.getByText(GATE.headline)).toBeTruthy();
+    expect(screen.getByText(/didn’t save/)).toBeTruthy();
+
+    // The retry goes through, and moves her on.
+    await tapCta();
+    expect(screen.getByText(REVEAL.cardTitle)).toBeTruthy();
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("sends her answers and the variant, and reuses her rythma_id on a retry", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ rythmaId: "wq_abc" }) });
+    vi.stubGlobal("fetch", fetchMock);
+
+    window.history.replaceState({}, "", "/quiz?screen=gate");
+    mount();
+    await settle(0);
+    await setField(document.querySelector<HTMLInputElement>('input[type="email"]')!, "s@e.co");
+    await tapCta();
+
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(fetchMock.mock.calls[0][0]).toBe("/api/sp/profile");
+    expect(body.email).toBe("s@e.co");
+    expect(body.variant).toBe(1);
+    expect(body.eventId, "the dedup key for the CAPI Lead").toBeTruthy();
+    expect(body.rythmaId, "no id to reuse on a first submit").toBeUndefined();
   });
 });

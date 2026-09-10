@@ -49,7 +49,7 @@ The old 14-screen funnel stays reachable until cutover: build v3 behind `NEXT_PU
 - Acceptance: a submitted profile round-trips through the mock with the exact enum values; the email renders in Gmail iOS dark mode without inverted text.
 
 ### M3 — Stripe checkout, webhook, code, handoff
-- Stripe products: `annual` ($59.99/yr, 7-day trial), `monthly` ($9.99/mo, no trial). Prices come from one config object `src/lib/sp/pricing.ts` and are asserted equal to Stripe's price objects by a script (`scripts/check-stripe-prices.mjs`) run in `prebuild`.
+- Stripe products: `annual` ($59.99/yr, **3-day trial**, Yarin's decision), `monthly` ($9.99/mo, no trial). Prices come from one config object `src/lib/sp/pricing.ts` and are asserted equal to Stripe's price objects by a script (`scripts/check-stripe-prices.mjs`) run in `prebuild`.
 - Screen 30: **embedded** Stripe Checkout (`@stripe/stripe-js` + `@stripe/react-stripe-js`, `ui_mode: 'embedded'`), session created by `/api/sp/checkout` with `client_reference_id = rythma_id`, `customer_email` prefilled, `automatic_tax` on, `payment_method_types` left to Stripe so Apple Pay / Google Pay appear. Our recap block above the form per the blueprint.
 - `/api/sp/stripe-webhook`: verify signature; on `checkout.session.completed` call `web-profile-paid` (§2b, including `manage_url`), send the *You're in. Here's your code* email, fire CAPI `StartTrial` (or `Purchase` for monthly) server-side with `value`/`currency` only; on `customer.subscription.updated/deleted` and `invoice.payment_failed` mirror to PostHog. Idempotent by Stripe event id.
 - Screen 31 with the code (fetched by polling `/api/sp/profile/:rythma_id/status` every 2s after success until `paid`, max 30s, then "check your email").
