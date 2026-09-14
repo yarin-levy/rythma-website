@@ -11,14 +11,41 @@ export { captureAttribution, getAttribution, haptic, newEventId } from "@/lib/qu
 
 // ── PostHog (website project 454280) ────────────────────────────────────────
 
+/**
+ * Every funnel event carries `section: "quiz"` (blueprint §10's header), so the
+ * funnel separates from the marketing site and the blog in the one PostHog
+ * project they share. Set here rather than at each call, so no event can forget.
+ */
+export const SECTION = "quiz";
+
 function ph(event: string, props?: Record<string, unknown>) {
   if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) return;
   try {
     void import("posthog-js").then(({ default: posthog }) => {
-      posthog.capture(event, props);
+      posthog.capture(event, { ...props, section: SECTION });
     });
   } catch {
     /* never let analytics break the funnel */
+  }
+}
+
+/**
+ * Her anonymous PostHog id, for the one event that is not sent from her browser.
+ *
+ * `web_quiz_checkout_completed` fires from the Stripe webhook. Sent under any
+ * other id it lands on a different person, and the funnel reads plan CTA →
+ * checkout completed as zero. So screen 30 hands this to /api/sp/checkout, the
+ * session carries it in metadata, and the webhook captures under it. It is a
+ * random first-party id — not her email, not a name — and Stripe metadata is
+ * never shared.
+ */
+export async function analyticsId(): Promise<string | undefined> {
+  if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) return undefined;
+  try {
+    const { default: posthog } = await import("posthog-js");
+    return posthog.get_distinct_id() || undefined;
+  } catch {
+    return undefined;
   }
 }
 
@@ -97,6 +124,11 @@ export function trackRevealViewed(args: { validationCount: number; candidateTest
   });
 }
 
+/**
+ * §10 writes the property as `plan_order[0]`: the card that leads the plan
+ * order. Sent as `plan_order_0`, because a bracket in a property name has to be
+ * quoted in every HogQL query that touches it.
+ */
 export function trackPaywallViewed(leadPlanCard: string) {
   ph("web_quiz_paywall_viewed", { plan_order_0: leadPlanCard });
 }

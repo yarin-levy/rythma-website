@@ -5,6 +5,7 @@ import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe
 import { loadStripe } from "@stripe/stripe-js";
 import { CHECKOUT, SYMPTOMS } from "@/lib/sp/data";
 import type { PlanId } from "@/lib/sp/pricing";
+import { analyticsId } from "@/lib/sp/analytics";
 import { Footnote, Label, Prompt, Screen, SecondaryAction } from "../ui";
 
 // Screen 30 — the one screen where she pays.
@@ -58,7 +59,7 @@ export function CheckoutScreen({
     const res = await fetch("/api/sp/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ plan, rythmaId, email }),
+      body: JSON.stringify({ plan, rythmaId, email, analyticsId: await analyticsId() }),
     });
     if (!res.ok) {
       setFailed(true);

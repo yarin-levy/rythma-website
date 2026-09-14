@@ -141,6 +141,12 @@ export default function SpEngine({
 
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
   const leadFired = useRef(false);
+  /**
+   * InitiateCheckout fires once per visit. Without this, the abandon rescue —
+   * back from screen 30 to 29, then the CTA again — reports a second checkout
+   * to Meta for the same woman.
+   */
+  const checkoutInitiated = useRef(false);
   const lastAct = useRef<string | null>(null);
 
   useEffect(() => {
@@ -309,7 +315,10 @@ export default function SpEngine({
 
   const handlePlanCta = useCallback(() => {
     trackCtaTapped(plan);
-    metaInitiateCheckout();
+    if (!checkoutInitiated.current) {
+      checkoutInitiated.current = true;
+      metaInitiateCheckout();
+    }
     advance();
   }, [advance, plan]);
 

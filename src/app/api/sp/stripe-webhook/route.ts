@@ -3,6 +3,7 @@ import type Stripe from "stripe";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { planValue, stripeOrNull } from "@/lib/sp/stripe";
+import { paymentMethodLabel, type PaymentMethodLabel } from "@/lib/sp/payment-method";
 import { markProfilePaid } from "@/lib/sp/profile-api";
 import { ProfileApiError } from "@/lib/sp/profile-contract";
 import { manageUrl } from "@/lib/sp/manage-link";
@@ -58,7 +59,7 @@ function sha256(value: string): string {
  * `/ingest` proxy only exists for the browser, so this posts to the capture
  * endpoint directly. Best effort, always.
  */
-async function phServer(event: string, properties: Record<string, unknown>): Promise<void> {
+async function phServer(event: string, distinctId: string, properties: Record<string, unknown>): Promise<void> {
   if (!POSTHOG_KEY) return;
   try {
     await fetch(`${POSTHOG_HOST}/i/v0/e/`, {
@@ -67,8 +68,9 @@ async function phServer(event: string, properties: Record<string, unknown>): Pro
       body: JSON.stringify({
         api_key: POSTHOG_KEY,
         event,
-        // Stripe ids, never her email and never an answer (blueprint §10).
-        distinct_id: String(properties.rythma_id ?? properties.stripe_customer_id ?? "stripe"),
+        // An opaque id — her PostHog id, a rythma_id or a Stripe customer id.
+        // Never her email and never an answer (blueprint §10).
+        distinct_id: distinctId,
         properties: { ...properties, section: "quiz" },
         timestamp: new Date().toISOString(),
       }),
@@ -142,9 +144,13 @@ async function onCheckoutCompleted(
   // The trial end and the plan come from the subscription itself.
   let trialEndsAt: string | null = null;
   let plan: PlanId = planFor(session);
+  let paymentMethod: PaymentMethodLabel = "card";
   if (subscriptionId) {
     try {
-      const sub = await stripe.subscriptions.retrieve(subscriptionId);
+      const sub = await stripe.subscriptions.retrieve(subscriptionId, {
+        expand: ["default_payment_method"],
+      });
+      paymentMethod = paymentMethodLabel(sub.default_payment_method);
       trialEndsAt = sub.trial_end ? new Date(sub.trial_end * 1000).toISOString() : null;
       const interval = sub.items.data[0]?.price?.recurring?.interval;
       if (interval === "year") plan = "annual";
@@ -218,13 +224,19 @@ async function onCheckoutCompleted(
     console.error("sp/webhook: CAPI send failed", e);
   }
 
-  // 5) PostHog.
-  await phServer("web_quiz_checkout_completed", {
-    rythma_id: rythmaId,
+  // 5) PostHog, under her browser's id so the funnel joins (see analytics.ts
+  //    `analyticsId`). Falls back to the rythma_id when the browser had no
+  //    PostHog key loaded — the event still lands, just on its own person.
+  //    Props exactly as §10: plan and payment method.
+  await phServer("web_quiz_checkout_completed", session.metadata?.ph_distinct_id || rythmaId, {
     plan,
-    payment_method: session.payment_method_types?.[0] ?? "card",
-    trial: Boolean(trialEndsAt),
+    payment_method: paymentMethod,
   });
+}
+
+/** Churn and dunning land on the Stripe customer — the only id those events carry. */
+function customerId(c: string | { id: string } | null | undefined): string {
+  return typeof c === "string" ? c : (c?.id ?? "stripe");
 }
 
 export async function POST(request: Request) {
@@ -263,8 +275,7 @@ export async function POST(request: Request) {
 
       case "customer.subscription.updated": {
         const sub = event.data.object as Stripe.Subscription;
-        await phServer("web_subscription_updated", {
-          stripe_customer_id: typeof sub.customer === "string" ? sub.customer : sub.customer?.id,
+        await phServer("web_subscription_updated", customerId(sub.customer), {
           status: sub.status,
           cancel_at_period_end: sub.cancel_at_period_end,
         });
@@ -273,17 +284,13 @@ export async function POST(request: Request) {
 
       case "customer.subscription.deleted": {
         const sub = event.data.object as Stripe.Subscription;
-        await phServer("web_subscription_cancelled", {
-          stripe_customer_id: typeof sub.customer === "string" ? sub.customer : sub.customer?.id,
-        });
+        await phServer("web_subscription_cancelled", customerId(sub.customer), {});
         break;
       }
 
       case "invoice.payment_failed": {
         const invoice = event.data.object as Stripe.Invoice;
-        await phServer("web_invoice_payment_failed", {
-          stripe_customer_id: typeof invoice.customer === "string" ? invoice.customer : invoice.customer?.id,
-        });
+        await phServer("web_invoice_payment_failed", customerId(invoice.customer), {});
         break;
       }
 
