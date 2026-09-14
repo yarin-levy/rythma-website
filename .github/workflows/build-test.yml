@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - main
+  # Every pull request, whatever it targets. Filtering to `main` meant a
+  # stacked PR — a milestone branch aimed at its feature branch, as the quiz-v3
+  # milestones are — got no build, no lint and no tests at all, which is
+  # precisely where a gate is worth having.
   pull_request:
-    branches:
-      - main
 
 permissions:
   contents: read

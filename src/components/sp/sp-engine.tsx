@@ -28,6 +28,7 @@ import type { PlanId } from "@/lib/sp/pricing";
 import {
   metaInitiateCheckout,
   metaLead,
+  getAttribution,
   haptic,
   newEventId,
   trackActViewed,
@@ -35,6 +36,7 @@ import {
   trackAppStoreRedirect,
   trackCheckoutViewed,
   trackCtaTapped,
+  trackGateFailed,
   trackGateSubmitted,
   trackGateViewed,
   trackHandoffViewed,
@@ -68,6 +70,12 @@ import { VideoScreen } from "./screens/video";
 
 const SELECT_HOLD_MS = 340; // let the chosen answer register before moving on
 
+/**
+ * NEW STRING (for Yarin): the blueprint has no error state for screen 24.
+ * Written in its voice, no banned substring, and it says what to do next.
+ */
+const GATE_ERROR = "That didn’t save. Check the address and try again.";
+
 /** Screen 10a is a fork off `cycle`, not a step; the rail's count is unchanged. */
 const FORK_AFTER = "cycle";
 const FORK_TRIGGER = "noPeriods";
@@ -82,12 +90,13 @@ function previousQuestionIndex(index: number): number {
 }
 
 /**
- * Dev-only deep link: `?screen=<id>` jumps straight to a screen. Never in
- * production — the funnel has one URL and no step in the query string
+ * `?screen=<id>` jumps straight to a screen, by id or by number. Enabled by the
+ * route for local development and for preview deployments, never for
+ * production: the live funnel has one URL and no step in the query string
  * (blueprint §9).
  */
-function devScreenIndex(): number | null {
-  if (process.env.NODE_ENV === "production" || typeof window === "undefined") return null;
+function devScreenIndex(allowed: boolean): number | null {
+  if (!allowed || typeof window === "undefined") return null;
   const id = new URLSearchParams(window.location.search).get("screen");
   if (!id) return null;
   const byId = FLOW.findIndex((s) => s.id === id);
@@ -96,7 +105,15 @@ function devScreenIndex(): number | null {
   return byNumber >= 0 ? byNumber : null;
 }
 
-export default function SpEngine({ onExit }: { onExit: () => void }) {
+export default function SpEngine({
+  onExit,
+  // Defaults to on outside a production build, so a direct mount in a test
+  // gets the deep link without having to opt in.
+  devLinks = process.env.NODE_ENV !== "production",
+}: {
+  onExit: () => void;
+  devLinks?: boolean;
+}) {
   const [index, setIndex] = useState(0);
   const [answers, setAnswers] = useState<SpAnswers>({});
   const [selected, setSelected] = useState<string | null>(null);
@@ -104,6 +121,14 @@ export default function SpEngine({ onExit }: { onExit: () => void }) {
   const [firstName, setFirstName] = useState("");
   const [email, setEmail] = useState("");
   const [plan, setPlan] = useState<PlanId>("annual");
+  const [gatePending, setGatePending] = useState(false);
+  const [gateError, setGateError] = useState<string | undefined>();
+  /**
+   * Her profile key. Sent back on a resubmit so a corrected email updates her
+   * row instead of orphaning it behind a second profile, and it is what M3
+   * hands Stripe as `client_reference_id`.
+   */
+  const [rythmaId, setRythmaId] = useState<string | undefined>();
   const reduceMotion = useReducedMotion();
 
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
@@ -112,11 +137,11 @@ export default function SpEngine({ onExit }: { onExit: () => void }) {
 
   useEffect(() => {
     trackStarted();
-    const start = devScreenIndex();
+    const start = devScreenIndex(devLinks);
     if (start !== null) setIndex(start);
     const t = timers.current;
     return () => t.forEach(clearTimeout);
-  }, []);
+  }, [devLinks]);
 
   const screen = FLOW[index];
   const picture = useMemo(() => buildStartingPicture(answers), [answers]);
@@ -221,16 +246,48 @@ export default function SpEngine({ onExit }: { onExit: () => void }) {
     [advance, answers],
   );
 
-  const handleGateSubmit = useCallback(() => {
-    // M1 posts nothing. M2 writes the profile, adds the Resend contact, sends
-    // the Starting Picture email and fires the CAPI Lead with this event id.
+  /**
+   * Screen 24. The profile write is what the funnel exists for, so a failure
+   * keeps her here with a worded error rather than dropping her into a reveal
+   * whose handoff would be broken. The browser `Lead` fires only once, and only
+   * after the write succeeds, so a retry cannot double-count her.
+   */
+  const handleGateSubmit = useCallback(async () => {
+    setGatePending(true);
+    setGateError(undefined);
+    const eventId = newEventId();
+    try {
+      const res = await fetch("/api/sp/profile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          rythmaId,
+          email,
+          firstName,
+          eventId,
+          answers,
+          symptoms: answers.symptoms ?? [],
+          attribution: getAttribution(),
+        }),
+      });
+      if (!res.ok) throw new Error(`profile ${res.status}`);
+      const body = (await res.json()) as { rythmaId?: string };
+      setRythmaId(body.rythmaId);
+    } catch (e) {
+      console.error("sp: profile write failed", e);
+      setGatePending(false);
+      setGateError(GATE_ERROR);
+      trackGateFailed();
+      return;
+    }
+    setGatePending(false);
     if (!leadFired.current) {
       leadFired.current = true;
-      metaLead(newEventId());
+      metaLead(eventId);
     }
     trackGateSubmitted();
     advance();
-  }, [advance]);
+  }, [advance, answers, email, firstName, rythmaId]);
 
   const handlePlanCta = useCallback(() => {
     trackCtaTapped(plan);
@@ -377,7 +434,9 @@ export default function SpEngine({ onExit }: { onExit: () => void }) {
               if (patch.firstName !== undefined) setFirstName(patch.firstName);
               if (patch.email !== undefined) setEmail(patch.email);
             }}
-            onSubmit={handleGateSubmit}
+            onSubmit={() => void handleGateSubmit()}
+            pending={gatePending}
+            error={gateError}
           />
         );
 
