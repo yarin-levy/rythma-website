@@ -54,6 +54,16 @@ describe("the session screen 30 mounts", () => {
     expect(created[0].subscription_data).toMatchObject({ metadata: { rythma_id: "wq_2" } });
   });
 
+  it("carries her PostHog id in metadata, so the webhook's event joins her funnel", async () => {
+    await post({ plan: "annual", rythmaId: "wq_1", analyticsId: "ph_anon_42" });
+    expect(created[0].metadata).toEqual({ ph_distinct_id: "ph_anon_42" });
+  });
+
+  it("sends no metadata at all when the browser had no PostHog id", async () => {
+    await post({ plan: "annual", rythmaId: "wq_1" });
+    expect(created[0]).not.toHaveProperty("metadata");
+  });
+
   // The single biggest conversion lever on a phone. Setting this to ["card"]
   // would silently remove Apple Pay and Google Pay.
   it("leaves payment_method_types to Stripe, so Apple Pay appears", async () => {

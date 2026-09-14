@@ -428,3 +428,58 @@ describe("screen 24 when the profile write fails", () => {
     expect(body.rythmaId, "no id to reuse on a first submit").toBeUndefined();
   });
 });
+
+// Build brief M4 and rule 5: Lead once at 24, InitiateCheckout at 29's CTA, no
+// purchase event from the browser, and no custom data on any of them — asserted
+// across a real walk, including the abandon rescue that sends her back to 29.
+describe("what Meta sees across the whole funnel", () => {
+  it("gets one Lead and one InitiateCheckout, bare, and never a purchase", async () => {
+    const calls: unknown[][] = [];
+    (window as unknown as { fbq: (...a: unknown[]) => void }).fbq = (...args) => calls.push(args);
+
+    mount();
+    await settle(0);
+
+    // Walk to screen 30 the generic way: first option, one chip, fill the gate.
+    for (let guard = 0; guard < 60; guard++) {
+      if (screen.queryByText(CHECKOUT_COPY.back)) break;
+      const radios = document.querySelectorAll('[role="radio"]');
+      const boxes = document.querySelectorAll('[role="checkbox"]');
+      const emailField = document.querySelector<HTMLInputElement>('input[type="email"]');
+      if (emailField && !emailField.value) {
+        await setField(emailField, "sarah@example.com");
+        await tapCta();
+      } else if (screen.queryByText(LOADER.title)) {
+        await settle(LOADER.totalMs + 200);
+      } else if (radios.length > 0 && ![...radios].some((r) => r.getAttribute("aria-checked") === "true")) {
+        await pick(0);
+      } else if (boxes.length > 0 && ![...boxes].some((b) => b.getAttribute("aria-checked") === "true")) {
+        await pickChecks(1);
+        await tapCta();
+      } else {
+        await settle(3000);
+        await tapCta();
+      }
+    }
+    expect(screen.getByText(CHECKOUT_COPY.back), "never reached screen 30").toBeTruthy();
+
+    // The rescue: back to 29, then the CTA again.
+    await click(screen.getByText(CHECKOUT_COPY.back));
+    await settle();
+    expect(screen.getByText(PLAN.transparency)).toBeTruthy();
+    await tapCta();
+    expect(screen.getByText(CHECKOUT_COPY.back)).toBeTruthy();
+
+    const names = calls.map((c) => c[1]);
+    expect(names.filter((n) => n === "Lead")).toHaveLength(1);
+    expect(
+      names.filter((n) => n === "InitiateCheckout"),
+      "the rescue re-fired it",
+    ).toHaveLength(1);
+    expect(names.filter((n) => /Purchase|StartTrial|Subscribe/.test(String(n)))).toEqual([]);
+    for (const call of calls) {
+      expect(call[0]).toBe("track");
+      expect(call[2], `${call[1]} carried custom data`).toBeUndefined();
+    }
+  }, 30000);
+});

@@ -10,6 +10,7 @@ process.env.STRIPE_WEBHOOK_SECRET ||= WEBHOOK_SECRET;
 process.env.SP_MANAGE_SECRET ||= "test-manage-secret";
 process.env.META_CAPI_ACCESS_TOKEN ||= "capi-test-token";
 process.env.META_PIXEL_ID ||= "111";
+process.env.NEXT_PUBLIC_POSTHOG_KEY ||= "phc_test";
 
 const sentEmails: { to: string; subject: string; html: string }[] = [];
 vi.mock("resend", () => ({
@@ -236,6 +237,48 @@ describe("the purchase signal to Meta", () => {
     const capi = capiCalls.find((c) => c.url.includes("graph.facebook.com"))!;
     const event = (capi!.body as { data: Record<string, unknown>[] }).data[0];
     expect(event.event_id).toBe("evt_dedup");
+  });
+});
+
+// Blueprint §10 plus the funnel insight M4 saves: checkout_completed is sent by
+// this webhook, so it has to land on the same PostHog person as everything the
+// browser sent, or plan CTA → checkout completed reads zero.
+describe("web_quiz_checkout_completed", () => {
+  function posthogEvent() {
+    const call = capiCalls.find((c) => c.url.includes("posthog.com"));
+    return call?.body as { event: string; distinct_id: string; properties: Record<string, unknown> } | undefined;
+  }
+
+  it("is captured under the browser's PostHog id carried in session metadata", async () => {
+    const rythmaId = await seedProfile();
+    await post(completedEvent({ client_reference_id: rythmaId, metadata: { ph_distinct_id: "ph_anon_42" } }));
+    const event = posthogEvent();
+    expect(event?.event).toBe("web_quiz_checkout_completed");
+    expect(event?.distinct_id).toBe("ph_anon_42");
+  });
+
+  it("falls back to the rythma_id when the browser sent no PostHog id", async () => {
+    const rythmaId = await seedProfile();
+    await post(completedEvent({ client_reference_id: rythmaId }));
+    expect(posthogEvent()?.distinct_id).toBe(rythmaId);
+  });
+
+  it("carries exactly plan and payment_method, plus section", async () => {
+    const rythmaId = await seedProfile();
+    await post(completedEvent({ client_reference_id: rythmaId }));
+    expect(posthogEvent()?.properties).toEqual({
+      plan: "annual",
+      payment_method: "card",
+      section: "quiz",
+    });
+  });
+
+  it("never carries her email or her answers", async () => {
+    const rythmaId = await seedProfile();
+    await post(completedEvent({ client_reference_id: rythmaId }));
+    const json = JSON.stringify(posthogEvent());
+    expect(json).not.toContain("@");
+    expect(json).not.toContain("brainFog");
   });
 });
 

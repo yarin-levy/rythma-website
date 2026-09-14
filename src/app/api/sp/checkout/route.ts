@@ -20,10 +20,12 @@ export async function POST(request: Request) {
   }
 
   try {
-    const { plan, rythmaId, email } = (await request.json()) as {
+    const { plan, rythmaId, email, analyticsId } = (await request.json()) as {
       plan?: PlanId;
       rythmaId?: string;
       email?: string;
+      /** Her PostHog id, so the webhook's checkout_completed joins her funnel. */
+      analyticsId?: string;
     };
 
     if (plan !== "annual" && plan !== "monthly") {
@@ -51,6 +53,10 @@ export async function POST(request: Request) {
       // This is the whole identity contract (blueprint §8.0): the webhook reads
       // it back off the session and marks that profile paid.
       client_reference_id: rythmaId,
+      // Read back by the webhook, which captures web_quiz_checkout_completed
+      // under this id so the event lands on the same PostHog person as every
+      // event before it. Bounded, because Stripe caps metadata values at 500.
+      ...(analyticsId ? { metadata: { ph_distinct_id: analyticsId.slice(0, 200) } } : {}),
       ...(email ? { customer_email: email } : {}),
       automatic_tax: { enabled: true },
       subscription_data: {
