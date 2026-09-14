@@ -16,6 +16,7 @@ export function PlanScreen({
   quoteId,
   urgency,
   plan,
+  rescued = false,
   onSelectPlan,
   onContinue,
 }: {
@@ -26,6 +27,8 @@ export function PlanScreen({
   quoteId: string;
   urgency?: string;
   plan: PlanId;
+  /** She came back from checkout; the monthly row is highlighted once. */
+  rescued?: boolean;
   onSelectPlan: (plan: PlanId) => void;
   onContinue: () => void;
 }) {
@@ -100,6 +103,7 @@ export function PlanScreen({
           type="button"
           role="radio"
           aria-checked={plan === "monthly"}
+          data-rescued={rescued || undefined}
           onClick={() => onSelectPlan("monthly")}
           className={`sp-tap flex min-h-[60px] w-full items-center justify-between gap-3 rounded-2xl px-5 py-3.5 text-left ${
             plan === "monthly" ? "border-sp-ink bg-sp-lime-wash border-2" : "border-sp-hair bg-sp-page border-[1.5px]"
