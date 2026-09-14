@@ -23,8 +23,9 @@
 | #22 | `quiz-v3-m3` | `quiz-v3-m2` | M3: embedded Stripe Checkout, webhook, code via `web-profile-status`, `/open`, AASA, Path B flag |
 | #23 | `quiz-v3-m4` | `quiz-v3-m3` | M4: analytics per blueprint §10, Meta events, saved PostHog insight |
 | #24 | `quiz-v3-m5` | `quiz-v3-m4` | M5: Lighthouse 91, reduced motion, VoiceOver markup, deletion dry-run, `docs/quiz-v3-cutover.md` |
+| #25 | `quiz-v3-housekeeping` | `quiz-v3-m5` | §4.1: PostHog Production-only note in `.env.example`; this file |
 
-Yarin merges them in order when he gets to it. If he merges #20 first and the others need a rebase, do it with plain `git rebase --onto` per branch and re-push; don't squash the stack.
+Yarin merges them in order (#20 → #25) when he gets to it. If he merges #20 first and the others need a rebase, do it with plain `git rebase --onto` per branch and re-push; don't squash the stack.
 
 **App repo (`/Users/yarinlevy/Desktop/rythma`):** PR #20 on `feat/web-funnel`, open, holds the migration, all **five** edge functions (`web-profile-upsert`, `-paid`, `-status`, `-redeem`, `-link`), the app's "I already joined on the web" door, and the no-steering audit. Not deployed. Not your repo; read only.
 
