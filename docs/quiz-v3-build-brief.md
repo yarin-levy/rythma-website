@@ -107,6 +107,10 @@ APPLE_TEAM_ID=             # already in .env.example from the Paddle starter; re
 ```
 Existing `RESEND_*`, `META_*`, `NEXT_PUBLIC_POSTHOG_*`, `UNSUBSCRIBE_SECRET` stay as they are. Remove the dead Paddle variables and `src/hooks/use-paddle*` in the cutover PR, not before.
 
+**PostHog is Production-only (Yarin, 2026-09-14).** `NEXT_PUBLIC_POSTHOG_KEY` is set for the **Production** environment in Vercel and nowhere else: not Preview, not Development, and blank in `.env.local`. Previews and local runs therefore send no events, so every `web_quiz_*` event in the website project (454280) is real traffic from rythma.co. Every tracker already no-ops when the key is unset, so nothing needs a guard. Don't add the key to Preview to "see it working"; verify events with unit tests, or on production behind the flag. (Why: before this, the builder's local verification runs wrote review traffic from `localhost` into 454280.)
+
+The Stripe values (`NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `STRIPE_PRICE_ANNUAL`, `STRIPE_PRICE_MONTHLY`) go straight into Vercel. They never pass through a builder session.
+
 ---
 
 ## 4. Rules that override your judgment
