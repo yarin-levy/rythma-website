@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 import { ProfileApiError, newRythmaId, validateUpsert, type UpsertRequest } from "../profile-contract";
-import { __mockProfile, __resetMock, markProfilePaid, upsertProfile, usingMock } from "../profile-api";
+import { __mockProfile, __resetMock, markProfilePaid, profileStatus, upsertProfile, usingMock } from "../profile-api";
 import { buildStartingPicture } from "../reveal";
 import { CANDIDATE_TESTS, SYMPTOM_IDS, optionIds } from "../data";
 import { PRICING, TRIAL_DAYS } from "../pricing";
@@ -194,6 +194,59 @@ describe("the in-process mock stands in for the edge functions", () => {
 
     it("404s an unknown profile", async () => {
       await expect(markProfilePaid(paid("wq_nope"))).rejects.toMatchObject({
+        status: 404,
+        body: { error: "unknown_profile" },
+      });
+    });
+  });
+
+  // Yarin's ruling 2026-09-14: the website's one read of a profile, replacing
+  // the per-process memory bridge between the webhook and screen 31.
+  describe("status", () => {
+    const paid = (rythma_id: string) => ({
+      rythma_id,
+      plan: "annual" as const,
+      stripe_customer_id: "cus_1",
+      stripe_subscription_id: "sub_1",
+      trial_ends_at: "2026-09-17T12:00:00.000Z",
+      manage_url: "https://rythma.co/manage?k=signed",
+    });
+
+    it("reports an unpaid profile as not paid, with every field null", async () => {
+      const { rythma_id } = await upsertProfile(payload());
+      expect(await profileStatus(rythma_id)).toEqual({
+        paid: false,
+        plan: null,
+        trial_ends_at: null,
+        code: null,
+        manage_url: null,
+      });
+    });
+
+    it("returns the exact ruled shape once paid", async () => {
+      const { rythma_id } = await upsertProfile(payload());
+      const { code } = await markProfilePaid(paid(rythma_id));
+      const status = await profileStatus(rythma_id);
+      expect(Object.keys(status).sort()).toEqual(["code", "manage_url", "paid", "plan", "trial_ends_at"].sort());
+      expect(status).toEqual({
+        paid: true,
+        plan: "annual",
+        trial_ends_at: "2026-09-17T12:00:00.000Z",
+        code,
+        manage_url: "https://rythma.co/manage?k=signed",
+      });
+    });
+
+    it("is readable from any request, not just the one that paid — no instance affinity", async () => {
+      // The whole reason for the ruling: the webhook and the poll are separate
+      // requests. The mock is one store, exactly as the app project is.
+      const { rythma_id } = await upsertProfile(payload());
+      await markProfilePaid(paid(rythma_id));
+      expect((await profileStatus(rythma_id)).paid).toBe(true);
+    });
+
+    it("404s an unknown profile", async () => {
+      await expect(profileStatus("wq_nope")).rejects.toMatchObject({
         status: 404,
         body: { error: "unknown_profile" },
       });

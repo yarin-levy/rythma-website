@@ -24,8 +24,7 @@ vi.mock("resend", () => ({
 }));
 
 const { POST } = await import("./route");
-const { upsertProfile, __resetMock, __mockProfile } = await import("@/lib/sp/profile-api");
-const { recallCode, __resetCodeStore } = await import("@/lib/sp/code-store");
+const { upsertProfile, profileStatus, __resetMock, __mockProfile } = await import("@/lib/sp/profile-api");
 
 /** Stripe's own scheme: `t=<ts>,v1=<hmac(secret, "<ts>.<payload>")>`. */
 function sign(payload: string, secret = WEBHOOK_SECRET): string {
@@ -89,7 +88,6 @@ let capiCalls: { url: string; body: Record<string, unknown> }[] = [];
 
 beforeEach(() => {
   __resetMock();
-  __resetCodeStore();
   sentEmails.length = 0;
   capiCalls = [];
   vi.stubGlobal(
@@ -136,20 +134,24 @@ describe("the signature is the door", () => {
 });
 
 describe("a completed checkout", () => {
-  it("marks the profile paid, keeps the code for screen 31, and emails it", async () => {
+  it("marks the profile paid, so status hands screen 31 the code, and emails it", async () => {
     const rythmaId = await seedProfile();
     const res = await post(completedEvent({ client_reference_id: rythmaId }));
     expect(res.status).toBe(200);
 
-    const stored = recallCode(rythmaId);
-    expect(stored?.code).toMatch(/^\d{6}$/);
-    expect(stored?.stripeCustomerId).toBe("cus_test_1");
+    // Read back the way screen 31 reads it: through web-profile-status.
+    const stored = await profileStatus(rythmaId);
+    expect(stored.paid).toBe(true);
+    expect(stored.code).toMatch(/^\d{6}$/);
+    expect(stored.plan).toBe("annual");
+    expect(stored.manage_url).toMatch(/^https:\/\/rythma\.co\/manage\?k=/);
 
     expect(sentEmails).toHaveLength(1);
     expect(sentEmails[0].to).toBe("sarah@example.com");
     expect(sentEmails[0].subject).toBe("You’re in. Here’s your code");
-    expect(sentEmails[0].html).toContain(stored!.code.split("").join(" "));
-    expect(__mockProfile(rythmaId)?.code).toBe(stored!.code);
+    const code = stored.code ?? "";
+    expect(sentEmails[0].html).toContain(code.split("").join(" "));
+    expect(__mockProfile(rythmaId)?.code).toBe(code);
   });
 
   it("puts the signed manage link in the email, never a Stripe portal URL", async () => {

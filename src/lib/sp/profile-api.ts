@@ -4,6 +4,8 @@
 // Build brief §2b:
 //   POST {SP_PROFILE_API_URL}/web-profile-upsert  → { rythma_id, link_token? }
 //   POST {SP_PROFILE_API_URL}/web-profile-paid    → { code, link_token }
+//   POST {SP_PROFILE_API_URL}/web-profile-status  → { paid, plan, trial_ends_at,
+//                                                     code, manage_url }
 //   header: x-rythma-web-key: {SP_PROFILE_API_KEY}
 //
 // Slugs are hyphenated because Supabase forbids "/" in a function name — this
@@ -22,6 +24,8 @@ import {
   validateUpsert,
   type PaidRequest,
   type PaidResponse,
+  type StatusRequest,
+  type StatusResponse,
   type UpsertRequest,
   type UpsertResponse,
 } from "./profile-contract";
@@ -41,6 +45,9 @@ type MockProfile = UpsertRequest & {
   code?: string;
   paid_at?: string;
   stripe_subscription_id?: string;
+  plan?: "annual" | "monthly";
+  trial_ends_at?: string | null;
+  manage_url?: string;
 };
 
 const mockStore = new Map<string, MockProfile>();
@@ -91,8 +98,26 @@ function mockPaid(payload: PaidRequest): PaidResponse {
     code,
     paid_at: new Date().toISOString(),
     stripe_subscription_id: payload.stripe_subscription_id,
+    plan: payload.plan,
+    trial_ends_at: payload.trial_ends_at,
+    ...(payload.manage_url ? { manage_url: payload.manage_url } : {}),
   });
   return { code, link_token: profile.link_token };
+}
+
+function mockStatus(payload: StatusRequest): StatusResponse {
+  const profile = mockStore.get(payload.rythma_id);
+  if (!profile) throw new ProfileApiError(404, { error: "unknown_profile" });
+  if (!profile.paid_at || !profile.code) {
+    return { paid: false, plan: null, trial_ends_at: null, code: null, manage_url: null };
+  }
+  return {
+    paid: true,
+    plan: profile.plan ?? null,
+    trial_ends_at: profile.trial_ends_at ?? null,
+    code: profile.code,
+    manage_url: profile.manage_url ?? null,
+  };
 }
 
 // ── The real client ─────────────────────────────────────────────────────────
@@ -141,4 +166,13 @@ export async function upsertProfile(payload: UpsertRequest): Promise<UpsertRespo
 export async function markProfilePaid(payload: PaidRequest): Promise<PaidResponse> {
   if (usingMock()) return mockPaid(payload);
   return call<PaidResponse>("web-profile-paid", payload);
+}
+
+/**
+ * Screen 31's poll and `/manage`. The only read the website has, so the code
+ * never has to live on our infrastructure between the webhook and her screen.
+ */
+export async function profileStatus(rythmaId: string): Promise<StatusResponse> {
+  if (usingMock()) return mockStatus({ rythma_id: rythmaId });
+  return call<StatusResponse>("web-profile-status", { rythma_id: rythmaId });
 }

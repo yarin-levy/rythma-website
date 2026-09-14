@@ -68,6 +68,24 @@ export type PaidRequest = {
 
 export type PaidResponse = { code: string; link_token: string };
 
+/**
+ * `POST web-profile-status` (Yarin's ruling 2026-09-14, build brief §2b). The
+ * website's only read of a profile: screen 31's poll and `/manage`.
+ *
+ * The brief gives the paid shape. For a profile that exists but has not been
+ * paid, the fields are null and `paid` is false — the boring reading of a
+ * silent spec, and the one the poll needs, since "not yet" is its normal state.
+ */
+export type StatusRequest = { rythma_id: string };
+
+export type StatusResponse = {
+  paid: boolean;
+  plan: "annual" | "monthly" | null;
+  trial_ends_at: string | null;
+  code: string | null;
+  manage_url: string | null;
+};
+
 /** The edge function's error shape. `field` is for our log, never for her. */
 export type ContractError = { error: string; field?: string; message?: string };
 

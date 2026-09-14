@@ -53,7 +53,13 @@ export async function POST(request: Request) {
       client_reference_id: rythmaId,
       ...(email ? { customer_email: email } : {}),
       automatic_tax: { enabled: true },
-      ...(trial > 0 ? { subscription_data: { trial_period_days: trial } } : {}),
+      subscription_data: {
+        // What /manage searches on to find her Stripe customer, since the
+        // status function returns no customer id. On the subscription rather
+        // than the session, because the subscription outlives the session.
+        metadata: { rythma_id: rythmaId },
+        ...(trial > 0 ? { trial_period_days: trial } : {}),
+      },
       // The funnel handles success in place; it never navigates away.
       redirect_on_completion: "never",
     });

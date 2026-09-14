@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { stripeOrNull } from "@/lib/sp/stripe";
 import { verifyManageKey } from "@/lib/sp/manage-link";
-import { recallCustomer } from "@/lib/sp/code-store";
+import { profileStatus } from "@/lib/sp/profile-api";
 
 // `GET /manage?k=<signed rythma_id>` — Profile → Subscription → **Manage** in
 // the app, for a member who bought on the web.
@@ -10,6 +10,14 @@ import { recallCustomer } from "@/lib/sp/code-store";
 // stable; a Stripe billing-portal session URL expires in minutes (app handout
 // ledger D4). This route verifies the signature, then mints a fresh portal
 // session on each tap and redirects.
+//
+// TWO LOOKUPS, AND WHY. `web-profile-status` answers "is this profile paid",
+// which is the gate. It does not return the Stripe customer id (the ruled shape
+// is `paid, plan, trial_ends_at, code, manage_url`), so the customer comes from
+// Stripe itself: /api/sp/checkout tags every subscription with
+// `metadata.rythma_id`, and this searches on it. No contract change needed.
+// Stripe's search index is eventually consistent (about a minute), which is
+// fine here — nobody taps Manage in the minute after paying.
 //
 // Opening a management page for a subscription she already holds is permitted
 // under Apple 3.1.3(b). Selling is not, and this route sells nothing.
@@ -28,18 +36,24 @@ export async function GET(request: Request) {
   }
 
   try {
-    // The customer id was put here by the webhook. The contract gives the
-    // website no profile read (see code-store.ts), so this is the same seam,
-    // and it needs the same decision: a `web-profile-status` function returning
-    // the customer id would make Manage exact instead of best-effort.
-    const customerId = recallCustomer(rythmaId);
-    if (!customerId) {
-      console.error("sp/manage: no Stripe customer on that profile");
+    const status = await profileStatus(rythmaId);
+    if (!status.paid) {
+      return NextResponse.json({ error: "Manage is not available" }, { status: 404 });
+    }
+
+    const found = await stripe.subscriptions.search({
+      query: `metadata['rythma_id']:'${rythmaId.replace(/'/g, "")}'`,
+      limit: 1,
+    });
+    const sub = found.data[0];
+    const customer = typeof sub?.customer === "string" ? sub.customer : sub?.customer?.id;
+    if (!customer) {
+      console.error("sp/manage: paid profile with no tagged Stripe subscription", rythmaId);
       return NextResponse.json({ error: "Manage is not available" }, { status: 404 });
     }
 
     const session = await stripe.billingPortal.sessions.create({
-      customer: customerId,
+      customer,
       return_url: `${url.origin}/`,
     });
     return NextResponse.redirect(session.url, 303);

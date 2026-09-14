@@ -5,7 +5,6 @@ import { NextResponse } from "next/server";
 import { planValue, stripeOrNull } from "@/lib/sp/stripe";
 import { markProfilePaid } from "@/lib/sp/profile-api";
 import { ProfileApiError } from "@/lib/sp/profile-contract";
-import { rememberCode } from "@/lib/sp/code-store";
 import { manageUrl } from "@/lib/sp/manage-link";
 import { CODE_EMAIL_SUBJECT, codeEmailHtml } from "@/lib/sp/code-email";
 import type { PlanId } from "@/lib/sp/pricing";
@@ -13,7 +12,7 @@ import type { PlanId } from "@/lib/sp/pricing";
 // The one place a purchase becomes real.
 //
 // On `checkout.session.completed`: mark the profile paid (which mints her
-// 6-digit code), remember the code for screen 31 to poll, send *You're in.
+// 6-digit code — screen 31 reads it back through web-profile-status), send *You're in.
 // Here's your code*, and fire the purchase event to Meta's Conversions API.
 // On subscription and invoice events: mirror to PostHog so churn and dunning
 // are visible without a Stripe login.
@@ -178,13 +177,8 @@ async function onCheckoutCompleted(
     throw e;
   }
 
-  // 2) Hand the code to screen 31's poll.
-  rememberCode(rythmaId, {
-    code,
-    plan,
-    trialEndsAt,
-    ...(customerId ? { stripeCustomerId: customerId } : {}),
-  });
+  // 2) Nothing to hand over here: screen 31 reads the code back through
+  //    `web-profile-status`, from the app project that just minted it.
 
   // 3) Her code email. This is the deferred deep link; Apple offers no other.
   const email = session.customer_details?.email ?? session.customer_email ?? null;
