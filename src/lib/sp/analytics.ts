@@ -1,13 +1,14 @@
 // Starting Picture funnel analytics — blueprint §10, and the Meta rules in §9.
 //
-// The split from quiz-analytics.ts is kept exactly: PostHog gets the detail,
+// The split is the one the site's analytics already used: PostHog gets the detail,
 // Meta gets bare standard events with ZERO custom parameters. `fbqTrack` here
 // takes no property bag at all, which is the only way to guarantee that.
 //
-// Attribution capture, the haptic and the CAPI dedup key are reused from
-// quiz-analytics.ts rather than duplicated — they are funnel-agnostic.
+// Attribution capture, the haptic and the CAPI dedup key live in
+// sp/attribution.ts. Nothing in the funnel imports from the v2 quiz, so cutover
+// can delete it outright (docs/quiz-v3-cutover.md).
 
-export { captureAttribution, getAttribution, haptic, newEventId } from "@/lib/quiz-analytics";
+export { captureAttribution, getAttribution, haptic, newEventId } from "./attribution";
 
 // ── PostHog (website project 454280) ────────────────────────────────────────
 

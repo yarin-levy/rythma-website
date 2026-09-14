@@ -1,7 +1,6 @@
 import { act, cleanup, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
-  ACTS,
   ADVERTORIAL_CTA,
   BRIDGE_CTA,
   BRIDGE_HOPE,
@@ -50,7 +49,7 @@ async function click(el: Element) {
 }
 
 function rail() {
-  return document.querySelector('[role="img"][aria-label^="Section"]');
+  return document.querySelector("[data-sp-rail]");
 }
 
 /** The sticky primary action, whatever this screen calls it. */
@@ -129,7 +128,7 @@ describe("the funnel walks from screen 1 to screen 31", () => {
     // ── ACT A ──────────────────────────────────────────────────────────────
     // 1 · Moment
     expect(screen.getByText(question("moment").prompt)).toBeTruthy();
-    expect(rail()?.getAttribute("aria-label")).toBe(`Section 1 of 6, ${ACTS[0].label}, question 1 of ${TOTAL_SCREENS}`);
+    expect(rail()?.textContent).toBe(`Section 1 of 6, Your moment, question 1 of ${TOTAL_SCREENS}`);
     await pick(0); // "I was told it's stress…" → dismissed
 
     // 2 · Echo, branched on her moment
@@ -167,9 +166,12 @@ describe("the funnel walks from screen 1 to screen 31", () => {
     // 7 · Symptoms — 30 chips under five headers, and the count in the rail
     expect(screen.getByText(question("symptoms").prompt)).toBeTruthy();
     expect(document.querySelectorAll('[role="checkbox"]')).toHaveLength(30);
-    expect(rail()?.getAttribute("aria-label")).toContain("question 7 of 31");
+    expect(rail()?.textContent).toContain("question 7 of 31");
     await pickChecks(3);
-    expect(screen.getByText("3 selected")).toBeTruthy();
+    // Seen in the rail, and heard: the polite live region carries the same count.
+    const live = document.querySelector('[aria-live="polite"][aria-atomic="true"]');
+    expect(live?.textContent).toBe("3 selected");
+    expect(screen.getAllByText("3 selected")).toHaveLength(2);
     await tapCta();
 
     // 8 · Recognized — her own count, then the hedge
@@ -183,12 +185,12 @@ describe("the funnel walks from screen 1 to screen 31", () => {
 
     // 10 · Cycle → 10a fork
     expect(screen.getByText(question("cycle").prompt)).toBeTruthy();
-    const railBeforeFork = rail()?.getAttribute("aria-label");
+    const railBeforeFork = rail()?.textContent;
     await pick(4); // "I don't get periods"
 
     // 10a · The fork. Same rail count: it is a fork, not a step.
     expect(screen.getByText(question("no_period_reason").prompt)).toBeTruthy();
-    expect(rail()?.getAttribute("aria-label")).toBe(railBeforeFork);
+    expect(rail()?.textContent).toBe(railBeforeFork);
     await pick(0);
 
     // 11 · Everyday inputs
@@ -377,7 +379,7 @@ describe("the rail rides question screens only", () => {
     const shouldHaveRail = type === "question" || type === "chips";
     expect(Boolean(rail()), `${n} · ${id}`).toBe(shouldHaveRail);
     if (shouldHaveRail) {
-      expect(rail()!.getAttribute("aria-label")).toContain(`question ${n} of 31`);
+      expect(rail()!.textContent).toContain(`question ${n} of 31`);
     }
   });
 });

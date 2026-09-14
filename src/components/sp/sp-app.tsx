@@ -28,6 +28,11 @@ const SpLandingBelow = dynamic(() => import("./landing-below"), {
  * `.sp` is set here and nowhere else: it is what scopes the funnel's tokens so
  * the marketing site and the blog are untouched by them.
  */
+/** Importing the engine puts none of its copy in the HTML; it only fetches. */
+function warmEngine() {
+  void import("./sp-engine");
+}
+
 export function SpApp({ devLinks = false }: { devLinks?: boolean }) {
   const [started, setStarted] = useState(false);
 
@@ -42,10 +47,27 @@ export function SpApp({ devLinks = false }: { devLinks?: boolean }) {
     if (devLinks && new URLSearchParams(window.location.search).has("screen")) {
       setStarted(true);
     }
-    // Warm the engine chunk while she reads the headline, so the first tap is
-    // instant. Importing it puts none of its copy in the HTML.
-    const idle = setTimeout(() => void import("./sp-engine"), 1200);
-    return () => clearTimeout(idle);
+    // Warm the engine chunk once the page is idle, so the first tap is still
+    // instant. Not on a fixed 1.2s timer: that parsed the whole engine in the
+    // middle of the landing page's load, which Lighthouse charged as blocking
+    // time. Intent (below) warms it sooner if she heads for the button first.
+    const w = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    let idleId: number | undefined;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const schedule = () => {
+      if (w.requestIdleCallback) idleId = w.requestIdleCallback(warmEngine, { timeout: 4000 });
+      else timer = setTimeout(warmEngine, 2500);
+    };
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
+    return () => {
+      window.removeEventListener("load", schedule);
+      if (idleId !== undefined) w.cancelIdleCallback?.(idleId);
+      if (timer) clearTimeout(timer);
+    };
   }, [devLinks]);
 
   const handleStart = useCallback(() => setStarted(true), []);
@@ -56,7 +78,7 @@ export function SpApp({ devLinks = false }: { devLinks?: boolean }) {
       {started ? (
         <SpEngine devLinks={devLinks} onExit={handleExit} />
       ) : (
-        <SpLanding onStart={handleStart} below={<SpLandingBelow />} />
+        <SpLanding onStart={handleStart} onIntent={warmEngine} below={<SpLandingBelow />} />
       )}
     </main>
   );
