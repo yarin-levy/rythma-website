@@ -14,9 +14,12 @@ import { LANDING, LP_HEADLINE } from "@/lib/sp/landing";
  */
 export function SpLanding({
   onStart,
+  onIntent,
   below,
 }: {
   onStart: () => void;
+  /** Her finger or focus reaching Begin: fetch the engine before the tap lands. */
+  onIntent?: () => void;
   /** The client-only below-the-fold chunk, injected by the shell. */
   below?: React.ReactNode;
 }) {
@@ -28,22 +31,27 @@ export function SpLanding({
         </div>
 
         <div className="flex flex-1 flex-col justify-center py-8">
-          <p className="sp-rise text-sp-ink3 text-[length:var(--sp-text-label)] font-semibold tracking-[0.06em] uppercase">
+          <p className="text-sp-ink3 text-[length:var(--sp-text-label)] font-semibold tracking-[0.06em] uppercase">
             {LANDING.eyebrow}
           </p>
-          {/* The LCP element. No web font blocks it: both faces are `swap`. */}
-          <h1 className="sp-rise font-sp-serif text-sp-ink mt-4 text-[length:var(--sp-text-serif)] leading-[1.1]">
+          {/* The LCP element. Painted at once, with no entrance animation: an
+              element that starts at opacity 0 is not an LCP candidate, so the
+              fade-in handed LCP to the small line under the button and to its
+              late font swap. Both faces are `swap`, so no font blocks it. */}
+          <h1 className="font-sp-serif text-sp-ink mt-4 text-[length:var(--sp-text-serif)] leading-[1.1]">
             {LP_HEADLINE}
           </h1>
-          <p className="sp-rise text-sp-ink2 mt-5 text-[length:var(--sp-text-body)] leading-[1.5] [animation-delay:120ms]">
+          <p className="text-sp-ink2 mt-5 text-[length:var(--sp-text-body)] leading-[1.5]">
             {LANDING.sub} <em className="font-sp-serif text-sp-ink italic">{LANDING.subItalic}</em>
           </p>
         </div>
 
-        <div className="sp-actions shrink-0 [animation-delay:220ms]">
+        <div className="sp-actions shrink-0">
           <button
             type="button"
             onClick={onStart}
+            onPointerDown={onIntent}
+            onFocus={onIntent}
             className="sp-tap bg-sp-ink text-sp-page flex min-h-[60px] w-full items-center justify-center rounded-full px-6 text-[length:var(--sp-text-body)] font-semibold transition-opacity active:opacity-90"
           >
             {LANDING.cta}

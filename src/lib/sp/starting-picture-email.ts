@@ -3,7 +3,7 @@
 // GMAIL DARK MODE. Gmail on iOS inverts every email and cannot be opted out of.
 // What breaks under inversion is LIGHT TEXT INSIDE A DARK BLOCK: the fill can
 // survive while the text flips dark, and the text vanishes. Dark text on a light
-// ground is safe in both directions. So, exactly as in quiz-lead-email.ts:
+// ground is safe in both directions. So:
 //
 //   · every text element is dark type on a light ground;
 //   · the only dark fill is the CTA button, which mail clients treat as a

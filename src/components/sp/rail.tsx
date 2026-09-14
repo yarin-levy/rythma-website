@@ -11,6 +11,15 @@ import { act } from "@/lib/sp/data";
  * The VoiceOver label reads the way the blueprint's accessibility floor asks:
  * "Section 2 of 6, What's changed, question 7 of 31".
  */
+/**
+ * The rail as one sentence. The act labels are set in uppercase for the eye;
+ * spoken, they read as sentence case, which is how the blueprint writes this.
+ */
+export function railSentence(actNumber: number, actLabel: string, screenNumber: number): string {
+  const spoken = actLabel.charAt(0) + actLabel.slice(1).toLowerCase();
+  return `Section ${actNumber} of ${ACTS.length}, ${spoken}, question ${screenNumber} of ${TOTAL_SCREENS}`;
+}
+
 export function SectionRail({
   actId,
   screenNumber,
@@ -52,7 +61,12 @@ export function SectionRail({
         </span>
 
         {selectedCount !== undefined && selectedCount > 0 && (
-          <span className="bg-sp-lime text-sp-ink shrink-0 rounded-full px-2.5 py-0.5 text-[length:var(--sp-text-label)] font-semibold tracking-[0.06em] uppercase tabular-nums">
+          // aria-hidden: the chips screen announces the count itself, in a
+          // polite live region, so VoiceOver hears it when it changes.
+          <span
+            aria-hidden
+            className="bg-sp-lime text-sp-ink shrink-0 rounded-full px-2.5 py-0.5 text-[length:var(--sp-text-label)] font-semibold tracking-[0.06em] uppercase tabular-nums"
+          >
             {selectedCount} selected
           </span>
         )}
@@ -65,11 +79,14 @@ export function SectionRail({
         </span>
       </div>
 
-      <div
-        className="flex gap-1"
-        role="img"
-        aria-label={`Section ${current.n} of ${ACTS.length}, ${current.label}, question ${screenNumber} of ${TOTAL_SCREENS}`}
-      >
+      {/* What VoiceOver reads, in the blueprint's own words (§2, accessibility
+          floor): "Section 2 of 6, What's changed, question 7 of 31". Plain text,
+          not role="img" on a row of spans — VoiceOver announces that as an
+          image. The visible labels and the bar are hidden from it. */}
+      <p className="sr-only" data-sp-rail>
+        {railSentence(current.n, current.label, screenNumber)}
+      </p>
+      <div className="flex gap-1" aria-hidden>
         {ACTS.map((a) => (
           <span key={a.id} className={`h-[3px] flex-1 rounded-full ${a.n <= current.n ? "bg-sp-ink" : "bg-sp-hair"}`} />
         ))}

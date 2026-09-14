@@ -154,9 +154,20 @@ export function ChipsScreen({
       <Sub>{question.sub}</Sub>
 
       <div className="flex flex-col gap-6">
+        {/* Announced as it changes, so VoiceOver hears "3 selected" after the
+            third tap. The lime count in the rail is hidden from it. */}
+        <p className="sr-only" aria-live="polite" aria-atomic="true">
+          {selected.length > 0 ? `${selected.length} selected` : ""}
+        </p>
+
         {SYMPTOM_CATEGORIES.map((cat) => (
-          <div key={cat.id} className="flex flex-col gap-3">
-            <h3 className="text-sp-ink3 text-[length:var(--sp-text-label)] font-semibold tracking-[0.06em] uppercase">
+          // A labelled group per body system, so moving into "Hot flashes"
+          // is heard as part of "Temperature".
+          <div key={cat.id} role="group" aria-labelledby={`sp-cat-${cat.id}`} className="flex flex-col gap-3">
+            <h3
+              id={`sp-cat-${cat.id}`}
+              className="text-sp-ink3 text-[length:var(--sp-text-label)] font-semibold tracking-[0.06em] uppercase"
+            >
               {cat.label}
             </h3>
             <div className="flex flex-wrap gap-2">

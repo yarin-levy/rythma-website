@@ -1,7 +1,52 @@
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 
 // Focused funnel chrome — no site nav/footer. The root layout still provides
-// <html>/<body>, fonts, the Meta Pixel and PostHog.
+// <html>/<body>, the site fonts, the Meta Pixel and PostHog.
+
+// The Starting Picture funnel's two faces (blueprint §2), declared HERE and not
+// in the root layout. next/font preloads a font on every route under the layout
+// that declares it, so declaring these at the root made the homepage and every
+// blog post preload 78 KB of type they never use (build brief rule 6: don't
+// touch the marketing site). Scoped to /quiz, only the funnel pays for them.
+//
+// `display: swap` keeps both off the LCP path: the headline paints in the
+// fallback serif at once and swaps when Instrument Serif lands. The variables are
+// set on the wrapper below, which is an ancestor of `.sp`.
+const instrumentSerif = localFont({
+  src: "../fonts/instrument-serif.woff2",
+  weight: "400",
+  style: "normal",
+  variable: "--font-instrument-serif",
+  display: "swap",
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});
+
+/**
+ * The italic, declared on its own so it is NOT preloaded. The LP's only italic
+ * is one short clause below the headline, and preloading it put a fourth
+ * 21 KB font in the queue ahead of the text that decides LCP. The brief asks for
+ * two preloads — the serif regular (the headline) and Archivo (everything else)
+ * — and this is how it gets exactly two. globals.css points italic serif text at
+ * this family; until it lands, the regular face renders and the browser slants it.
+ */
+const instrumentSerifItalic = localFont({
+  src: "../fonts/instrument-serif-italic.woff2",
+  weight: "400",
+  style: "italic",
+  variable: "--font-instrument-serif-italic",
+  display: "swap",
+  preload: false,
+  fallback: ["Georgia", "Times New Roman", "serif"],
+});
+
+const archivo = localFont({
+  src: "../fonts/archivo.woff2",
+  variable: "--font-archivo",
+  weight: "100 900",
+  display: "swap",
+  fallback: ["ui-sans-serif", "system-ui", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   // Spec hard rule 1: no health terms in the URL, the <title>, or the meta
@@ -50,5 +95,14 @@ export const viewport: Viewport = {
 };
 
 export default function QuizLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  // `display: contents` so the wrapper carries the font variables without
+  // becoming a box: the funnel shell's own layout is unchanged.
+  return (
+    <div
+      className={`${instrumentSerif.variable} ${instrumentSerifItalic.variable} ${archivo.variable}`}
+      style={{ display: "contents" }}
+    >
+      {children}
+    </div>
+  );
 }

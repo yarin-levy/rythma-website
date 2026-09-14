@@ -572,6 +572,15 @@
   padding-right: env(safe-area-inset-right);
 }
 
+/* Italic serif text uses the separately declared italic face, which is not
+   preloaded (see src/app/quiz/layout.tsx). Covers both shapes the funnel uses:
+   the italic class on the serif element itself, and an italic span inside a
+   serif headline. */
+.sp .font-sp-serif.italic,
+.sp .font-sp-serif .italic {
+  font-family: var(--font-instrument-serif-italic), var(--font-instrument-serif), Georgia, serif;
+}
+
 /* Stop iOS double-tap zoom and the grey tap flash on anything interactive. */
 .sp-tap {
   touch-action: manipulation;
@@ -594,22 +603,6 @@
   padding-bottom: calc(env(safe-area-inset-bottom) + 0.75rem);
 }
 
-/* 320ms fade + 16px slide. Used by the LP, which carries no motion library so
-   first paint on a cold tap-through stays cheap. */
-@keyframes sp-rise {
-  from {
-    opacity: 0;
-    transform: translateY(16px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-.sp-rise {
-  animation: sp-rise 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 /* The loader's four lines tick in over ~5s; nothing spins, nothing counts down. */
 @keyframes sp-tick {
   from {
@@ -625,7 +618,6 @@
 
 /* prefers-reduced-motion drops the slide and every stagger (blueprint §2). */
 @media (prefers-reduced-motion: reduce) {
-  .sp-rise,
   .sp-tick {
     animation-delay: 0ms !important;
     animation-name: none;

@@ -52,7 +52,7 @@ import {
 } from "@/lib/sp/analytics";
 import { SectionRail } from "./rail";
 import { AdvertorialScreen, BridgeScreen, EchoScreen, RecognizedScreen, RuledBeatScreen } from "./screens/beats";
-import { CheckoutScreen } from "./screens/checkout";
+import dynamic from "next/dynamic";
 import { StoreHandoffScreen } from "./screens/store-handoff";
 import { GateScreen } from "./screens/gate";
 import { HandoffScreen } from "./screens/handoff";
@@ -72,6 +72,16 @@ import { VideoScreen } from "./screens/video";
 // string comes from reveal.ts, which is unit-tested without a DOM.
 
 const SELECT_HOLD_MS = 340; // let the chosen answer register before moving on
+
+/**
+ * Screen 30 in its own chunk. It carries Stripe's React bindings, and the landing
+ * page pre-fetches this engine so the first tap is instant — without the split,
+ * every visitor who only read the headline downloaded the checkout too.
+ */
+const CheckoutScreen = dynamic(() => import("./screens/checkout").then((m) => m.CheckoutScreen), {
+  ssr: false,
+  loading: () => <div className="min-h-svh" aria-hidden />,
+});
 
 /**
  * NEW STRING (for Yarin): the blueprint has no error state for screen 24.

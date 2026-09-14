@@ -2,7 +2,13 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { EmbeddedCheckout, EmbeddedCheckoutProvider } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
+// The `pure` entry, not the default one. `@stripe/stripe-js` injects
+// js.stripe.com (242 KB, plus Stripe's fraud-signal script) the moment it is
+// imported, and the landing page warms the engine chunk that imports this
+// screen — so the default entry loaded Stripe on the ad landing page, before
+// she had tapped anything. Measured as the single largest main-thread task on
+// the LP in Lighthouse. `pure` loads nothing until `loadStripe` is called.
+import { loadStripe } from "@stripe/stripe-js/pure";
 import { CHECKOUT, SYMPTOMS } from "@/lib/sp/data";
 import type { PlanId } from "@/lib/sp/pricing";
 import { analyticsId } from "@/lib/sp/analytics";
@@ -20,7 +26,15 @@ import { Footnote, Label, Prompt, Screen, SecondaryAction } from "../ui";
 // last thing she reads before paying.
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-const stripePromise = publishableKey ? loadStripe(publishableKey) : null;
+
+let stripePromise: ReturnType<typeof loadStripe> | null = null;
+
+/** Loads Stripe on first use — which is screen 30 mounting, and nothing earlier. */
+function getStripe(): ReturnType<typeof loadStripe> | null {
+  if (!publishableKey) return null;
+  stripePromise ??= loadStripe(publishableKey);
+  return stripePromise;
+}
 
 /**
  * NEW STRINGS (for Yarin). The blueprint has no failure or back state for
@@ -75,7 +89,8 @@ export function CheckoutScreen({
 
   const options = useMemo(() => ({ fetchClientSecret, onComplete }), [fetchClientSecret, onComplete]);
 
-  const payable = Boolean(stripePromise && rythmaId) && !failed;
+  const stripe = useMemo(() => getStripe(), []);
+  const payable = Boolean(stripe && rythmaId) && !failed;
 
   return (
     <Screen>
@@ -101,7 +116,7 @@ export function CheckoutScreen({
         <div className="min-h-[16rem]">
           {/* Apple Pay and Google Pay appear here on a supporting device — the
               session leaves payment_method_types to Stripe on purpose. */}
-          <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
+          <EmbeddedCheckoutProvider stripe={stripe} options={options}>
             <EmbeddedCheckout />
           </EmbeddedCheckoutProvider>
         </div>

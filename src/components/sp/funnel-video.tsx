@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { VIDEO_PROGRESS_STEPS, type FunnelVideoSpec } from "@/lib/sp/data";
 import { trackVideoCompleted, trackVideoProgress, trackVideoStarted } from "@/lib/sp/analytics";
 import { PhoneFrame } from "./ui";
+import { usePrefersReducedMotion } from "./use-reduced-motion";
 
 /**
  * A funnel clip in a drawn phone frame.
@@ -23,6 +24,8 @@ export function FunnelVideo({ spec }: { spec: FunnelVideoSpec }) {
   const [fired, setFired] = useState<number[]>([]);
   const started = useRef(false);
   const hasClip = spec.src.length > 0 || spec.webm.length > 0;
+  // Under prefers-reduced-motion the clip waits for her to press play.
+  const reduced = usePrefersReducedMotion();
 
   useEffect(() => {
     // A still is not a play, so it reports neither started nor progress.
@@ -57,7 +60,10 @@ export function FunnelVideo({ spec }: { spec: FunnelVideoSpec }) {
             ref={video}
             className="size-full object-cover"
             poster={spec.poster || undefined}
-            autoPlay
+            // Native controls: a 20–45s clip that plays on its own needs a way
+            // to pause it (WCAG 2.2.2), for everyone, not only reduced-motion.
+            controls
+            autoPlay={!reduced}
             muted
             playsInline
             loop={false}
