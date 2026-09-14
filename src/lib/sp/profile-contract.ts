@@ -26,14 +26,10 @@ export const VALIDATED_ANSWER_KEYS = [
 export const WEB_ONLY_ANSWER_KEYS = ["moment", "how_long", "harder", "inputs", "reflection"] as const;
 
 /**
- * NOTE FOR THE APP SESSION — `variant` is gone.
- *
- * Yarin removed the six `?a=` landing-page variants on 2026-09-10 (build brief
- * rule 0), so the web has nothing to report and no longer sends the field. The
- * handout's §2 request shape still lists `variant (1–6)` as required, and the
- * edge function still validates it, so `web-profile-upsert` MUST make it
- * optional before SP_PROFILE_API_URL is set — otherwise the first real write
- * 400s. Flagged in the M1 pull request.
+ * No `variant`. Yarin removed the six `?a=` landing-page variants on 2026-09-10
+ * (build brief rule 0), so the web has nothing to report and never sends the
+ * field. `variant` has always been optional on `web-profile-upsert` (app PR #20),
+ * so omitting it needs nothing from the app side.
  */
 export type UpsertRequest = {
   /** Absent on the first call; the function mints it. */

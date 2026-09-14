@@ -130,8 +130,8 @@ describe("a submitted profile round-trips with the exact enum values", () => {
   });
 
   // Build brief rule 0: one landing page, so there is no variant to report.
-  // The app handout's §2 still lists `variant (1-6)` as required — that field
-  // has to become optional on the edge function before the real URL is set.
+  // The field is optional on web-profile-upsert (app PR #20), so omitting it is
+  // the whole of the change.
   it("never sends a variant, and ignores one a client tries to add", async () => {
     const res = await post(submission({ variant: 3 }));
     expect(res.status).toBe(200);
