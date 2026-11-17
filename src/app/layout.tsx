@@ -23,10 +23,30 @@ const newsreader = localFont({
   display: "swap",
 });
 
+// The Starting Picture funnel's two faces (blueprint §2). Same self-hosted
+// pattern as above; `display: swap` and `preload` keep them off the LP's LCP
+// path, which is the headline. They load only where `.sp` uses them.
+const instrumentSerif = localFont({
+  src: [
+    { path: "./fonts/instrument-serif.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/instrument-serif-italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-instrument-serif",
+  display: "swap",
+});
+
+const archivo = localFont({
+  src: "./fonts/archivo.woff2",
+  variable: "--font-archivo",
+  weight: "100 900",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://rythma.co"),
   title: "Rythma - Know Your Hard Days Before They Hit",
-  description: "Rythma is the app that learns your patterns and predicts perimenopause symptoms before they arrive. Finally plan your life around perimenopause, not the other way around.",
+  description:
+    "Rythma is the app that learns your patterns and predicts perimenopause symptoms before they arrive. Finally plan your life around perimenopause, not the other way around.",
   keywords: ["perimenopause", "menopause", "symptom tracker", "health app", "women's health", "hormone tracking"],
   // Declare the homepage canonical so Google doesn't treat rythma.co, rythma.co/,
   // and the http/www redirect variants as separate duplicate URLs. (This was the
@@ -56,7 +76,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${newsreader.variable} antialiased`}>
+      <body
+        className={`${inter.variable} ${newsreader.variable} ${instrumentSerif.variable} ${archivo.variable} antialiased`}
+      >
         {/* FB Pixel loads after hydration (next/script) so it doesn't block
             first paint / LCP the way the old inline <head> script did. */}
         <Script

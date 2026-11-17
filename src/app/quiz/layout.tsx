@@ -42,7 +42,9 @@ export const viewport: Viewport = {
   initialScale: 1,
   // viewport-fit:cover is what makes env(safe-area-inset-*) work on iPhone.
   viewportFit: "cover",
-  themeColor: "#F9F9F8",
+  // The Starting Picture funnel paints pure white and ignores the OS setting;
+  // the old funnel's parchment stays until cutover.
+  themeColor: process.env.NEXT_PUBLIC_QUIZ_V3 === "1" ? "#FFFFFF" : "#F9F9F8",
   // No maximumScale lock — pinch-zoom stays available for accessibility. The
   // 16px+ inputs already prevent the iOS focus-zoom jump.
 };
